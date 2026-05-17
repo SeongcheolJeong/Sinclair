@@ -1,0 +1,694 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    letter-spacing: 0;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #030712;
+    font-family:
+      Inter,
+      Sora,
+      "Noto Sans KR",
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+  }
+
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .grid > * {
+    min-width: 0;
+  }
+
+  .nav-item {
+    @apply inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-lg px-3 text-xs font-medium text-slate-400 transition hover:bg-white/[0.06] hover:text-white;
+  }
+
+  .nav-item-active {
+    @apply bg-camera/10 text-camera ring-1 ring-camera/20;
+  }
+
+  .primary-button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 px-4 text-sm font-semibold text-white shadow-glow transition hover:brightness-110;
+  }
+
+  .secondary-button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-camera/30 bg-camera/10 px-4 text-sm font-semibold text-camera transition hover:bg-camera/15;
+  }
+
+  .ghost-button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-4 text-sm font-semibold text-slate-200 transition hover:bg-white/[0.07];
+  }
+
+  .icon-button {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] text-slate-300 transition hover:bg-white/[0.07] hover:text-white;
+  }
+
+  .link-button {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-camera transition hover:text-cyan-200;
+  }
+
+  .hero-panel {
+    @apply relative min-h-[420px] rounded-2xl border border-camera/20 bg-white/[0.045] p-5 shadow-card backdrop-blur-md sm:p-8 lg:p-10;
+  }
+
+  .hero-visual {
+    @apply pointer-events-none absolute inset-y-0 right-0 hidden w-[56%] overflow-hidden rounded-2xl opacity-70 lg:block;
+    mask-image: linear-gradient(to right, transparent, black 22%, black);
+  }
+
+  .workspace-card,
+  .compact-card,
+  .data-card,
+  .reference-card {
+    @apply rounded-2xl border border-white/10 bg-white/[0.045] p-4 transition;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .workspace-card:hover,
+  .sensor-entry:hover,
+  .reference-card:hover {
+    @apply -translate-y-0.5 bg-white/[0.065] shadow-glow;
+  }
+
+  .workflow-step {
+    @apply flex min-h-[72px] items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] p-3;
+  }
+
+  .compact-row {
+    @apply flex min-h-12 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] px-3 py-2 text-sm text-slate-300;
+    min-width: 0;
+  }
+
+  .builder-step {
+    @apply flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] p-3;
+  }
+
+  .validation-mode-card {
+    @apply min-h-[116px] rounded-xl border border-white/10 bg-white/[0.035] p-3 transition;
+  }
+
+  .validation-mode-active {
+    @apply border-camera/40 bg-camera/10 shadow-glow;
+  }
+
+  .radar-mode-active {
+    @apply border-radar/40 bg-radar/10 shadow-glow;
+  }
+
+  .lidar-mode-active {
+    @apply border-lidar/40 bg-lidar/10 shadow-glow;
+  }
+
+  .data-fidelity-card {
+    @apply min-h-[132px] rounded-xl border border-white/10 bg-white/[0.035] p-3 transition;
+  }
+
+  .data-fidelity-active {
+    @apply border-radar/40 bg-radar/10 shadow-glow;
+  }
+
+  .lidar-fidelity-active {
+    @apply border-lidar/40 bg-lidar/10 shadow-glow;
+  }
+
+  .config-change-row {
+    @apply flex min-h-[96px] items-start justify-between gap-3 rounded-xl border border-white/10 bg-black/10 p-3;
+    min-width: 0;
+  }
+
+  .failure-row {
+    @apply flex min-h-[76px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.035] p-3;
+  }
+
+  .sensor-entry {
+    @apply min-h-[218px] rounded-2xl border bg-white/[0.04] p-4 text-left transition;
+  }
+
+  .sensor-chip {
+    @apply inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold;
+  }
+
+  .sensor-tab {
+    @apply inline-flex min-h-10 items-center justify-center rounded-xl border px-4 text-sm font-semibold transition opacity-70 hover:opacity-100;
+  }
+
+  .sensor-tab-active {
+    @apply opacity-100 shadow-glow;
+  }
+
+  .code-chip {
+    @apply inline-flex items-center rounded-lg border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-slate-300;
+  }
+
+  .filter-chip {
+    @apply inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-3 text-sm text-slate-300 transition hover:border-camera/30 hover:text-camera;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold capitalize;
+  }
+
+  .viewer-grid {
+    @apply grid gap-4 lg:grid-cols-[1.25fr_0.75fr];
+  }
+
+  .camera-scene,
+  .radar-scene,
+  .lidar-scene,
+  .association-graph {
+    @apply relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10 bg-ink-900;
+  }
+
+  .fov-map {
+    @apply relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10 bg-ink-900;
+    background:
+      radial-gradient(circle at 50% 70%, rgba(0, 229, 255, 0.14), transparent 28%),
+      linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, #071423, #030712);
+    background-size: auto, 32px 32px, 32px 32px, auto;
+  }
+
+  .optical-preview {
+    @apply min-h-[170px] rounded-xl border border-white/10 bg-ink-900 p-4;
+    background:
+      radial-gradient(circle at 50% 35%, rgba(0, 229, 255, 0.12), transparent 26%),
+      linear-gradient(180deg, #081121, #030712);
+  }
+
+  .psf-grid {
+    @apply grid grid-cols-5 gap-3;
+    place-items: center;
+  }
+
+  .psf-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(0, 229, 255, 0.26);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.24);
+  }
+
+  .psf-dot.mid {
+    width: 13px;
+    height: 13px;
+    background: rgba(165, 104, 255, 0.38);
+    box-shadow: 0 0 16px rgba(165, 104, 255, 0.34);
+  }
+
+  .psf-dot.core {
+    width: 26px;
+    height: 26px;
+    background: rgba(242, 200, 91, 0.78);
+    box-shadow: 0 0 24px rgba(242, 200, 91, 0.55);
+  }
+
+  .strip-pattern {
+    @apply flex h-[112px] items-end justify-center gap-1 overflow-hidden rounded-lg border border-white/10 bg-black/20 p-3;
+  }
+
+  .strip-pattern span {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(to top, rgba(0, 229, 255, 0.2), rgba(255, 255, 255, 0.86));
+  }
+
+  .macbeth-preview {
+    @apply grid grid-cols-4 gap-1 rounded-xl border border-white/10 bg-black/30 p-2;
+  }
+
+  .macbeth-preview span {
+    aspect-ratio: 1;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .vehicle-top {
+    position: absolute;
+    left: calc(50% - 18px);
+    bottom: 34px;
+    width: 36px;
+    height: 72px;
+    border: 1px solid rgba(0, 229, 255, 0.55);
+    border-radius: 12px;
+    background: rgba(0, 229, 255, 0.08);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.18);
+  }
+
+  .fov-cone {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+    width: 320px;
+    height: 260px;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    opacity: 0.22;
+  }
+
+  .fov-cone.baseline {
+    width: 260px;
+    background: linear-gradient(to top, rgba(165, 104, 255, 0.55), transparent);
+  }
+
+  .fov-cone.candidate {
+    background: linear-gradient(to top, rgba(0, 229, 255, 0.55), transparent);
+  }
+
+  .blind-zone {
+    position: absolute;
+    bottom: 74px;
+    width: 72px;
+    height: 130px;
+    border-radius: 999px;
+    background: rgba(251, 113, 133, 0.16);
+    filter: blur(0.2px);
+  }
+
+  .blind-zone.left {
+    left: 12%;
+    transform: rotate(-24deg);
+  }
+
+  .blind-zone.right {
+    right: 12%;
+    transform: rotate(24deg);
+  }
+
+  .critical-path {
+    position: absolute;
+    left: 28%;
+    top: 26%;
+    width: 46%;
+    height: 2px;
+    border-top: 2px dashed rgba(242, 200, 91, 0.75);
+    transform: rotate(18deg);
+    box-shadow: 0 0 18px rgba(242, 200, 91, 0.28);
+  }
+
+  .camera-scene {
+    background:
+      radial-gradient(circle at 52% 25%, rgba(0, 229, 255, 0.22), transparent 20%),
+      linear-gradient(180deg, rgba(20, 34, 60, 0.9), rgba(4, 8, 18, 0.95)),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06), transparent 40%, rgba(255, 255, 255, 0.05));
+  }
+
+  .camera-scene::before {
+    content: "";
+    position: absolute;
+    inset: 22% 0 0;
+    background:
+      linear-gradient(110deg, transparent 0 36%, rgba(0, 229, 255, 0.12) 37%, transparent 39%),
+      linear-gradient(250deg, transparent 0 34%, rgba(165, 104, 255, 0.16) 35%, transparent 38%);
+  }
+
+  .road-line {
+    position: absolute;
+    bottom: -12%;
+    width: 2px;
+    height: 78%;
+    background: linear-gradient(to top, rgba(0, 229, 255, 0.75), transparent);
+    transform-origin: bottom center;
+  }
+
+  .road-line.left {
+    left: 42%;
+    transform: rotate(16deg);
+  }
+
+  .road-line.right {
+    right: 42%;
+    transform: rotate(-16deg);
+  }
+
+  .radar-scene {
+    background:
+      radial-gradient(circle at 50% 80%, rgba(46, 245, 169, 0.16), transparent 34%),
+      linear-gradient(180deg, #071423, #030712);
+  }
+
+  .radar-car {
+    position: absolute;
+    left: calc(50% - 18px);
+    bottom: 28px;
+    width: 36px;
+    height: 58px;
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(0, 229, 255, 0.08);
+  }
+
+  .radar-ring {
+    position: absolute;
+    left: 50%;
+    bottom: 56px;
+    border: 1px solid rgba(46, 245, 169, 0.22);
+    border-radius: 999px 999px 0 0;
+    transform: translateX(-50%);
+  }
+
+  .radar-ring.ring-1 {
+    width: 170px;
+    height: 90px;
+  }
+
+  .radar-ring.ring-2 {
+    width: 280px;
+    height: 150px;
+  }
+
+  .radar-ring.ring-3 {
+    width: 390px;
+    height: 220px;
+  }
+
+  .radar-point,
+  .lidar-point {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #2ef5a9;
+    box-shadow: 0 0 16px rgba(46, 245, 169, 0.7);
+  }
+
+  .radar-point.ghost {
+    background: #f2c85b;
+    box-shadow: 0 0 16px rgba(242, 200, 91, 0.7);
+  }
+
+  .lidar-scene {
+    background:
+      radial-gradient(circle at 50% 55%, rgba(165, 104, 255, 0.22), transparent 28%),
+      linear-gradient(180deg, #0a0c1e, #030712);
+  }
+
+  .lidar-ground {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 22%;
+    height: 1px;
+    background: rgba(165, 104, 255, 0.55);
+    box-shadow: 0 0 28px rgba(165, 104, 255, 0.5);
+  }
+
+  .lidar-point {
+    width: 5px;
+    height: 5px;
+    background: #a568ff;
+    box-shadow: 0 0 13px rgba(165, 104, 255, 0.72);
+  }
+
+  .lidar-point.near {
+    background: #00e5ff;
+    box-shadow: 0 0 13px rgba(0, 229, 255, 0.72);
+  }
+
+  .mini-heatmap {
+    @apply grid h-[150px] grid-cols-8 gap-1 rounded-xl border border-white/10 bg-white/[0.035] p-3;
+  }
+
+  .mini-heatmap span {
+    @apply rounded-sm;
+  }
+
+  .range-doppler-panel {
+    @apply relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10 bg-ink-900 p-4;
+    background:
+      radial-gradient(circle at 62% 38%, rgba(46, 245, 169, 0.18), transparent 22%),
+      radial-gradient(circle at 38% 55%, rgba(0, 229, 255, 0.14), transparent 20%),
+      linear-gradient(180deg, #071423, #030712);
+  }
+
+  .range-doppler-grid {
+    @apply grid grid-cols-12 gap-1 rounded-xl border border-white/10 bg-black/20 p-3;
+  }
+
+  .rd-cell {
+    @apply aspect-square rounded-sm bg-camera;
+  }
+
+  .rd-cell.peak {
+    @apply bg-radar shadow-[0_0_14px_rgba(46,245,169,0.7)];
+  }
+
+  .rd-cell.ghost {
+    @apply bg-rose-400 shadow-[0_0_14px_rgba(251,113,133,0.7)];
+  }
+
+  .cfar-line {
+    position: absolute;
+    left: 9%;
+    right: 9%;
+    top: 37%;
+    height: 2px;
+    border-top: 2px dashed rgba(242, 200, 91, 0.8);
+    box-shadow: 0 0 16px rgba(242, 200, 91, 0.35);
+  }
+
+  .rd-marker {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(3, 7, 18, 0.82);
+  }
+
+  .rd-marker.gt {
+    left: 36%;
+    top: 43%;
+    color: #2ef5a9;
+  }
+
+  .rd-marker.ghost {
+    right: 12%;
+    top: 58%;
+    color: #fb7185;
+  }
+
+  .lidar-density-panel {
+    @apply relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10 bg-ink-900 p-4;
+    background:
+      radial-gradient(circle at 50% 68%, rgba(165, 104, 255, 0.2), transparent 30%),
+      linear-gradient(rgba(165, 104, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(165, 104, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, #0a0c1e, #030712);
+    background-size: auto, 28px 28px, 28px 28px, auto;
+  }
+
+  .lidar-ego {
+    position: absolute;
+    left: calc(50% - 16px);
+    bottom: 36px;
+    width: 32px;
+    height: 54px;
+    border: 1px solid rgba(165, 104, 255, 0.58);
+    border-radius: 10px;
+    background: rgba(165, 104, 255, 0.1);
+    box-shadow: 0 0 24px rgba(165, 104, 255, 0.24);
+  }
+
+  .sparse-zone {
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    width: 28%;
+    height: 22%;
+    border: 1px dashed rgba(251, 113, 133, 0.75);
+    border-radius: 999px;
+    background: rgba(251, 113, 133, 0.08);
+  }
+
+  .vertical-fov-panel {
+    @apply relative min-h-[360px] overflow-hidden rounded-2xl border border-white/10 bg-ink-900;
+    background:
+      radial-gradient(circle at 18% 55%, rgba(165, 104, 255, 0.2), transparent 25%),
+      linear-gradient(180deg, #0a0c1e, #030712);
+  }
+
+  .ground-line {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 25%;
+    height: 2px;
+    background: rgba(148, 163, 184, 0.35);
+  }
+
+  .lidar-origin {
+    position: absolute;
+    left: 16%;
+    bottom: 25%;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #a568ff;
+    box-shadow: 0 0 22px rgba(165, 104, 255, 0.8);
+    transform: translate(-50%, 50%);
+  }
+
+  .fov-ray {
+    position: absolute;
+    left: 16%;
+    bottom: 25%;
+    width: 72%;
+    height: 2px;
+    transform-origin: left center;
+    background: rgba(148, 163, 184, 0.6);
+  }
+
+  .fov-ray.upper {
+    transform: rotate(-15deg);
+  }
+
+  .fov-ray.lower {
+    transform: rotate(25deg);
+  }
+
+  .fov-ray.candidate-upper,
+  .fov-ray.candidate-lower {
+    background: rgba(165, 104, 255, 0.85);
+    box-shadow: 0 0 16px rgba(165, 104, 255, 0.36);
+  }
+
+  .fov-ray.candidate-upper {
+    transform: rotate(-20deg);
+  }
+
+  .fov-ray.candidate-lower {
+    transform: rotate(30deg);
+  }
+
+  .vfov-object {
+    position: absolute;
+    border-radius: 10px 10px 2px 2px;
+    border: 1px solid rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.08);
+    padding-top: 6px;
+    text-align: center;
+    font-size: 10px;
+    color: #dbeafe;
+  }
+
+  .vfov-object.pedestrian {
+    left: 48%;
+    bottom: 25%;
+    width: 34px;
+    height: 96px;
+  }
+
+  .vfov-object.vehicle {
+    right: 13%;
+    bottom: 25%;
+    width: 96px;
+    height: 54px;
+  }
+
+  .vfov-blind-zone {
+    position: absolute;
+    left: 18%;
+    bottom: 27%;
+    width: 18%;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(251, 113, 133, 0.14);
+    color: #fda4af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .association-graph {
+    min-height: 320px;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.12), transparent 30%),
+      linear-gradient(180deg, #081121, #030712);
+  }
+
+  .graph-node,
+  .graph-center {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .graph-node {
+    width: 96px;
+    height: 46px;
+  }
+
+  .graph-center {
+    left: calc(50% - 64px);
+    top: calc(50% - 36px);
+    width: 128px;
+    height: 72px;
+    border-color: rgba(0, 229, 255, 0.35);
+    color: #00e5ff;
+  }
+
+  .graph-node.camera {
+    left: 17%;
+    top: 14%;
+    color: #00e5ff;
+  }
+
+  .graph-node.radar {
+    left: calc(50% - 48px);
+    top: 12%;
+    color: #2ef5a9;
+  }
+
+  .graph-node.lidar {
+    right: 17%;
+    top: 14%;
+    color: #a568ff;
+  }
+
+  .graph-node.output {
+    left: calc(50% - 48px);
+    bottom: 12%;
+    color: #f2c85b;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

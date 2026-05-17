@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T10:39:23.523170+00:00",
+  "sourceRoot": "/Users/seongcheoljeong/Documents/CameraE2E",
+  "package": {
+    "name": "pyisetcam",
+    "version": "0.1.0",
+    "pipeline": "Scene -> OpticalImage -> Sensor -> ImageProcessor -> Camera",
+    "liveImport": {
+      "available": true,
+      "python": "/Users/seongcheoljeong/miniforge3/envs/isetcam-py/bin/python",
+      "command": "/Users/seongcheoljeong/miniforge3/envs/isetcam-py/bin/python -c import sys; sys.path.insert(0, '/Users/seongcheoljeong/Documents/CameraE2E/src'); import pyisetcam; print('import-ok')",
+      "stdout": "import-ok",
+      "stderr": "",
+      "returncode": 0,
+      "autoDiscovered": true,
+      "attempts": []
+    }
+  },
+  "bridge": {
+    "mode": "report-artifact-sync",
+    "command": "npm run camera:e2e:sync",
+    "output": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/integration.json",
+    "refreshPolicy": "Run after regenerating CameraE2E reports or when switching simulator profiles."
+  },
+  "capabilities": [
+    {
+      "area": "End-to-end camera render",
+      "status": "linked",
+      "description": "Default Macbeth camera pipeline, OI photons, sensor volts, and IP result parity evidence.",
+      "evidence": "camera_default_pipeline"
+    },
+    {
+      "area": "Optics / PSF / MTF",
+      "status": "linked",
+      "description": "Ray-trace point array, PSF triptych, PSF profiles, slanted-bar MTF, and pixel-size MTF evidence.",
+      "evidence": "optics_rt_center_edge_psf_small"
+    },
+    {
+      "area": "Sensor and IP stage response",
+      "status": "linked",
+      "description": "Lens, sensor, and ISP stage edge crop/profile comparisons from CameraE2E pipeline report.",
+      "evidence": "pipeline_rt_bar_small"
+    },
+    {
+      "area": "Macbeth color accuracy",
+      "status": "linked",
+      "description": "CameraE2E Macbeth color accuracy patch comparison and Delta-E oriented evidence.",
+      "evidence": "metrics_color_accuracy_small"
+    },
+    {
+      "area": "HW ISP timing / 3A",
+      "status": "linked",
+      "description": "Frame timeline, stage latency, E2E latency, AE/AWB convergence, and 3A validation verdicts.",
+      "evidence": "rpi_vc4_imx219_public_seed"
+    }
+  ],
+  "summary": {
+    "parity": {
+      "generatedAt": "2026-04-01T14:20:32.378138+00:00",
+      "gitCommit": "55f1570",
+      "selectedCases": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    "pipeline": {
+      "caseName": "pipeline_rt_bar_small",
+      "gitCommit": "5c283cd",
+      "sceneSize": "128x128",
+      "sceneFovDeg": 12.0,
+      "oiSize": "188x188",
+      "sensorSize": "72x88",
+      "ipSize": "72x88x3"
+    },
+    "hwIsp": {
+      "generatedAt": "2026-05-17T08:43:53",
+      "gitCommit": "504ac83",
+      "profile": "rpi_vc4_imx219_public_seed",
+      "frameCount": 8.0,
+      "e2eLatencyMeanMs": 12.984,
+      "queueStallTotalMs": 83.565,
+      "threeAE2ELatencyMeanMs": 18.099,
+      "aeSettleFrame": 8,
+      "awbSettleFrame": 10,
+      "aeFinalErrorEv": -0.153,
+      "awbFinalRgbImbalance": 0.156,
+      "validationVerdicts": {
+        "ae_settle": true,
+        "awb_settle": true,
+        "clamp_compliance": true,
+        "warmup_delay_mapping": true,
+        "clip_reduction": true
+      }
+    },
+    "liveSimulation": {
+      "available": true,
+      "status": "pass",
+      "scene": "macbeth",
+      "cameraPipeline": "scene_create -> camera_create -> camera_compute -> ip.srgb",
+      "imageShape": [
+        162,
+        242,
+        3
+      ],
+      "elapsedMs": 76.881,
+      "outputPath": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/live/macbeth_smoke.png",
+      "command": "/Users/seongcheoljeong/miniforge3/envs/isetcam-py/bin/python -c <smoke-script>",
+      "url": "/assets/camera-e2e/live/macbeth_smoke.png"
+    },
+    "verification": [
+      {
+        "command": "python tools/render_hwisp_timeline_report.py --profile rpi_vc4_imx219_public_seed",
+        "status": "PASS",
+        "returncode": 0,
+        "summary": "Timeline, 3A, and latency artifacts exist in reports/hwisp/.",
+        "output_tail": []
+      },
+      {
+        "command": "python -m pytest -q tests/unit/test_hwisp_db.py tests/unit/test_hwisp.py",
+        "status": "NOT_RUN",
+        "returncode": null,
+        "summary": "Use --run-tests to execute targeted HW ISP verification.",
+        "output_tail": []
+      }
+    ]
+  },
+  "pipelineStages": [
+    {
+      "stage": "lens",
+      "edgeRcMeanRelPct": 2.139,
+      "cropNormalizedMae": 0.018744300195161337,
+      "profileNormalizedMae": 0.10758431003463859,
+      "cropMaxAbs": 0.03642167400269908,
+      "profileMaxAbs": 0.13761730495975755,
+      "cropFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/lens_edge_crop_triptych.png",
+      "cropFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/lens_edge_crop_triptych.png",
+      "profileFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/lens_edge_profile.png",
+      "profileFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/lens_edge_profile.png"
+    },
+    {
+      "stage": "sensor",
+      "edgeRcMeanRelPct": 0.0,
+      "cropNormalizedMae": 0.011520636410915821,
+      "profileNormalizedMae": 0.13066791909460507,
+      "cropMaxAbs": 0.014063501882613488,
+      "profileMaxAbs": 0.1355947334293509,
+      "cropFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/sensor_edge_crop_triptych.png",
+      "cropFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/sensor_edge_crop_triptych.png",
+      "profileFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/sensor_edge_profile.png",
+      "profileFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/sensor_edge_profile.png"
+    },
+    {
+      "stage": "isp",
+      "edgeRcMeanRelPct": 0.0,
+      "cropNormalizedMae": 0.010044646907815886,
+      "profileNormalizedMae": 0.07576052565775598,
+      "cropMaxAbs": 0.01594450400162606,
+      "profileMaxAbs": 0.11204734119383197,
+      "cropFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/isp_edge_crop_triptych.png",
+      "cropFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/isp_edge_crop_triptych.png",
+      "profileFigureUrl": "/assets/camera-e2e/parity/pipeline_rt_bar_small/isp_edge_profile.png",
+      "profileFigureSourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/pipeline_rt_bar_small/isp_edge_profile.png"
+    }
+  ],
+  "evidenceImages": [
+    {
+      "id": "camera_default_pipeline.result",
+      "title": "camera_default_pipeline / result",
+      "stage": "parity",
+      "kind": "image",
+      "description": "cameraCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/camera_default_pipeline_result_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/camera_default_pipeline_result_triptych.png"
+    },
+    {
+      "id": "camera_default_pipeline.sensor_volts",
+      "title": "camera_default_pipeline / sensor_volts",
+      "stage": "parity",
+      "kind": "image",
+      "description": "cameraCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/camera_default_pipeline_sensor_volts_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/camera_default_pipeline_sensor_volts_triptych.png"
+    },
+    {
+      "id": "camera_default_pipeline.oi_photons",
+      "title": "camera_default_pipeline / oi_photons",
+      "stage": "parity",
+      "kind": "image",
+      "description": "cameraCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/camera_default_pipeline_oi_photons_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/camera_default_pipeline_oi_photons_triptych.png"
+    },
+    {
+      "id": "ip_default_pipeline.input",
+      "title": "ip_default_pipeline / input",
+      "stage": "parity",
+      "kind": "image",
+      "description": "ipCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/ip_default_pipeline_input_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/ip_default_pipeline_input_triptych.png"
+    },
+    {
+      "id": "ip_default_pipeline.sensorspace",
+      "title": "ip_default_pipeline / sensorspace",
+      "stage": "parity",
+      "kind": "image",
+      "description": "ipCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/ip_default_pipeline_sensorspace_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/ip_default_pipeline_sensorspace_triptych.png"
+    },
+    {
+      "id": "ip_default_pipeline.result",
+      "title": "ip_default_pipeline / result",
+      "stage": "parity",
+      "kind": "image",
+      "description": "ipCompute parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/ip_default_pipeline_result_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/ip_default_pipeline_result_triptych.png"
+    },
+    {
+      "id": "metrics_color_accuracy_small.patches",
+      "title": "metrics_color_accuracy_small / patches",
+      "stage": "parity",
+      "kind": "image",
+      "description": "s_metricsColorAccuracy.m parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/metrics_color_accuracy_small_patch_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/metrics_color_accuracy_small_patch_triptych.png"
+    },
+    {
+      "id": "optics_rt_center_edge_psf_small.overview",
+      "title": "optics_rt_center_edge_psf_small / overview",
+      "stage": "parity",
+      "kind": "image",
+      "description": "oiCreate/oiGet rtpsfdata parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_point_array_overview.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_point_array_overview.png"
+    },
+    {
+      "id": "optics_rt_center_edge_psf_small.crops",
+      "title": "optics_rt_center_edge_psf_small / crops",
+      "stage": "parity",
+      "kind": "image",
+      "description": "oiCreate/oiGet rtpsfdata parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_crop_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_crop_triptych.png"
+    },
+    {
+      "id": "optics_rt_center_edge_psf_small.psf",
+      "title": "optics_rt_center_edge_psf_small / psf",
+      "stage": "parity",
+      "kind": "image",
+      "description": "oiCreate/oiGet rtpsfdata parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_psf_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_psf_triptych.png"
+    },
+    {
+      "id": "optics_rt_center_edge_psf_small.profiles",
+      "title": "optics_rt_center_edge_psf_small / profiles",
+      "stage": "parity",
+      "kind": "image",
+      "description": "oiCreate/oiGet rtpsfdata parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_psf_profiles.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_psf_profiles.png"
+    },
+    {
+      "id": "optics_rt_point_array_field_small.overview",
+      "title": "optics_rt_point_array_field_small / overview",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute point array parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_point_array_overview.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_point_array_overview.png"
+    },
+    {
+      "id": "optics_rt_point_array_field_small.crops",
+      "title": "optics_rt_point_array_field_small / crops",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute point array parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_crop_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_crop_triptych.png"
+    },
+    {
+      "id": "optics_rt_point_array_field_small.psf",
+      "title": "optics_rt_point_array_field_small / psf",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute point array parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_psf_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_psf_triptych.png"
+    },
+    {
+      "id": "optics_rt_point_array_field_small.profiles",
+      "title": "optics_rt_point_array_field_small / profiles",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute point array parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/sharpness_psf_profiles.png",
+      "url": "/assets/camera-e2e/parity/camera_field/sharpness_psf_profiles.png"
+    },
+    {
+      "id": "optics_rt_distortion_field_small.grid",
+      "title": "optics_rt_distortion_field_small / grid",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute distortion grid parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/distortion_grid_triptych.png",
+      "url": "/assets/camera-e2e/parity/camera_field/distortion_grid_triptych.png"
+    },
+    {
+      "id": "optics_rt_distortion_field_small.curve",
+      "title": "optics_rt_distortion_field_small / curve",
+      "stage": "parity",
+      "kind": "image",
+      "description": "sceneCreate/oiCompute distortion grid parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/distortion_curve.png",
+      "url": "/assets/camera-e2e/parity/camera_field/distortion_curve.png"
+    },
+    {
+      "id": "metrics_vsnr_small.curves",
+      "title": "metrics_vsnr_small / curves",
+      "stage": "parity",
+      "kind": "image",
+      "description": "s_metricsVSNR.m parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/metrics_vsnr_small_curves.png",
+      "url": "/assets/camera-e2e/parity/camera_field/metrics_vsnr_small_curves.png"
+    },
+    {
+      "id": "metrics_acutance_small.lum_mtf",
+      "title": "metrics_acutance_small / lum_mtf",
+      "stage": "parity",
+      "kind": "image",
+      "description": "s_metricsAcutance.m parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/metrics_acutance_small_lum_mtf.png",
+      "url": "/assets/camera-e2e/parity/camera_field/metrics_acutance_small_lum_mtf.png"
+    },
+    {
+      "id": "metrics_mtf_slanted_bar_small.curves",
+      "title": "metrics_mtf_slanted_bar_small / curves",
+      "stage": "parity",
+      "kind": "image",
+      "description": "s_metricsMTFSlantedBar.m parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/metrics_mtf_slanted_bar_small_curves.png",
+      "url": "/assets/camera-e2e/parity/camera_field/metrics_mtf_slanted_bar_small_curves.png"
+    },
+    {
+      "id": "metrics_mtf_pixel_size_small.profiles",
+      "title": "metrics_mtf_pixel_size_small / profiles",
+      "stage": "parity",
+      "kind": "image",
+      "description": "s_metricsMTFPixelSize.m parity evidence",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/parity/camera_field/metrics_mtf_pixel_size_small_profiles.png",
+      "url": "/assets/camera-e2e/parity/camera_field/metrics_mtf_pixel_size_small_profiles.png"
+    },
+    {
+      "id": "live.macbeth_smoke",
+      "title": "Live CameraE2E Macbeth smoke render",
+      "stage": "live",
+      "kind": "image",
+      "description": "Fresh scene_create -> camera_compute -> ip.srgb smoke render from CameraE2E",
+      "sourcePath": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/live/macbeth_smoke.png",
+      "url": "/assets/camera-e2e/live/macbeth_smoke.png"
+    },
+    {
+      "id": "hwisp.frame_timeline",
+      "title": "HW ISP frame timeline",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/frame_timeline.png",
+      "url": "/assets/camera-e2e/hwisp/frame_timeline.png"
+    },
+    {
+      "id": "hwisp.stage_latency",
+      "title": "HW ISP stage latency",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/stage_latency.png",
+      "url": "/assets/camera-e2e/hwisp/stage_latency.png"
+    },
+    {
+      "id": "hwisp.e2e_latency",
+      "title": "HW ISP E2E latency",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/e2e_latency.png",
+      "url": "/assets/camera-e2e/hwisp/e2e_latency.png"
+    },
+    {
+      "id": "hwisp.ae_convergence",
+      "title": "AE convergence",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/ae_convergence.png",
+      "url": "/assets/camera-e2e/hwisp/ae_convergence.png"
+    },
+    {
+      "id": "hwisp.awb_convergence",
+      "title": "AWB convergence",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/awb_convergence.png",
+      "url": "/assets/camera-e2e/hwisp/awb_convergence.png"
+    },
+    {
+      "id": "hwisp.three_a_thumbnails",
+      "title": "3A Macbeth sequence thumbnails",
+      "stage": "hw_isp",
+      "kind": "image",
+      "description": "CameraE2E HW ISP timing/control artifact",
+      "sourcePath": "/Users/seongcheoljeong/Documents/CameraE2E/reports/hwisp/three_a_thumbnails.png",
+      "url": "/assets/camera-e2e/hwisp/three_a_thumbnails.png"
+    }
+  ],
+  "warnings": [
+    "Sinclair UI reads normalized CameraE2E report artifacts; it does not execute the Python simulator in the browser.",
+    "CameraE2E Python import is available and a lightweight live smoke render is executed during sync.",
+    "HW ISP timing profile is seed/reference data and should be replaced by board measurements before release evidence."
+  ],
+  "adapterContract": {
+    "request": {
+      "sensorConfigId": "cam_front_wide_v042",
+      "scene": "macbethD65 | slanted-bar | point-array | RGB input",
+      "mode": "report-artifact-sync | future-live-simulation"
+    },
+    "response": {
+      "summary": "typed CameraE2E metrics and verdicts",
+      "artifacts": "browser-readable PNG/HTML/JSON paths",
+      "provenance": "sourceRoot, gitCommit, profile, import status"
+    }
+  }
+}

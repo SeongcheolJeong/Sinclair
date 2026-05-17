@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 176" role="img" aria-labelledby="title desc">
+  <title id="title">SINCLAIR dark horizontal logo</title>
+  <desc id="desc">Dark-background SINCLAIR wordmark with compact sensor-fusion mark and platform tagline.</desc>
+  <defs>
+    <linearGradient id="sGrad" x1="22" y1="20" x2="104" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAF7FF"/>
+      <stop offset="0.38" stop-color="#63E6FF"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="18" y1="20" x2="112" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0.52"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="680" height="176" rx="28" fill="#08111F"/>
+  <g transform="translate(28 28)">
+    <rect x="0" y="0" width="120" height="120" rx="30" fill="#0C1A2E"/>
+    <rect x="0.75" y="0.75" width="118.5" height="118.5" rx="29.25" fill="none" stroke="#1D3559" stroke-width="1.5"/>
+    <g transform="translate(4 4) scale(.875)">
+      <path d="M25 66 L48 43 L48 89 Z" fill="url(#beamGrad)" opacity="0.22"/>
+      <path d="M25 66 L48 43 M25 66 L48 89" fill="none" stroke="#38BDF8" stroke-width="2.8" stroke-linecap="round" opacity="0.72"/>
+      <path d="M84 39 C98 51 98 77 84 90" fill="none" stroke="#34D399" stroke-width="3.3" stroke-linecap="round" opacity="0.82"/>
+      <path d="M94 28 C116 47 116 81 94 100" fill="none" stroke="#34D399" stroke-width="2.8" stroke-linecap="round" opacity="0.52"/>
+      <circle cx="42" cy="35" r="3.4" fill="#A78BFA" opacity="0.9"/>
+      <circle cx="34" cy="48" r="2.3" fill="#63E6FF" opacity="0.9"/>
+      <circle cx="51" cy="93" r="2.6" fill="#A78BFA" opacity="0.76"/>
+      <circle cx="73" cy="28" r="2.2" fill="#63E6FF" opacity="0.7"/>
+      <path filter="url(#softGlow)" d="M88 35 C78 22 49 23 39 36 C29 49 41 60 62 64 C83 68 92 81 80 95 C68 109 39 108 28 93" fill="none" stroke="url(#sGrad)" stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="64" cy="64" r="5.2" fill="#08111F" stroke="#EAF7FF" stroke-width="2.3"/>
+    </g>
+  </g>
+  <g transform="translate(180 57)">
+    <text x="0" y="40" fill="#F8FAFC" font-size="44" font-weight="800" font-family="Inter, Pretendard, Arial, sans-serif" letter-spacing="4.5">SINCLAIR</text>
+    <text x="3" y="72" fill="#9FB2C8" font-size="18" font-weight="500" font-family="Inter, Pretendard, Arial, sans-serif" letter-spacing=".4">Camera · Radar · LiDAR Simulation Platform</text>
+    <path d="M4 99 H410" stroke="#1D3559" stroke-width="1.5"/>
+    <text x="3" y="122" fill="#63E6FF" font-size="14" font-weight="650" font-family="Inter, Pretendard, Arial, sans-serif" letter-spacing=".6">Sensor Clarity for Simulation, Validation, and Fusion</text>
+  </g>
+</svg>

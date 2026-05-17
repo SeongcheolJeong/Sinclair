@@ -1,0 +1,2639 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-17T11:38:50.665378+00:00",
+  "sourceRoot": "/Users/seongcheoljeong/Documents/CameraE2E",
+  "snapshotRoot": "/Users/seongcheoljeong/Documents/CameraE2E/.cache/upstream/isetcam/412b9f9bdb3262f2552b96f0e769b5ad6cdff821",
+  "lensAssets": [
+    {
+      "id": "optics:data__optics__rtZemaxExample.mat",
+      "label": "rtZemaxExample",
+      "path": "data/optics/rtZemaxExample.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 38.7 deg, F/5.00, 2.00 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zemaxCookeTriplet.mat",
+      "label": "zemaxCookeTriplet",
+      "path": "data/optics/zemaxCookeTriplet.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 11.2 deg, F/5.00, 50.00 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zemaxDoubleGauss.mat",
+      "label": "zemaxDoubleGauss",
+      "path": "data/optics/zemaxDoubleGauss.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 30.7 deg, F/1.90, 2.92 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zemaxFisheye.mat",
+      "label": "zemaxFisheye",
+      "path": "data/optics/zemaxFisheye.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 120.0 deg, F/2.00, 28.52 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zemaxWideAngle.mat",
+      "label": "zemaxWideAngle",
+      "path": "data/optics/zemaxWideAngle.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 1.7 deg, F/2.03, 0.73 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zernike_doubleGauss.mat",
+      "label": "zernike_doubleGauss",
+      "path": "data/optics/zernike_doubleGauss.mat",
+      "kind": "raytraceOptics",
+      "testable": false,
+      "summary": "Raytrace load check failed: KeyError: 'optics'",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "optics:data__optics__zmWideAngle.mat",
+      "label": "zmWideAngle",
+      "path": "data/optics/zmWideAngle.mat",
+      "kind": "raytraceOptics",
+      "testable": true,
+      "summary": "RT diagonal FOV 56.6 deg, F/2.03, 0.73 mm",
+      "notes": [
+        "Applied with oi_create('ray trace', asset) before numeric overrides."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2ElLens.FL.mat",
+      "label": "2ElLens.FL.mat",
+      "path": "data/lens/2ElLens.FL.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2ElLens.dat",
+      "label": "2ElLens.dat",
+      "path": "data/lens/2ElLens.dat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2ElLens.json",
+      "label": "2ElLens.json",
+      "path": "data/lens/2ElLens.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.100mm.FL.mat",
+      "label": "2el.XXdeg.100mm.FL.mat",
+      "path": "data/lens/2el.XXdeg.100mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.100mm.dat",
+      "label": "2el.XXdeg.100mm.dat",
+      "path": "data/lens/2el.XXdeg.100mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.100mm.json",
+      "label": "2el.XXdeg.100mm.json",
+      "path": "data/lens/2el.XXdeg.100mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, F/20.00",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.12mm.FL.mat",
+      "label": "2el.XXdeg.12mm.FL.mat",
+      "path": "data/lens/2el.XXdeg.12mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.12mm.dat",
+      "label": "2el.XXdeg.12mm.dat",
+      "path": "data/lens/2el.XXdeg.12mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.12mm.json",
+      "label": "2el.XXdeg.12mm.json",
+      "path": "data/lens/2el.XXdeg.12mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.00 mm, F/2.40",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.50mm.FL.mat",
+      "label": "2el.XXdeg.50mm.FL.mat",
+      "path": "data/lens/2el.XXdeg.50mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.50mm.dat",
+      "label": "2el.XXdeg.50mm.dat",
+      "path": "data/lens/2el.XXdeg.50mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.50mm.json",
+      "label": "2el.XXdeg.50mm.json",
+      "path": "data/lens/2el.XXdeg.50mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, F/10.00",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.6.0mm.FL.mat",
+      "label": "2el.XXdeg.6.0mm.FL.mat",
+      "path": "data/lens/2el.XXdeg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.6.0mm.dat",
+      "label": "2el.XXdeg.6.0mm.dat",
+      "path": "data/lens/2el.XXdeg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__2el.XXdeg.6.0mm.json",
+      "label": "2el.XXdeg.6.0mm.json",
+      "path": "data/lens/2el.XXdeg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 6.00 mm, F/1.20",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__IORofEye.mat",
+      "label": "IORofEye.mat",
+      "path": "data/lens/IORofEye.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.19deg.100.0mm.dat",
+      "label": "dgauss.19deg.100.0mm.dat",
+      "path": "data/lens/dgauss.19deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 19.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.100.0mm.FL.mat",
+      "label": "dgauss.22deg.100.0mm.FL.mat",
+      "path": "data/lens/dgauss.22deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.100.0mm.dat",
+      "label": "dgauss.22deg.100.0mm.dat",
+      "path": "data/lens/dgauss.22deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.100.0mm.json",
+      "label": "dgauss.22deg.100.0mm.json",
+      "path": "data/lens/dgauss.22deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, F/20.00, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.12.5mm.FL.mat",
+      "label": "dgauss.22deg.12.5mm.FL.mat",
+      "path": "data/lens/dgauss.22deg.12.5mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.12.5mm.dat",
+      "label": "dgauss.22deg.12.5mm.dat",
+      "path": "data/lens/dgauss.22deg.12.5mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.12.5mm.json",
+      "label": "dgauss.22deg.12.5mm.json",
+      "path": "data/lens/dgauss.22deg.12.5mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.50 mm, F/2.50, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.3.0mm.FL.mat",
+      "label": "dgauss.22deg.3.0mm.FL.mat",
+      "path": "data/lens/dgauss.22deg.3.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.3.0mm.dat",
+      "label": "dgauss.22deg.3.0mm.dat",
+      "path": "data/lens/dgauss.22deg.3.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.3.0mm.json",
+      "label": "dgauss.22deg.3.0mm.json",
+      "path": "data/lens/dgauss.22deg.3.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 3.00 mm, F/0.60, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.50.0mm.FL.mat",
+      "label": "dgauss.22deg.50.0mm.FL.mat",
+      "path": "data/lens/dgauss.22deg.50.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.50.0mm.dat",
+      "label": "dgauss.22deg.50.0mm.dat",
+      "path": "data/lens/dgauss.22deg.50.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.50.0mm.json",
+      "label": "dgauss.22deg.50.0mm.json",
+      "path": "data/lens/dgauss.22deg.50.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, F/10.00, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm.FL.mat",
+      "label": "dgauss.22deg.6.0mm.FL.mat",
+      "path": "data/lens/dgauss.22deg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm.dat",
+      "label": "dgauss.22deg.6.0mm.dat",
+      "path": "data/lens/dgauss.22deg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm.json",
+      "label": "dgauss.22deg.6.0mm.json",
+      "path": "data/lens/dgauss.22deg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 6.00 mm, F/1.20, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm_v3.FL.mat",
+      "label": "dgauss.22deg.6.0mm_v3.FL.mat",
+      "path": "data/lens/dgauss.22deg.6.0mm_v3.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm_v3.dat",
+      "label": "dgauss.22deg.6.0mm_v3.dat",
+      "path": "data/lens/dgauss.22deg.6.0mm_v3.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.22deg.6.0mm_v3.json",
+      "label": "dgauss.22deg.6.0mm_v3.json",
+      "path": "data/lens/dgauss.22deg.6.0mm_v3.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 6.00 mm, F/1.20, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__dgauss.77deg.3.5201mm.json",
+      "label": "dgauss.77deg.3.5201mm.json",
+      "path": "data/lens/dgauss.77deg.3.5201mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__diffraction.dat",
+      "label": "diffraction.dat",
+      "path": "data/lens/diffraction.dat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__endoscope.FL.mat",
+      "label": "endoscope.FL.mat",
+      "path": "data/lens/endoscope.FL.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__endoscope.dat",
+      "label": "endoscope.dat",
+      "path": "data/lens/endoscope.dat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__endoscope.json",
+      "label": "endoscope.json",
+      "path": "data/lens/endoscope.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__endoscopeFixed.FL.mat",
+      "label": "endoscopeFixed.FL.mat",
+      "path": "data/lens/endoscopeFixed.FL.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__endoscopeFixed.json",
+      "label": "endoscopeFixed.json",
+      "path": "data/lens/endoscopeFixed.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.100.0mm.FL.mat",
+      "label": "fisheye.87deg.100.0mm.FL.mat",
+      "path": "data/lens/fisheye.87deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.100.0mm.dat",
+      "label": "fisheye.87deg.100.0mm.dat",
+      "path": "data/lens/fisheye.87deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.100.0mm.json",
+      "label": "fisheye.87deg.100.0mm.json",
+      "path": "data/lens/fisheye.87deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.12.5mm.FL.mat",
+      "label": "fisheye.87deg.12.5mm.FL.mat",
+      "path": "data/lens/fisheye.87deg.12.5mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.12.5mm.dat",
+      "label": "fisheye.87deg.12.5mm.dat",
+      "path": "data/lens/fisheye.87deg.12.5mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.12.5mm.json",
+      "label": "fisheye.87deg.12.5mm.json",
+      "path": "data/lens/fisheye.87deg.12.5mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.3.0mm.FL.mat",
+      "label": "fisheye.87deg.3.0mm.FL.mat",
+      "path": "data/lens/fisheye.87deg.3.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.3.0mm.dat",
+      "label": "fisheye.87deg.3.0mm.dat",
+      "path": "data/lens/fisheye.87deg.3.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.3.0mm.json",
+      "label": "fisheye.87deg.3.0mm.json",
+      "path": "data/lens/fisheye.87deg.3.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.50.0mm.FL.mat",
+      "label": "fisheye.87deg.50.0mm.FL.mat",
+      "path": "data/lens/fisheye.87deg.50.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.50.0mm.dat",
+      "label": "fisheye.87deg.50.0mm.dat",
+      "path": "data/lens/fisheye.87deg.50.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.50.0mm.json",
+      "label": "fisheye.87deg.50.0mm.json",
+      "path": "data/lens/fisheye.87deg.50.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.6.0mm.FL.mat",
+      "label": "fisheye.87deg.6.0mm.FL.mat",
+      "path": "data/lens/fisheye.87deg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.6.0mm.dat",
+      "label": "fisheye.87deg.6.0mm.dat",
+      "path": "data/lens/fisheye.87deg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__fisheye.87deg.6.0mm.json",
+      "label": "fisheye.87deg.6.0mm.json",
+      "path": "data/lens/fisheye.87deg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 87.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__gullstrand.FL.mat",
+      "label": "gullstrand.FL.mat",
+      "path": "data/lens/gullstrand.FL.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__gullstrand.dat",
+      "label": "gullstrand.dat",
+      "path": "data/lens/gullstrand.dat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__gullstrand.json",
+      "label": "gullstrand.json",
+      "path": "data/lens/gullstrand.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__microlens.FL.mat",
+      "label": "microlens.FL.mat",
+      "path": "data/lens/microlens.FL.mat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__microlens.json",
+      "label": "microlens.json",
+      "path": "data/lens/microlens.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.100.0mm.FL.mat",
+      "label": "petzval.12deg.100.0mm.FL.mat",
+      "path": "data/lens/petzval.12deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.100.0mm.dat",
+      "label": "petzval.12deg.100.0mm.dat",
+      "path": "data/lens/petzval.12deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.100.0mm.json",
+      "label": "petzval.12deg.100.0mm.json",
+      "path": "data/lens/petzval.12deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.12.5mm.FL.mat",
+      "label": "petzval.12deg.12.5mm.FL.mat",
+      "path": "data/lens/petzval.12deg.12.5mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.12.5mm.dat",
+      "label": "petzval.12deg.12.5mm.dat",
+      "path": "data/lens/petzval.12deg.12.5mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.12.5mm.json",
+      "label": "petzval.12deg.12.5mm.json",
+      "path": "data/lens/petzval.12deg.12.5mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.3.0mm.FL.mat",
+      "label": "petzval.12deg.3.0mm.FL.mat",
+      "path": "data/lens/petzval.12deg.3.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.3.0mm.dat",
+      "label": "petzval.12deg.3.0mm.dat",
+      "path": "data/lens/petzval.12deg.3.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.3.0mm.json",
+      "label": "petzval.12deg.3.0mm.json",
+      "path": "data/lens/petzval.12deg.3.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.50.0mm.FL.mat",
+      "label": "petzval.12deg.50.0mm.FL.mat",
+      "path": "data/lens/petzval.12deg.50.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.50.0mm.dat",
+      "label": "petzval.12deg.50.0mm.dat",
+      "path": "data/lens/petzval.12deg.50.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.50.0mm.json",
+      "label": "petzval.12deg.50.0mm.json",
+      "path": "data/lens/petzval.12deg.50.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.6.0mm.FL.mat",
+      "label": "petzval.12deg.6.0mm.FL.mat",
+      "path": "data/lens/petzval.12deg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.6.0mm.dat",
+      "label": "petzval.12deg.6.0mm.dat",
+      "path": "data/lens/petzval.12deg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__petzval.12deg.6.0mm.json",
+      "label": "petzval.12deg.6.0mm.json",
+      "path": "data/lens/petzval.12deg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 12.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__pinhole.dat",
+      "label": "pinhole.dat",
+      "path": "data/lens/pinhole.dat",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__pxel4a-frontcamera-filmtoscene-raytransfer.json",
+      "label": "pxel4a-frontcamera-filmtoscene-raytransfer.json",
+      "path": "data/lens/pxel4a-frontcamera-filmtoscene-raytransfer.json",
+      "kind": "catalogLens",
+      "testable": false,
+      "summary": "Catalog lens file available, but no focal/FOV metadata was found.",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__reversed.telephoto.37deg.100mm.dat",
+      "label": "reversed.telephoto.37deg.100mm.dat",
+      "path": "data/lens/reversed.telephoto.37deg.100mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, 37.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__reversed.telephoto.42deg.100mm.dat",
+      "label": "reversed.telephoto.42deg.100mm.dat",
+      "path": "data/lens/reversed.telephoto.42deg.100mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, 42.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__reversed.telephoto.42deg.27mm.json",
+      "label": "reversed.telephoto.42deg.27mm.json",
+      "path": "data/lens/reversed.telephoto.42deg.27mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, 42.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__reversed.telephoto.42deg.3.5201mm.json",
+      "label": "reversed.telephoto.42deg.3.5201mm.json",
+      "path": "data/lens/reversed.telephoto.42deg.3.5201mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, 42.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__reversed.telephoto.77deg.3.5201mm.json",
+      "label": "reversed.telephoto.77deg.3.5201mm.json",
+      "path": "data/lens/reversed.telephoto.77deg.3.5201mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, 42.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__telephoto.250mm.FL.mat",
+      "label": "telephoto.250mm.FL.mat",
+      "path": "data/lens/telephoto.250mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 250.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__telephoto.250mm.dat",
+      "label": "telephoto.250mm.dat",
+      "path": "data/lens/telephoto.250mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 250.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__telephoto.250mm.json",
+      "label": "telephoto.250mm.json",
+      "path": "data/lens/telephoto.250mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 254.00 mm",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.100.0mm.FL.mat",
+      "label": "tessar.22deg.100.0mm.FL.mat",
+      "path": "data/lens/tessar.22deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.100.0mm.dat",
+      "label": "tessar.22deg.100.0mm.dat",
+      "path": "data/lens/tessar.22deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.100.0mm.json",
+      "label": "tessar.22deg.100.0mm.json",
+      "path": "data/lens/tessar.22deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, F/20.00",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.12.5mm.FL.mat",
+      "label": "tessar.22deg.12.5mm.FL.mat",
+      "path": "data/lens/tessar.22deg.12.5mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.12.5mm.dat",
+      "label": "tessar.22deg.12.5mm.dat",
+      "path": "data/lens/tessar.22deg.12.5mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.12.5mm.json",
+      "label": "tessar.22deg.12.5mm.json",
+      "path": "data/lens/tessar.22deg.12.5mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.50 mm, F/2.50, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.3.0mm.FL.mat",
+      "label": "tessar.22deg.3.0mm.FL.mat",
+      "path": "data/lens/tessar.22deg.3.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.3.0mm.dat",
+      "label": "tessar.22deg.3.0mm.dat",
+      "path": "data/lens/tessar.22deg.3.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.3.0mm.json",
+      "label": "tessar.22deg.3.0mm.json",
+      "path": "data/lens/tessar.22deg.3.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 3.00 mm, F/0.60, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.50.0mm.FL.mat",
+      "label": "tessar.22deg.50.0mm.FL.mat",
+      "path": "data/lens/tessar.22deg.50.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.50.0mm.dat",
+      "label": "tessar.22deg.50.0mm.dat",
+      "path": "data/lens/tessar.22deg.50.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.50.0mm.json",
+      "label": "tessar.22deg.50.0mm.json",
+      "path": "data/lens/tessar.22deg.50.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, F/10.00, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.6.0mm.FL.mat",
+      "label": "tessar.22deg.6.0mm.FL.mat",
+      "path": "data/lens/tessar.22deg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.6.0mm.dat",
+      "label": "tessar.22deg.6.0mm.dat",
+      "path": "data/lens/tessar.22deg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__tessar.22deg.6.0mm.json",
+      "label": "tessar.22deg.6.0mm.json",
+      "path": "data/lens/tessar.22deg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 6.00 mm, F/1.20, 22.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.100.0mm.FL.mat",
+      "label": "wide.40deg.100.0mm.FL.mat",
+      "path": "data/lens/wide.40deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.100.0mm.dat",
+      "label": "wide.40deg.100.0mm.dat",
+      "path": "data/lens/wide.40deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.100.0mm.json",
+      "label": "wide.40deg.100.0mm.json",
+      "path": "data/lens/wide.40deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, F/20.00",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.12.5mm.FL.mat",
+      "label": "wide.40deg.12.5mm.FL.mat",
+      "path": "data/lens/wide.40deg.12.5mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.12.5mm.dat",
+      "label": "wide.40deg.12.5mm.dat",
+      "path": "data/lens/wide.40deg.12.5mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 5.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.12.5mm.json",
+      "label": "wide.40deg.12.5mm.json",
+      "path": "data/lens/wide.40deg.12.5mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 12.50 mm, F/2.50, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.3.0mm.FL.mat",
+      "label": "wide.40deg.3.0mm.FL.mat",
+      "path": "data/lens/wide.40deg.3.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.3.0mm.dat",
+      "label": "wide.40deg.3.0mm.dat",
+      "path": "data/lens/wide.40deg.3.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.3.0mm.json",
+      "label": "wide.40deg.3.0mm.json",
+      "path": "data/lens/wide.40deg.3.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 3.00 mm, F/0.60, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.50.0mm.FL.mat",
+      "label": "wide.40deg.50.0mm.FL.mat",
+      "path": "data/lens/wide.40deg.50.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.50.0mm.dat",
+      "label": "wide.40deg.50.0mm.dat",
+      "path": "data/lens/wide.40deg.50.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.50.0mm.json",
+      "label": "wide.40deg.50.0mm.json",
+      "path": "data/lens/wide.40deg.50.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 50.00 mm, F/10.00, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.6.0mm.FL.mat",
+      "label": "wide.40deg.6.0mm.FL.mat",
+      "path": "data/lens/wide.40deg.6.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.6.0mm.dat",
+      "label": "wide.40deg.6.0mm.dat",
+      "path": "data/lens/wide.40deg.6.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.40deg.6.0mm.json",
+      "label": "wide.40deg.6.0mm.json",
+      "path": "data/lens/wide.40deg.6.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 6.00 mm, F/1.20, 40.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.56deg.100.0mm.FL.mat",
+      "label": "wide.56deg.100.0mm.FL.mat",
+      "path": "data/lens/wide.56deg.100.0mm.FL.mat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 56.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.56deg.100.0mm.dat",
+      "label": "wide.56deg.100.0mm.dat",
+      "path": "data/lens/wide.56deg.100.0mm.dat",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 0.00 mm, 56.0 deg FOV",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    },
+    {
+      "id": "catalog-lens:data__lens__wide.56deg.100.0mm.json",
+      "label": "wide.56deg.100.0mm.json",
+      "path": "data/lens/wide.56deg.100.0mm.json",
+      "kind": "catalogLens",
+      "testable": true,
+      "summary": "Catalog approximation applies 100.00 mm, F/20.00",
+      "notes": [
+        "Applied as a catalog approximation: focal length, F-number, FOV, and lens identity are used; surface PSF requires raytrace optics."
+      ]
+    }
+  ],
+  "sensorAssets": [
+    {
+      "id": "sensor:default:",
+      "label": "Default Bayer GRBG",
+      "type": "default",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:bayer-rggb:",
+      "label": "Bayer RGGB",
+      "type": "bayer-rggb",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:bayer-grbg:",
+      "label": "Bayer GRBG",
+      "type": "bayer-grbg",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:bayer-gbrg:",
+      "label": "Bayer GBRG",
+      "type": "bayer-gbrg",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:bayer-bggr:",
+      "label": "Bayer BGGR",
+      "type": "bayer-bggr",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:monochrome:",
+      "label": "Monochrome",
+      "type": "monochrome",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:rgbw:",
+      "label": "RGBW interleaved",
+      "type": "rgbw",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:rccc:",
+      "label": "RCCC automotive",
+      "type": "rccc",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:grbc:",
+      "label": "GRBC automotive",
+      "type": "grbc",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ycmy:",
+      "label": "YCMY",
+      "type": "ycmy",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "72x88, 2.80 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:mt9v024:rgb",
+      "label": "MT9V024 RGB",
+      "type": "mt9v024",
+      "variant": "rgb",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "480x752, 6.00 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:mt9v024:rgbw",
+      "label": "MT9V024 RGBW",
+      "type": "mt9v024",
+      "variant": "rgbw",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "480x752, 6.00 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:mt9v024:rccc",
+      "label": "MT9V024 RCCC",
+      "type": "mt9v024",
+      "variant": "rccc",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "480x752, 6.00 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:mt9v024:mono",
+      "label": "MT9V024 mono",
+      "type": "mt9v024",
+      "variant": "mono",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "480x752, 6.00 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ar0132at:rgb",
+      "label": "AR0132AT RGB",
+      "type": "ar0132at",
+      "variant": "rgb",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "960x1280, 3.75 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ar0132at:rgbw",
+      "label": "AR0132AT RGBW",
+      "type": "ar0132at",
+      "variant": "rgbw",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "960x1280, 3.75 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ar0132at:rccc",
+      "label": "AR0132AT RCCC",
+      "type": "ar0132at",
+      "variant": "rccc",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "960x1280, 3.75 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:imx363:",
+      "label": "Sony IMX363 / Pixel 4a",
+      "type": "imx363",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "600x800, 1.40 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:imx490-small:",
+      "label": "Sony IMX490 small",
+      "type": "imx490-small",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "600x800, 3.00 um, 12-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:imx490-large:",
+      "label": "Sony IMX490 large",
+      "type": "imx490-large",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "600x800, 3.00 um, 12-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:nikond100:",
+      "label": "Nikon D100",
+      "type": "nikond100",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "288x352, 2.80 um, 0-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ovt-small:",
+      "label": "OVT small pixel",
+      "type": "ovt-small",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "968x1288, 2.80 um, 12-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor:ovt-large:",
+      "label": "OVT large pair",
+      "type": "ovt-large",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "968x1288, 2.80 um, 12-bit",
+      "notes": [
+        "constructor returned 2 sensors; runner uses the first one"
+      ]
+    },
+    {
+      "id": "sensor:imec44:",
+      "label": "IMEC 4x4 VIS",
+      "type": "imec44",
+      "variant": "",
+      "kind": "sensorConstructor",
+      "testable": true,
+      "summary": "400x400, 5.50 um, 10-bit",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__CCD__CCD.mat",
+      "label": "CCD.mat",
+      "path": "data/sensor/CCD/CCD.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 61 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__PointGreyFlea3_ICSX619ALA.mat",
+      "label": "PointGreyFlea3_ICSX619ALA.mat",
+      "path": "data/sensor/PointGreyFlea3_ICSX619ALA.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__MT9V024SensorMono.mat",
+      "label": "MT9V024SensorMono.mat",
+      "path": "data/sensor/auto/MT9V024SensorMono.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 480x752, 6.00 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__MT9V024SensorRCCC.mat",
+      "label": "MT9V024SensorRCCC.mat",
+      "path": "data/sensor/auto/MT9V024SensorRCCC.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 480x752, 6.00 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__MT9V024SensorRGB.mat",
+      "label": "MT9V024SensorRGB.mat",
+      "path": "data/sensor/auto/MT9V024SensorRGB.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 480x752, 6.00 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__MT9V024SensorRGBW.mat",
+      "label": "MT9V024SensorRGBW.mat",
+      "path": "data/sensor/auto/MT9V024SensorRGBW.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 480x752, 6.00 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__ar0132atSensorRCCC.mat",
+      "label": "ar0132atSensorRCCC.mat",
+      "path": "data/sensor/auto/ar0132atSensorRCCC.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 960x1280, 3.75 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__ar0132atSensorRGB.mat",
+      "label": "ar0132atSensorRGB.mat",
+      "path": "data/sensor/auto/ar0132atSensorRGB.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 960x1280, 3.75 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__auto__ar0132atSensorRGBW.mat",
+      "label": "ar0132atSensorRGBW.mat",
+      "path": "data/sensor/auto/ar0132atSensorRGBW.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 960x1280, 3.75 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaAD6.mat",
+      "label": "cfaAD6.mat",
+      "path": "data/sensor/cfa/cfaAD6.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 173 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaBayerCYM1223.mat",
+      "label": "cfaBayerCYM1223.mat",
+      "path": "data/sensor/cfa/cfaBayerCYM1223.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaBayerCYM2132.mat",
+      "label": "cfaBayerCYM2132.mat",
+      "path": "data/sensor/cfa/cfaBayerCYM2132.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaBayerRGB1223.mat",
+      "label": "cfaBayerRGB1223.mat",
+      "path": "data/sensor/cfa/cfaBayerRGB1223.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaBayerRGB2132.mat",
+      "label": "cfaBayerRGB2132.mat",
+      "path": "data/sensor/cfa/cfaBayerRGB2132.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaFourGaussians.mat",
+      "label": "cfaFourGaussians.mat",
+      "path": "data/sensor/cfa/cfaFourGaussians.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaGRBC.mat",
+      "label": "cfaGRBC.mat",
+      "path": "data/sensor/cfa/cfaGRBC.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaNikonD100RIR.mat",
+      "label": "cfaNikonD100RIR.mat",
+      "path": "data/sensor/cfa/cfaNikonD100RIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaNikonD100RedIR.mat",
+      "label": "cfaNikonD100RedIR.mat",
+      "path": "data/sensor/cfa/cfaNikonD100RedIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaNikonD200IR.mat",
+      "label": "cfaNikonD200IR.mat",
+      "path": "data/sensor/cfa/cfaNikonD200IR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaRGB2123.mat",
+      "label": "cfaRGB2123.mat",
+      "path": "data/sensor/cfa/cfaRGB2123.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaRGBIR.mat",
+      "label": "cfaRGBIR.mat",
+      "path": "data/sensor/cfa/cfaRGBIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaRGBNearIR.mat",
+      "label": "cfaRGBNearIR.mat",
+      "path": "data/sensor/cfa/cfaRGBNearIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__cfa__cfaXYZ2132.mat",
+      "label": "cfaXYZ2132.mat",
+      "path": "data/sensor/cfa/cfaXYZ2132.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__B.mat",
+      "label": "B.mat",
+      "path": "data/sensor/colorfilters/B.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__C.mat",
+      "label": "C.mat",
+      "path": "data/sensor/colorfilters/C.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 362 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__CMY.mat",
+      "label": "CMY.mat",
+      "path": "data/sensor/colorfilters/CMY.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 362 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__CMYG.mat",
+      "label": "CMYG.mat",
+      "path": "data/sensor/colorfilters/CMYG.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 301 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__Foveon.mat",
+      "label": "Foveon.mat",
+      "path": "data/sensor/colorfilters/Foveon.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__G.mat",
+      "label": "G.mat",
+      "path": "data/sensor/colorfilters/G.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__GRBC.mat",
+      "label": "GRBC.mat",
+      "path": "data/sensor/colorfilters/GRBC.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 301 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__M.mat",
+      "label": "M.mat",
+      "path": "data/sensor/colorfilters/M.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 362 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__LargeBlue.mat",
+      "label": "LargeBlue.mat",
+      "path": "data/sensor/colorfilters/OVT/LargeBlue.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__LargeGreen.mat",
+      "label": "LargeGreen.mat",
+      "path": "data/sensor/colorfilters/OVT/LargeGreen.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__LargeRed.mat",
+      "label": "LargeRed.mat",
+      "path": "data/sensor/colorfilters/OVT/LargeRed.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__SmallBlue.mat",
+      "label": "SmallBlue.mat",
+      "path": "data/sensor/colorfilters/OVT/SmallBlue.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__SmallGreen.mat",
+      "label": "SmallGreen.mat",
+      "path": "data/sensor/colorfilters/OVT/SmallGreen.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__SmallRed.mat",
+      "label": "SmallRed.mat",
+      "path": "data/sensor/colorfilters/OVT/SmallRed.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__ovt-large.mat",
+      "label": "ovt-large.mat",
+      "path": "data/sensor/colorfilters/OVT/ovt-large.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 801 channels, 801 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__OVT__ovt-small.mat",
+      "label": "ovt-small.mat",
+      "path": "data/sensor/colorfilters/OVT/ovt-small.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 801 channels, 801 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__R.mat",
+      "label": "R.mat",
+      "path": "data/sensor/colorfilters/R.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__RGB.mat",
+      "label": "RGB.mat",
+      "path": "data/sensor/colorfilters/RGB.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__RGBW.mat",
+      "label": "RGBW.mat",
+      "path": "data/sensor/colorfilters/RGBW.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 301 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__RGBW2.mat",
+      "label": "RGBW2.mat",
+      "path": "data/sensor/colorfilters/RGBW2.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__W.mat",
+      "label": "W.mat",
+      "path": "data/sensor/colorfilters/W.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__Y.mat",
+      "label": "Y.mat",
+      "path": "data/sensor/colorfilters/Y.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 362 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__AptinaMT9M031.mat",
+      "label": "AptinaMT9M031.mat",
+      "path": "data/sensor/colorfilters/auto/AptinaMT9M031.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__AptinaMT9M131.mat",
+      "label": "AptinaMT9M131.mat",
+      "path": "data/sensor/colorfilters/auto/AptinaMT9M131.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 61 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__MT9V024_Mono.mat",
+      "label": "MT9V024_Mono.mat",
+      "path": "data/sensor/colorfilters/auto/MT9V024_Mono.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 71 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__MT9V024_RCCC.mat",
+      "label": "MT9V024_RCCC.mat",
+      "path": "data/sensor/colorfilters/auto/MT9V024_RCCC.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 2 channels, 71 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__MT9V024_RGB.mat",
+      "label": "MT9V024_RGB.mat",
+      "path": "data/sensor/colorfilters/auto/MT9V024_RGB.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 71 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__MT9V024_RGBW.mat",
+      "label": "MT9V024_RGBW.mat",
+      "path": "data/sensor/colorfilters/auto/MT9V024_RGBW.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 71 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__BlueChannel.mat",
+      "label": "BlueChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/BlueChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__GreenChannel.mat",
+      "label": "GreenChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/GreenChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__MONO__Mono.mat",
+      "label": "Mono.mat",
+      "path": "data/sensor/colorfilters/auto/ON/MONO/Mono.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RCCC__c_RCCC.mat",
+      "label": "c_RCCC.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RCCC/c_RCCC.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RCCC__r_RCCC.mat",
+      "label": "r_RCCC.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RCCC/r_RCCC.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__BlueChannel.mat",
+      "label": "BlueChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/BlueChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__GreenChannel.mat",
+      "label": "GreenChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/GreenChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__RedChannel.mat",
+      "label": "RedChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/RedChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__b_RGB.mat",
+      "label": "b_RGB.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/b_RGB.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__g_RGB.mat",
+      "label": "g_RGB.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/g_RGB.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RGB__r_RGB.mat",
+      "label": "r_RGB.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RGB/r_RGB.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ON__RedChannel.mat",
+      "label": "RedChannel.mat",
+      "path": "data/sensor/colorfilters/auto/ON/RedChannel.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__SONY__cf_imx490.mat",
+      "label": "cf_imx490.mat",
+      "path": "data/sensor/colorfilters/auto/SONY/cf_imx490.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 69 channels, 69 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__SONY__qe_imx490.mat",
+      "label": "qe_imx490.mat",
+      "path": "data/sensor/colorfilters/auto/SONY/qe_imx490.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 69 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__SONY__qe_imx490_scan.mat",
+      "label": "qe_imx490_scan.mat",
+      "path": "data/sensor/colorfilters/auto/SONY/qe_imx490_scan.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 69 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ar0132at.mat",
+      "label": "ar0132at.mat",
+      "path": "data/sensor/colorfilters/auto/ar0132at.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 621 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ar0132atRCCC.mat",
+      "label": "ar0132atRCCC.mat",
+      "path": "data/sensor/colorfilters/auto/ar0132atRCCC.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 2 channels, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ar0132atRGB.mat",
+      "label": "ar0132atRGB.mat",
+      "path": "data/sensor/colorfilters/auto/ar0132atRGB.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 621 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__auto__ar0132atRGBW.mat",
+      "label": "ar0132atRGBW.mat",
+      "path": "data/sensor/colorfilters/auto/ar0132atRGBW.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 621 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__cym.mat",
+      "label": "cym.mat",
+      "path": "data/sensor/colorfilters/cym.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 362 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__gaussianBGRWwithIR.mat",
+      "label": "gaussianBGRWwithIR.mat",
+      "path": "data/sensor/colorfilters/gaussianBGRWwithIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__gaussianlBGRWwithIR.mat",
+      "label": "gaussianlBGRWwithIR.mat",
+      "path": "data/sensor/colorfilters/gaussianlBGRWwithIR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__interleavedRGBW.mat",
+      "label": "interleavedRGBW.mat",
+      "path": "data/sensor/colorfilters/interleavedRGBW.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 4 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__NikonD1.mat",
+      "label": "NikonD1.mat",
+      "path": "data/sensor/colorfilters/nikon/NikonD1.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 101 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__NikonD100.mat",
+      "label": "NikonD100.mat",
+      "path": "data/sensor/colorfilters/nikon/NikonD100.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__NikonD200IR.mat",
+      "label": "NikonD200IR.mat",
+      "path": "data/sensor/colorfilters/nikon/NikonD200IR.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 173 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__NikonD2xsNikon50mm.mat",
+      "label": "NikonD2xsNikon50mm.mat",
+      "path": "data/sensor/colorfilters/nikon/NikonD2xsNikon50mm.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 106 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__NikonD70.mat",
+      "label": "NikonD70.mat",
+      "path": "data/sensor/colorfilters/nikon/NikonD70.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 101 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__nikon__d200irSensitivities.mat",
+      "label": "d200irSensitivities.mat",
+      "path": "data/sensor/colorfilters/nikon/d200irSensitivities.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 173 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__radiometer.mat",
+      "label": "radiometer.mat",
+      "path": "data/sensor/colorfilters/radiometer.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 76 channels, 401 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__rgbPeak80.mat",
+      "label": "rgbPeak80.mat",
+      "path": "data/sensor/colorfilters/rgbPeak80.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 361 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__sixChannel.mat",
+      "label": "sixChannel.mat",
+      "path": "data/sensor/colorfilters/sixChannel.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 5 channels, 63 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__colorfilters__uniform.mat",
+      "label": "uniform.mat",
+      "path": "data/sensor/colorfilters/uniform.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 1 channels, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__imec__qe_IMEC.mat",
+      "label": "qe_IMEC.mat",
+      "path": "data/sensor/imec/qe_IMEC.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 16 channels, 141 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__IRBlocking.mat",
+      "label": "IRBlocking.mat",
+      "path": "data/sensor/irfilters/IRBlocking.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__infrared.mat",
+      "label": "infrared.mat",
+      "path": "data/sensor/irfilters/infrared.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 25 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__infrared2.mat",
+      "label": "infrared2.mat",
+      "path": "data/sensor/irfilters/infrared2.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 31 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__irFilter_schott.mat",
+      "label": "irFilter_schott.mat",
+      "path": "data/sensor/irfilters/irFilter_schott.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 173 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__irPassFilter.mat",
+      "label": "irPassFilter.mat",
+      "path": "data/sensor/irfilters/irPassFilter.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 54 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__ircf_public.mat",
+      "label": "ircf_public.mat",
+      "path": "data/sensor/irfilters/ircf_public.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 851 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__irfilters__uniformIR.mat",
+      "label": "uniformIR.mat",
+      "path": "data/sensor/irfilters/uniformIR.mat",
+      "kind": "irFilter",
+      "testable": true,
+      "summary": "IR filter spectral curve, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__nikon__NikonD100Sensor.mat",
+      "label": "NikonD100Sensor.mat",
+      "path": "data/sensor/nikon/NikonD100Sensor.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 72x88, 2.80 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__ThorLabsDCC1545M_CMOS.mat",
+      "label": "ThorLabsDCC1545M_CMOS.mat",
+      "path": "data/sensor/photodetectors/ThorLabsDCC1545M_CMOS.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 54 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__cmosPhotodetectorQE.mat",
+      "label": "cmosPhotodetectorQE.mat",
+      "path": "data/sensor/photodetectors/cmosPhotodetectorQE.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 50 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__pdHPMosis.mat",
+      "label": "pdHPMosis.mat",
+      "path": "data/sensor/photodetectors/pdHPMosis.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 41 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__photodetector.mat",
+      "label": "photodetector.mat",
+      "path": "data/sensor/photodetectors/photodetector.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 21 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__qImaging.mat",
+      "label": "qImaging.mat",
+      "path": "data/sensor/photodetectors/qImaging.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 101 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__spectralResponseHPMosis.mat",
+      "label": "spectralResponseHPMosis.mat",
+      "path": "data/sensor/photodetectors/spectralResponseHPMosis.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 41 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__photodetectors__uniform.mat",
+      "label": "uniform.mat",
+      "path": "data/sensor/photodetectors/uniform.mat",
+      "kind": "photoDetectorQe",
+      "testable": true,
+      "summary": "Photodetector QE curve, 689 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__sensorFourGaussians.mat",
+      "label": "sensorFourGaussians.mat",
+      "path": "data/sensor/sensorFourGaussians.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__sony__imx363.mat",
+      "label": "imx363.mat",
+      "path": "data/sensor/sony/imx363.mat",
+      "kind": "sensorModelFile",
+      "testable": true,
+      "summary": "Sensor model 600x800, 1.40 um",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__sony__qe_IMX363_public.mat",
+      "label": "qe_IMX363_public.mat",
+      "path": "data/sensor/sony/qe_IMX363_public.mat",
+      "kind": "spectralFilter",
+      "testable": true,
+      "summary": "Spectral filter bank, 3 channels, 71 samples",
+      "notes": []
+    },
+    {
+      "id": "sensor-file:data__sensor__wellCapacity-clark.mat",
+      "label": "wellCapacity-clark.mat",
+      "path": "data/sensor/wellCapacity-clark.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    },
+    {
+      "id": "sensor-file:data__sensor__wellCapacity.mat",
+      "label": "wellCapacity.mat",
+      "path": "data/sensor/wellCapacity.mat",
+      "kind": "sensorFile",
+      "testable": false,
+      "summary": "No supported sensor/filter/QE payload found.",
+      "notes": [
+        "Unsupported by live runner."
+      ]
+    }
+  ],
+  "warnings": []
+}

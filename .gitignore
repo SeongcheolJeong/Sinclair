@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Local OS/editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Generated runtime artifacts
+artifacts/
+public/assets/camera-e2e/live-runs/
+
+# Local reference handoff package.
+# Runtime-ready assets are copied into public/assets/sinclair.
+Sinclair_Design_Handoff_Package/
+
+# Environment overrides
+.env
+.env.local
+.env.*.local
