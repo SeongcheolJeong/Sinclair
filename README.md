@@ -6,6 +6,22 @@ This repository currently implements the platform UI/UX, typed mock data, report
 
 ## Quick Start
 
+For a no-install full-platform design mock, open this file directly in a browser:
+
+```text
+Sinclair_Design_Mock.html
+```
+
+It is a standalone HTML entry point for the complete Sinclair platform design. Launchpad, Experiments, Sensor Workbench, Fusion Analysis, Scenario Library, Reports, Docs, and System/Assets tabs work without `npm install` or a dev server.
+
+There is also a narrower CameraE2E execution mock:
+
+```text
+Sinclair_CameraE2E_Live_Mock.html
+```
+
+For the full React platform:
+
 ```bash
 npm install
 npm run camera:e2e:assets

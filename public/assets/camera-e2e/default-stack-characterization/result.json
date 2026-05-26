@@ -1,0 +1,519 @@
+{
+  "schemaVersion": 1,
+  "runId": "default-stack-characterization",
+  "runMode": "stackCharacterization",
+  "status": "completed",
+  "createdAt": "2026-05-25T02:31:20.626917+00:00",
+  "elapsedMs": 296.043,
+  "request": {
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "scene": {
+      "geometryMode": "angularFov",
+      "type": "rgb image",
+      "patchSize": 8,
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24,
+      "fovDeg": 60,
+      "luminanceCdM2": 240
+    },
+    "lens": {
+      "fovAuthority": "numericOptics",
+      "fNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "hfovDeg": 60,
+      "transmittanceScale": 0.92
+    },
+    "lensPhysics": {
+      "mode": "none",
+      "gaussianSpreadUm": 2.5,
+      "xyRatio": 1,
+      "aberrationPixels": 0,
+      "defocusDiopters": 1.25,
+      "psfAngleStepDeg": 30
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "rows": 384,
+      "cols": 512,
+      "pixelSizeUm": 2.8,
+      "exposureMs": 16,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "readNoiseMv": 2.1,
+      "qeScale": 1,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps",
+      "applyToImage": false,
+      "nFrames": 4,
+      "fps": 30,
+      "lineTimeUs": 15.2,
+      "exposureTimeUs": 8000,
+      "aeEnabled": true,
+      "awbEnabled": true,
+      "aeApplyDelayFrames": 2,
+      "awbApplyDelayFrames": 2,
+      "targetLuma": 0.18,
+      "requestQueueDepth": 4,
+      "maxBuffers": 6,
+      "globalLatencyFactor": 1
+    },
+    "perception": {
+      "model": "ultralytics_yolo11n_detection",
+      "inputSize": "640x384",
+      "confidenceThreshold": 0.25,
+      "nmsThreshold": 0.5
+    },
+    "runId": "default-stack-characterization",
+    "runMode": "stackCharacterization"
+  },
+  "applied": [
+    "scene.sourceImage=/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+    "scene.type=rgb image",
+    "scene.fovDeg=60",
+    "scene.luminanceCdM2=240",
+    "lens.fNumber=2.8",
+    "lens.focalLengthMm=1.24",
+    "lens.hfovDeg.deferredToFovAuthority=numericOptics",
+    "lens.transmittanceScale=0.92",
+    "sensor.size=384x512",
+    "sensor.pixelSizeUm=2.8",
+    "sensor.exposureMs=16",
+    "sensor.analogGain=1.8",
+    "sensor.noiseFlag=2",
+    "sensor.readNoiseMv=2.1",
+    "sensor.qeScale=1",
+    "sensor.bitDepth=12",
+    "isp.demosaicMethod=bilinear",
+    "isp.sensorConversionMethod=mcc optimized",
+    "isp.internalColorSpace=xyz",
+    "isp.illuminantCorrection=gray world",
+    "isp.renderScale=True",
+    "fov.authority.numericOptics.hfovDeg=60.06",
+    "lens.physics.mode=selectedOpticsDefault",
+    "sensor.fitMode=preserveResolution"
+  ],
+  "warnings": [],
+  "summaries": {
+    "scene": {
+      "type": "rgb image",
+      "geometryMode": "angularFov",
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24.0,
+      "physicalHfovDeg": 1.671,
+      "physicalVfovDeg": 4.0568,
+      "size": [
+        960,
+        1280
+      ],
+      "fovDeg": 60.0,
+      "requestedFovDeg": 60.0,
+      "fovPolicy": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context."
+    },
+    "lens": {
+      "source": "generated/default optics",
+      "numericPolicy": "numeric lens controls applied before physics mode",
+      "fNumber": 2.8,
+      "requestedFNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "requestedFocalLengthMm": 1.24,
+      "hfovDeg": 60.06136601771013,
+      "oiReportedFovDeg": 60.06136601771013,
+      "requestedTransmittanceScale": 0.92,
+      "requestedHfovDeg": 60.0,
+      "hfovDeltaDeg": 0.0614
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "numericPolicy": "sensor asset/reference is loaded first; numeric sensor controls override pixel, exposure, noise, QE, and bit depth.",
+      "resizePolicy": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "size": [
+        384,
+        512
+      ],
+      "requestedSize": [
+        384,
+        512
+      ],
+      "pixelSizeUm": [
+        2.8,
+        2.8
+      ],
+      "requestedPixelSizeUm": 2.8,
+      "exposureMs": 16.0,
+      "requestedExposureMs": 16.0,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps",
+      "status": "not run in stack characterization mode"
+    },
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "physics": {
+      "mode": "none",
+      "resolvedOpticsModel": "diffractionlimited",
+      "resolvedComputeMethod": "opticsotf",
+      "usedParameters": "none; selected optics default"
+    },
+    "resolution": {
+      "scene": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context.",
+      "lens": "numeric lens controls applied before physics mode",
+      "physics": "selected optics default; no extra synthetic physics mode",
+      "sensor": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "outputImageShape": [
+        0,
+        0,
+        3
+      ]
+    },
+    "fovLedger": {
+      "authorityRequested": "numericOptics",
+      "authorityResolved": "numericOptics",
+      "sceneGeometryMode": "angularFov",
+      "scenePhysicalHfovDeg": 1.671,
+      "scenePhysicalVfovDeg": 4.0568,
+      "cameraE2eSceneFovDeg": 60.0,
+      "lensOiResolvedHfovDeg": 60.0614,
+      "oiReportedFovDeg": 60.0614,
+      "manualHfovTargetDeg": 60.0,
+      "sensorActiveWidthMm": 1.4336,
+      "focalLengthMm": 1.24,
+      "targetImageWidthMm": 0.036167,
+      "targetImageWidthPx": 12.92,
+      "physicalHfovFromSensorAndFocalDeg": 60.0614,
+      "requestedPhysicalHfovDeg": 60.0614,
+      "samplingPxPerDeg": 8.5246,
+      "raytraceDiagonalLimitDeg": "",
+      "status": "clean",
+      "notes": "No FOV conflicts detected."
+    }
+  },
+  "metrics": {
+    "stackCharacterization": {
+      "protocolVersion": "stack-characterization-v1",
+      "provenance": "Pre-run CameraE2E stack characterization. It reads active sensor spectral QE and, when available, selected raytrace optics PSF without running the selected scene pipeline.",
+      "primaryScene": "none",
+      "summary": [
+        {
+          "label": "Peak spectral QE",
+          "value": "0.386",
+          "unit": "",
+          "source": "active sensor QE"
+        },
+        {
+          "label": "Mean spectral QE",
+          "value": "0.106",
+          "unit": "",
+          "source": "active sensor QE"
+        },
+        {
+          "label": "QE channels",
+          "value": "3.000",
+          "unit": "",
+          "source": "active sensor QE"
+        },
+        {
+          "label": "PSF width",
+          "value": "not selected",
+          "unit": "",
+          "source": "requires raytrace optics asset"
+        }
+      ],
+      "tests": [
+        {
+          "scene": "active sensor QE",
+          "purpose": "Active spectral response after sensor constructor, spectral/QE asset, IR filter, and numeric QE scale.",
+          "source": "CameraE2E sensor_get(sensor, 'spectral qe')",
+          "status": "completed",
+          "artifactKey": "",
+          "metrics": [
+            {
+              "label": "Peak spectral QE",
+              "value": "0.386",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Peak active sensor spectral QE after CFA/QE/IR/numeric scaling."
+            },
+            {
+              "label": "Mean spectral QE",
+              "value": "0.106",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Mean active sensor spectral QE over wavelength and channels."
+            },
+            {
+              "label": "QE channels",
+              "value": "3.000",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Number of active spectral response channels."
+            }
+          ],
+          "charts": [
+            {
+              "id": "camera_e2e_sensor_qe",
+              "title": "CameraE2E active sensor QE spectral response",
+              "description": "sensor_get(sensor, 'spectral qe') after selected sensor constructor, spectral/QE asset, IR filter, and numeric QE scale are applied.",
+              "kind": "line",
+              "xKey": "wavelength",
+              "xLabel": "wavelength nm",
+              "yLabel": "active QE",
+              "data": [
+                {
+                  "wavelength": 400.0,
+                  "ch1": 0.01402,
+                  "ch2": 0.00548,
+                  "ch3": 0.0089
+                },
+                {
+                  "wavelength": 410.0,
+                  "ch1": 0.01027,
+                  "ch2": 0.00861,
+                  "ch3": 0.06367
+                },
+                {
+                  "wavelength": 420.0,
+                  "ch1": 0.00923,
+                  "ch2": 0.01514,
+                  "ch3": 0.14026
+                },
+                {
+                  "wavelength": 430.0,
+                  "ch1": 0.00918,
+                  "ch2": 0.02748,
+                  "ch3": 0.18864
+                },
+                {
+                  "wavelength": 440.0,
+                  "ch1": 0.00451,
+                  "ch2": 0.02557,
+                  "ch3": 0.21943
+                },
+                {
+                  "wavelength": 450.0,
+                  "ch1": 0.00514,
+                  "ch2": 0.01481,
+                  "ch3": 0.2402
+                },
+                {
+                  "wavelength": 460.0,
+                  "ch1": 0.0089,
+                  "ch2": 0.02657,
+                  "ch3": 0.26223
+                },
+                {
+                  "wavelength": 470.0,
+                  "ch1": 0.00713,
+                  "ch2": 0.03616,
+                  "ch3": 0.28759
+                },
+                {
+                  "wavelength": 480.0,
+                  "ch1": 0.00325,
+                  "ch2": 0.01564,
+                  "ch3": 0.29077
+                },
+                {
+                  "wavelength": 490.0,
+                  "ch1": 0.00214,
+                  "ch2": 0.00814,
+                  "ch3": 0.26705
+                },
+                {
+                  "wavelength": 500.0,
+                  "ch1": 0.00778,
+                  "ch2": 0.06053,
+                  "ch3": 0.21661
+                },
+                {
+                  "wavelength": 510.0,
+                  "ch1": 0.01464,
+                  "ch2": 0.15918,
+                  "ch3": 0.14295
+                },
+                {
+                  "wavelength": 520.0,
+                  "ch1": 0.02967,
+                  "ch2": 0.25541,
+                  "ch3": 0.07691
+                },
+                {
+                  "wavelength": 530.0,
+                  "ch1": 0.04033,
+                  "ch2": 0.32269,
+                  "ch3": 0.03361
+                },
+                {
+                  "wavelength": 540.0,
+                  "ch1": 0.02474,
+                  "ch2": 0.34779,
+                  "ch3": 0.01061
+                },
+                {
+                  "wavelength": 550.0,
+                  "ch1": 0.00543,
+                  "ch2": 0.34035,
+                  "ch3": 0.00201
+                },
+                {
+                  "wavelength": 560.0,
+                  "ch1": 0.01847,
+                  "ch2": 0.30818,
+                  "ch3": 0.00092
+                },
+                {
+                  "wavelength": 570.0,
+                  "ch1": 0.07857,
+                  "ch2": 0.24943,
+                  "ch3": 0.00127
+                },
+                {
+                  "wavelength": 580.0,
+                  "ch1": 0.16617,
+                  "ch2": 0.18474,
+                  "ch3": 0.00104
+                },
+                {
+                  "wavelength": 590.0,
+                  "ch1": 0.25683,
+                  "ch2": 0.11449,
+                  "ch3": 0.00058
+                },
+                {
+                  "wavelength": 600.0,
+                  "ch1": 0.32108,
+                  "ch2": 0.06153,
+                  "ch3": 0.00026
+                },
+                {
+                  "wavelength": 610.0,
+                  "ch1": 0.35569,
+                  "ch2": 0.02443,
+                  "ch3": 0.00019
+                },
+                {
+                  "wavelength": 620.0,
+                  "ch1": 0.37059,
+                  "ch2": 0.0073,
+                  "ch3": 0.00018
+                },
+                {
+                  "wavelength": 630.0,
+                  "ch1": 0.373,
+                  "ch2": 0.00148,
+                  "ch3": 0.00017
+                },
+                {
+                  "wavelength": 640.0,
+                  "ch1": 0.37376,
+                  "ch2": 0.00193,
+                  "ch3": 0.00016
+                },
+                {
+                  "wavelength": 650.0,
+                  "ch1": 0.37556,
+                  "ch2": 0.00391,
+                  "ch3": 0.00022
+                },
+                {
+                  "wavelength": 660.0,
+                  "ch1": 0.37474,
+                  "ch2": 0.00473,
+                  "ch3": 0.00031
+                },
+                {
+                  "wavelength": 670.0,
+                  "ch1": 0.3818,
+                  "ch2": 0.00421,
+                  "ch3": 0.00038
+                },
+                {
+                  "wavelength": 680.0,
+                  "ch1": 0.37945,
+                  "ch2": 0.00277,
+                  "ch3": 0.00059
+                },
+                {
+                  "wavelength": 690.0,
+                  "ch1": 0.38356,
+                  "ch2": 0.00179,
+                  "ch3": 0.00093
+                },
+                {
+                  "wavelength": 700.0,
+                  "ch1": 0.38646,
+                  "ch2": 0.0019,
+                  "ch3": 0.00163
+                }
+              ],
+              "series": [
+                {
+                  "key": "ch1",
+                  "label": "rDefault",
+                  "color": "#fb7185"
+                },
+                {
+                  "key": "ch2",
+                  "label": "gDefault",
+                  "color": "#2ef5a9"
+                },
+                {
+                  "key": "ch3",
+                  "label": "bDefault",
+                  "color": "#60a5fa"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "chartArtifacts": {}
+    }
+  },
+  "artifacts": {}
+}

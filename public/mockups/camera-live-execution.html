@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sinclair CameraE2E Live Execution Mock</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #070b12;
+        --panel: #111821;
+        --panel-2: #151d29;
+        --panel-3: #0d131c;
+        --line: #263343;
+        --line-bright: #3f5368;
+        --text: #eef5ff;
+        --muted: #8fa0b5;
+        --cyan: #34d3ff;
+        --green: #55d68b;
+        --amber: #ffc657;
+        --violet: #a98bff;
+        --red: #ff6b72;
+        --blue: #5ca9ff;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(52, 211, 255, 0.12), transparent 28rem),
+          radial-gradient(circle at 80% 10%, rgba(169, 139, 255, 0.1), transparent 24rem),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      button,
+      select,
+      input {
+        font: inherit;
+      }
+
+      .app {
+        max-width: 1480px;
+        margin: 0 auto;
+        padding: 22px;
+      }
+
+      .shell {
+        border: 1px solid rgba(124, 150, 178, 0.2);
+        background: rgba(8, 13, 22, 0.8);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(12, 18, 28, 0.92);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 260px;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(52, 211, 255, 0.42);
+        color: var(--cyan);
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        background: linear-gradient(145deg, rgba(52, 211, 255, 0.16), rgba(92, 169, 255, 0.04));
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.2;
+      }
+
+      .brand p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .top-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .pill,
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 28px;
+        padding: 5px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .badge.cyan {
+        color: var(--cyan);
+        border-color: rgba(52, 211, 255, 0.36);
+        background: rgba(52, 211, 255, 0.1);
+      }
+
+      .badge.green {
+        color: var(--green);
+        border-color: rgba(85, 214, 139, 0.34);
+        background: rgba(85, 214, 139, 0.08);
+      }
+
+      .badge.amber {
+        color: var(--amber);
+        border-color: rgba(255, 198, 87, 0.36);
+        background: rgba(255, 198, 87, 0.08);
+      }
+
+      .badge.violet {
+        color: var(--violet);
+        border-color: rgba(169, 139, 255, 0.36);
+        background: rgba(169, 139, 255, 0.08);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.8fr);
+        gap: 18px;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary h2 {
+        margin: 0 0 10px;
+        font-size: clamp(24px, 3vw, 42px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .summary p {
+        max-width: 920px;
+        margin: 0 0 16px;
+        color: #b7c4d5;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .flow-step {
+        min-height: 78px;
+        padding: 11px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+      }
+
+      .flow-step strong {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 12px;
+      }
+
+      .flow-step span {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .run-panel {
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: rgba(17, 24, 33, 0.9);
+      }
+
+      .run-panel h3 {
+        margin: 0 0 12px;
+        font-size: 15px;
+      }
+
+      .run-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .field label {
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      select,
+      input[type="range"] {
+        width: 100%;
+      }
+
+      select {
+        min-height: 38px;
+        border: 1px solid var(--line-bright);
+        border-radius: 7px;
+        padding: 0 10px;
+        color: var(--text);
+        background: #0b111a;
+      }
+
+      .run-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .primary {
+        min-height: 38px;
+        border: 1px solid rgba(52, 211, 255, 0.5);
+        border-radius: 7px;
+        padding: 0 14px;
+        color: #03131b;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--cyan), #7be7ff);
+        cursor: pointer;
+      }
+
+      .secondary {
+        min-height: 38px;
+        border: 1px solid var(--line-bright);
+        border-radius: 7px;
+        padding: 0 14px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+      }
+
+      .progress-wrap {
+        margin-top: 14px;
+      }
+
+      .progress {
+        height: 8px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #0a1018;
+      }
+
+      .progress > div {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--cyan), var(--green));
+        transition: width 240ms ease;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 4px;
+        overflow-x: auto;
+        border-bottom: 1px solid var(--line);
+        background: rgba(12, 18, 28, 0.86);
+        padding: 0 12px;
+      }
+
+      .tab-button {
+        min-height: 46px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        padding: 0 13px;
+        color: var(--muted);
+        background: transparent;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .tab-button[aria-selected="true"] {
+        color: var(--text);
+        border-bottom-color: var(--cyan);
+      }
+
+      .content {
+        min-height: 680px;
+        padding: 18px;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(18, 26, 37, 0.88);
+        overflow: hidden;
+      }
+
+      .card.pad {
+        padding: 14px;
+      }
+
+      .card h3,
+      .card h4 {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+
+      .card p {
+        margin: 0;
+        color: #aebbc9;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .metric {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .metric label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 25px;
+        line-height: 1.1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .image-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #060a11;
+      }
+
+      .image-card img {
+        display: block;
+        width: 100%;
+        min-height: 180px;
+        object-fit: contain;
+        background: #05080e;
+      }
+
+      .image-caption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 11px 12px;
+        border-top: 1px solid var(--line);
+        color: #c4cfdd;
+        font-size: 12px;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+
+      .table th,
+      .table td {
+        padding: 10px;
+        border-bottom: 1px solid rgba(124, 150, 178, 0.16);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .table th {
+        color: var(--muted);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .log {
+        min-height: 260px;
+        max-height: 420px;
+        overflow: auto;
+        margin: 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: #b9d8c8;
+        background: #060a0f;
+        font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        white-space: pre-wrap;
+      }
+
+      .warning {
+        border-color: rgba(255, 198, 87, 0.36);
+        background: rgba(255, 198, 87, 0.075);
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 18px rgba(85, 214, 139, 0.8);
+      }
+
+      .divider {
+        height: 1px;
+        margin: 14px 0;
+        background: var(--line);
+      }
+
+      .mt {
+        margin-top: 14px;
+      }
+
+      .small {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .mini-chart {
+        height: 180px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          #081019;
+        background-size: 36px 36px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .curve {
+        position: absolute;
+        inset: 24px 18px 28px 36px;
+      }
+
+      .curve svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .strip-pattern {
+        height: 180px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            #f4f6fa 0,
+            #f4f6fa 4px,
+            #101820 4px,
+            #101820 8px
+          );
+        filter: contrast(0.84) blur(0.35px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .strip-pattern::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(52, 211, 255, 0.28), transparent 38%, rgba(255, 198, 87, 0.18));
+        mix-blend-mode: screen;
+      }
+
+      @media (max-width: 1120px) {
+        .hero,
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+
+        .flow,
+        .grid-4 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          padding: 10px;
+        }
+
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .top-meta {
+          justify-content: flex-start;
+        }
+
+        .flow,
+        .run-grid,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+
+        .content,
+        .hero {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <section class="shell">
+        <header class="topbar">
+          <div class="brand">
+            <div class="mark">S</div>
+            <div>
+              <h1>Sinclair CameraE2E Live Execution Mock</h1>
+              <p>Camera Design & Validation Workbench / executable UI mock</p>
+            </div>
+          </div>
+          <div class="top-meta">
+            <span class="pill"><span class="status-dot"></span><span id="runStatus">Ready</span></span>
+            <span class="badge cyan">Synthetic + Replay</span>
+            <span class="badge amber">No production detector</span>
+            <span class="badge violet">Future adapter seam</span>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div class="summary">
+            <h2>Live camera simulation execution, not just a static viewer.</h2>
+            <p>
+              This mock shows how Sinclair can expose scene, lens, sensor, ISP, and perception
+              algorithm controls while making validation fidelity explicit. It is intentionally
+              dense: camera engineers can inspect optics and sensor evidence, while platform users
+              can still follow the run state and output artifacts.
+            </p>
+            <div class="top-meta">
+              <span class="badge green">Scene -> OI -> Sensor -> ISP -> Proxy Perception</span>
+              <span class="badge cyan">PSF/MTF/QE/noise evidence</span>
+              <span class="badge amber">Physical validation required for hardware release</span>
+            </div>
+            <div class="flow">
+              <div class="flow-step">
+                <strong>1. Scene</strong>
+                <span>Macbeth, slanted bar, point array, dead leaves, or custom target.</span>
+              </div>
+              <div class="flow-step">
+                <strong>2. Lens</strong>
+                <span>FOV, PSF mode, distortion, MTF, and raytrace grid readiness.</span>
+              </div>
+              <div class="flow-step">
+                <strong>3. Sensor</strong>
+                <span>QE, pixel size, noise, saturation, CFA, and resolution policy.</span>
+              </div>
+              <div class="flow-step">
+                <strong>4. ISP</strong>
+                <span>Demosaic, color, tone mapping, denoise, sharpen, and output RGB.</span>
+              </div>
+              <div class="flow-step">
+                <strong>5. Perception</strong>
+                <span>Proxy detector now; replace with real adapter later.</span>
+              </div>
+              <div class="flow-step">
+                <strong>6. Fusion</strong>
+                <span>Accepted, rejected, overridden, and confidence explanation.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="run-panel">
+            <h3>Execution Config</h3>
+            <div class="run-grid">
+              <div class="field">
+                <label for="sceneSelect">Scene</label>
+                <select id="sceneSelect">
+                  <option value="Macbeth 4x6">Macbeth color chart</option>
+                  <option value="Slanted bar">Slanted bar MTF target</option>
+                  <option value="Point array">Point array PSF target</option>
+                  <option value="Dead leaves">Dead leaves texture</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="lensSelect">Lens</label>
+                <select id="lensSelect">
+                  <option value="Front Wide 120deg catalog">Front Wide 120deg catalog</option>
+                  <option value="Raytrace PSF grid candidate">Raytrace PSF grid candidate</option>
+                  <option value="Narrow 60deg baseline">Narrow 60deg baseline</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="sensorSelect">Sensor</label>
+                <select id="sensorSelect">
+                  <option value="Bayer RGB 100x150">Bayer RGB 100x150</option>
+                  <option value="HDR 120dB candidate">HDR 120dB candidate</option>
+                  <option value="Small pixel high-res">Small pixel high-res</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ispSelect">ISP</label>
+                <select id="ispSelect">
+                  <option value="Default sRGB">Default sRGB</option>
+                  <option value="Night optimized">Night optimized</option>
+                  <option value="Sharpness sweep">Sharpness sweep</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="physicsSelect">Lens Physics</label>
+                <select id="physicsSelect">
+                  <option value="Selected optics default">Selected optics default</option>
+                  <option value="Diffraction limited">Diffraction limited</option>
+                  <option value="Gaussian PSF proxy">Gaussian PSF proxy</option>
+                  <option value="Raytrace PSF grid">Raytrace PSF grid</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="resolutionSelect">Resolution Policy</label>
+                <select id="resolutionSelect">
+                  <option value="Preserve requested sensor resolution">Preserve requested sensor resolution</option>
+                  <option value="Match scene FOV">Match scene FOV</option>
+                </select>
+              </div>
+            </div>
+            <div class="run-actions">
+              <button class="primary" id="runButton" type="button">Run Mock Simulation</button>
+              <button class="secondary" id="resetButton" type="button">Reset</button>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress" aria-label="run progress"><div id="progressBar"></div></div>
+              <p class="small" id="runHint">Ready to execute a local mock run.</p>
+            </div>
+          </aside>
+        </section>
+
+        <nav class="tabs" aria-label="Execution mock tabs">
+          <button class="tab-button" type="button" data-tab="overview" aria-selected="true">Overview</button>
+          <button class="tab-button" type="button" data-tab="scene">Scene Config</button>
+          <button class="tab-button" type="button" data-tab="optics">Lens / Optics</button>
+          <button class="tab-button" type="button" data-tab="sensor">Sensor / ISP</button>
+          <button class="tab-button" type="button" data-tab="output">Live Output</button>
+          <button class="tab-button" type="button" data-tab="evidence">Logs / Contract</button>
+        </nav>
+
+        <section class="content">
+          <section class="tab-panel active" id="overview">
+            <div class="grid-4">
+              <div class="metric">
+                <label>Run State</label>
+                <strong id="metricState">Ready</strong>
+                <span>Local executable mock</span>
+              </div>
+              <div class="metric">
+                <label>Proxy Confidence</label>
+                <strong id="metricConf">0.406</strong>
+                <span>Image-quality proxy</span>
+              </div>
+              <div class="metric">
+                <label>Sensor P99</label>
+                <strong>0.126</strong>
+                <span>sensor volts</span>
+              </div>
+              <div class="metric">
+                <label>Saturation</label>
+                <strong>0.000</strong>
+                <span>image-quality proxy</span>
+              </div>
+            </div>
+
+            <div class="grid-2 mt">
+              <div class="card pad">
+                <h3>Configuration Resolution</h3>
+                <p id="configSummary">
+                  Scene Macbeth 4x6 is rendered through Front Wide 120deg catalog optics, sampled by
+                  Bayer RGB 100x150, then processed by Default sRGB. Requested sensor resolution is
+                  preserved unless the user explicitly selects Match scene FOV.
+                </p>
+                <div class="divider"></div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Config Area</th>
+                      <th>Validation Meaning</th>
+                      <th>Badge</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Detector threshold / ISP replay</td>
+                      <td>Existing output can be reprocessed without new optical rendering.</td>
+                      <td><span class="badge green">Replayable</span></td>
+                    </tr>
+                    <tr>
+                      <td>FOV / lens / PSF mode</td>
+                      <td>Requires optical image recomputation; raytrace grid gives stronger evidence.</td>
+                      <td><span class="badge cyan">Simulatable</span></td>
+                    </tr>
+                    <tr>
+                      <td>New lens stack / sensor QE</td>
+                      <td>Simulation narrows candidates; release evidence still needs lab/vehicle capture.</td>
+                      <td><span class="badge amber">Physical Required</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="card pad warning">
+                <h3>What This Mock Makes Explicit</h3>
+                <p>
+                  The same scene can be reused, but scene FOV, lens FOV, sensor sampling, and ISP
+                  processing are separate decisions. If they conflict, the resolution policy decides
+                  whether the sensor keeps its requested pixel grid or is resized to match the optical
+                  field. The UI should always show that decision before the run result is trusted.
+                </p>
+                <div class="divider"></div>
+                <p>
+                  The perception block is a proxy in this mock. A real detector should be connected
+                  through the adapter contract, not hidden inside the UI.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="scene">
+            <div class="grid-2">
+              <div class="image-card">
+                <img
+                  id="scenePreview"
+                  src="../assets/camera-e2e/live/macbeth_smoke.png"
+                  alt="Scene preview"
+                />
+                <div class="image-caption">
+                  <span id="sceneCaption">Macbeth scene preview</span>
+                  <span class="badge cyan">Scene radiance target</span>
+                </div>
+              </div>
+              <div class="card pad">
+                <h3>Scene Config Semantics</h3>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Scene type</th>
+                      <td id="sceneTypeCell">Macbeth 4x6</td>
+                    </tr>
+                    <tr>
+                      <th>Scene FOV</th>
+                      <td>Angular content entering the optical model. This is not the same as sensor resolution.</td>
+                    </tr>
+                    <tr>
+                      <th>Patch size</th>
+                      <td>Used by chart-like scenes; ignored by some texture or analytic targets until adapters support it.</td>
+                    </tr>
+                    <tr>
+                      <th>Illuminant</th>
+                      <td>D65 baseline with future hooks for night, glare, rain, and HDR stress suites.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="divider"></div>
+                <p>
+                  Scene config defines what the camera sees. Lens config defines how that scene is
+                  projected and blurred. Sensor config defines how photons become electrical signal.
+                  ISP config defines how sensor data becomes display/perception input.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid-3 mt">
+              <div class="metric">
+                <label>Scene FOV</label>
+                <strong>45 deg</strong>
+                <span>source target extent</span>
+              </div>
+              <div class="metric">
+                <label>Radiance Level</label>
+                <strong>D65</strong>
+                <span>baseline illuminant</span>
+              </div>
+              <div class="metric">
+                <label>Comparable</label>
+                <strong>Yes</strong>
+                <span>same target, resolved sampling policy</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="optics">
+            <div class="grid-2">
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/sharpness_psf_triptych.png" alt="PSF grid triptych" />
+                <div class="image-caption">
+                  <span>PSF / sharpness triptych</span>
+                  <span class="badge violet">PSF evidence</span>
+                </div>
+              </div>
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/metrics_mtf_slanted_bar_small_curves.png" alt="MTF curves" />
+                <div class="image-caption">
+                  <span>Slanted-bar MTF curves</span>
+                  <span class="badge cyan">Frequency response</span>
+                </div>
+              </div>
+            </div>
+            <div class="grid-3 mt">
+              <div class="card pad">
+                <h3>Lens PSF Mode</h3>
+                <p id="psfModeText">
+                  Selected optics default is used unless a diffraction, gaussian proxy, or raytrace PSF
+                  grid mode is selected. Raytrace PSF grid should be treated as the preferred evidence
+                  for surface-derived aberration.
+                </p>
+              </div>
+              <div class="card pad">
+                <h3>Strip Pattern Response</h3>
+                <div class="strip-pattern" aria-label="strip pattern response"></div>
+              </div>
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/distortion_grid_triptych.png" alt="Distortion grid" />
+                <div class="image-caption">
+                  <span>Distortion grid</span>
+                  <span class="badge amber">Geometry check</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="sensor">
+            <div class="grid-3">
+              <div class="card pad">
+                <h3>Sensor QE Curve</h3>
+                <div class="mini-chart">
+                  <div class="curve">
+                    <svg viewBox="0 0 320 150" role="img" aria-label="QE curve">
+                      <path d="M0 130 C40 95, 65 42, 110 30 C150 18, 200 28, 240 58 C280 88, 300 112, 320 128" fill="none" stroke="#34d3ff" stroke-width="4" />
+                      <path d="M0 138 C48 120, 85 60, 130 44 C182 25, 220 54, 268 86 C292 102, 306 120, 320 136" fill="none" stroke="#55d68b" stroke-width="3" />
+                      <path d="M0 144 C42 134, 76 94, 118 66 C164 36, 204 50, 245 86 C282 120, 302 137, 320 145" fill="none" stroke="#ff6b72" stroke-width="3" />
+                    </svg>
+                  </div>
+                </div>
+                <p class="small mt">Illustrative R/G/B QE response. Replace with sensor asset data when available.</p>
+              </div>
+              <div class="card pad">
+                <h3>Sensor Noise</h3>
+                <div class="mini-chart">
+                  <div class="curve">
+                    <svg viewBox="0 0 320 150" role="img" aria-label="sensor noise curve">
+                      <path d="M0 126 C45 118, 80 106, 120 88 C168 66, 220 50, 320 26" fill="none" stroke="#ffc657" stroke-width="4" />
+                      <path d="M0 138 C65 134, 128 122, 185 100 C240 79, 285 55, 320 35" fill="none" stroke="#a98bff" stroke-width="3" stroke-dasharray="8 8" />
+                    </svg>
+                  </div>
+                </div>
+                <p class="small mt">Read noise, shot noise, and saturation should be visible next to image quality output.</p>
+              </div>
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/metrics_color_accuracy_small_patch_triptych.png" alt="Macbeth color response" />
+                <div class="image-caption">
+                  <span>Macbeth response</span>
+                  <span class="badge green">Color evidence</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-2 mt">
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/ip_default_pipeline_input_triptych.png" alt="ISP input" />
+                <div class="image-caption">
+                  <span>ISP input triptych</span>
+                  <span class="badge cyan">Sensor space</span>
+                </div>
+              </div>
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/ip_default_pipeline_result_triptych.png" alt="ISP output" />
+                <div class="image-caption">
+                  <span>ISP output triptych</span>
+                  <span class="badge green">sRGB output</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="output">
+            <div class="grid-2">
+              <div class="image-card">
+                <img
+                  id="liveOutputImage"
+                  src="../assets/camera-e2e/parity/camera_field/camera_default_pipeline_result_triptych.png"
+                  alt="Live result"
+                />
+                <div class="image-caption">
+                  <span>CameraE2E IP sRGB live simulation output</span>
+                  <span class="badge green" id="outputBadge">Completed</span>
+                </div>
+              </div>
+              <div class="card pad">
+                <h3>Live Result</h3>
+                <div class="grid-2">
+                  <div class="metric">
+                    <label>Mean RGB</label>
+                    <strong>0.172 / 0.174 / 0.180</strong>
+                    <span>IP sRGB mean</span>
+                  </div>
+                  <div class="metric">
+                    <label>Runtime</label>
+                    <strong id="runtimeMetric">3694 ms</strong>
+                    <span>mock local run</span>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <p>
+                  In the real workbench, this area should load the generated artifacts from
+                  <code>public/assets/camera-e2e/live-runs</code> and retry image loading until the
+                  runner has finished writing files.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid-2 mt">
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/camera_default_pipeline_sensor_volts_triptych.png" alt="Sensor volts" />
+                <div class="image-caption">
+                  <span>Sensor volts</span>
+                  <span class="badge cyan">Sensor artifact</span>
+                </div>
+              </div>
+              <div class="image-card">
+                <img src="../assets/camera-e2e/parity/camera_field/camera_default_pipeline_oi_photons_triptych.png" alt="OI photons" />
+                <div class="image-caption">
+                  <span>OI photons</span>
+                  <span class="badge violet">Optical image artifact</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="evidence">
+            <div class="grid-2">
+              <div class="card pad">
+                <h3>Adapter Contract</h3>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Stage</th>
+                      <th>Input</th>
+                      <th>Output</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Scene adapter</td>
+                      <td>scene type, FOV, illuminant, target params</td>
+                      <td>scene radiance target</td>
+                    </tr>
+                    <tr>
+                      <td>Lens adapter</td>
+                      <td>lens asset, PSF mode, FOV policy</td>
+                      <td>optical image / OI photons</td>
+                    </tr>
+                    <tr>
+                      <td>Sensor adapter</td>
+                      <td>sensor asset, QE/noise, resolution policy</td>
+                      <td>sensor volts / raw Bayer</td>
+                    </tr>
+                    <tr>
+                      <td>ISP adapter</td>
+                      <td>raw/sensor volts, ISP preset</td>
+                      <td>IP sRGB image</td>
+                    </tr>
+                    <tr>
+                      <td>Perception adapter</td>
+                      <td>IP image plus metadata</td>
+                      <td>detection/fusion-ready objects</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <pre class="log" id="logOutput">[ready] Sinclair CameraE2E execution mock loaded.
+[ready] Select scene, lens, sensor, ISP, and lens physics.
+[note] This HTML file is a UI mock. The React app owns the real Vite endpoint.
+[note] Real detector is not executed in this mock.</pre>
+              </div>
+            </div>
+
+            <div class="card pad warning mt">
+              <h3>Warnings / Adapter Notes</h3>
+              <p>
+                Lens surface PSF and aberration evidence should come from raytrace optics or PSF grid
+                assets. Catalog lens defaults and gaussian PSF are useful for interaction design, but
+                they must not be presented as final optical evidence. Physical validation is still
+                required before production sign-off.
+              </p>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
+      const panels = Array.from(document.querySelectorAll(".tab-panel"));
+      const runButton = document.getElementById("runButton");
+      const resetButton = document.getElementById("resetButton");
+      const progressBar = document.getElementById("progressBar");
+      const runStatus = document.getElementById("runStatus");
+      const metricState = document.getElementById("metricState");
+      const runHint = document.getElementById("runHint");
+      const logOutput = document.getElementById("logOutput");
+      const sceneSelect = document.getElementById("sceneSelect");
+      const lensSelect = document.getElementById("lensSelect");
+      const sensorSelect = document.getElementById("sensorSelect");
+      const ispSelect = document.getElementById("ispSelect");
+      const physicsSelect = document.getElementById("physicsSelect");
+      const resolutionSelect = document.getElementById("resolutionSelect");
+      const configSummary = document.getElementById("configSummary");
+      const sceneTypeCell = document.getElementById("sceneTypeCell");
+      const sceneCaption = document.getElementById("sceneCaption");
+      const scenePreview = document.getElementById("scenePreview");
+      const psfModeText = document.getElementById("psfModeText");
+      const outputBadge = document.getElementById("outputBadge");
+      const runtimeMetric = document.getElementById("runtimeMetric");
+
+      const sceneImages = {
+        "Macbeth 4x6": "../assets/camera-e2e/live/macbeth_smoke.png",
+        "Slanted bar": "../assets/camera-e2e/parity/pipeline_rt_bar_small/isp_edge_crop_triptych.png",
+        "Point array": "../assets/camera-e2e/parity/camera_field/sharpness_point_array_overview.png",
+        "Dead leaves": "../assets/camera-e2e/parity/camera_field/sharpness_crop_triptych.png"
+      };
+
+      function appendLog(line) {
+        logOutput.textContent += "\n" + line;
+        logOutput.scrollTop = logOutput.scrollHeight;
+      }
+
+      function setTab(tabId) {
+        tabButtons.forEach((button) => {
+          const active = button.dataset.tab === tabId;
+          button.setAttribute("aria-selected", String(active));
+        });
+        panels.forEach((panel) => panel.classList.toggle("active", panel.id === tabId));
+      }
+
+      function updateSummary() {
+        const scene = sceneSelect.value;
+        const lens = lensSelect.value;
+        const sensor = sensorSelect.value;
+        const isp = ispSelect.value;
+        const physics = physicsSelect.value;
+        const resolution = resolutionSelect.value;
+        configSummary.textContent =
+          `Scene ${scene} is rendered through ${lens} optics with ${physics}, sampled by ` +
+          `${sensor}, then processed by ${isp}. Resolution policy: ${resolution}.`;
+        sceneTypeCell.textContent = scene;
+        sceneCaption.textContent = `${scene} preview`;
+        scenePreview.src = sceneImages[scene] || sceneImages["Macbeth 4x6"];
+        psfModeText.textContent =
+          `${physics} is selected for the optics stage. Use raytrace PSF grid for surface-derived ` +
+          `aberration evidence; use gaussian or diffraction modes only as proxy/diagnostic modes.`;
+      }
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => setTab(button.dataset.tab));
+      });
+
+      [sceneSelect, lensSelect, sensorSelect, ispSelect, physicsSelect, resolutionSelect].forEach((input) => {
+        input.addEventListener("change", () => {
+          updateSummary();
+          appendLog(`[config] ${input.id.replace("Select", "")}: ${input.value}`);
+        });
+      });
+
+      runButton.addEventListener("click", () => {
+        progressBar.style.width = "0%";
+        runStatus.textContent = "Running";
+        metricState.textContent = "Running";
+        outputBadge.textContent = "Running";
+        outputBadge.className = "badge amber";
+        runHint.textContent = "Executing mock pipeline: scene -> lens -> sensor -> ISP -> proxy.";
+        appendLog("[run] requested CameraE2E mock simulation");
+        appendLog(`[run] scene=${sceneSelect.value}; lens=${lensSelect.value}; sensor=${sensorSelect.value}`);
+        appendLog(`[run] isp=${ispSelect.value}; physics=${physicsSelect.value}; resolution=${resolutionSelect.value}`);
+        const steps = [
+          [20, "[scene] radiance target resolved"],
+          [38, "[lens] optical image / PSF stage completed"],
+          [58, "[sensor] volts and noise model completed"],
+          [76, "[isp] sRGB output generated"],
+          [92, "[perception] proxy confidence computed"],
+          [100, "[done] mock run completed"]
+        ];
+        steps.forEach(([percent, message], index) => {
+          window.setTimeout(() => {
+            progressBar.style.width = percent + "%";
+            appendLog(message);
+            if (percent === 100) {
+              runStatus.textContent = "Completed";
+              metricState.textContent = "Completed";
+              outputBadge.textContent = "Completed";
+              outputBadge.className = "badge green";
+              runtimeMetric.textContent = `${3200 + Math.round(Math.random() * 900)} ms`;
+              runHint.textContent = "Mock run completed. Review output, optics, sensor/ISP, and logs tabs.";
+            }
+          }, 260 + index * 360);
+        });
+      });
+
+      resetButton.addEventListener("click", () => {
+        progressBar.style.width = "0%";
+        runStatus.textContent = "Ready";
+        metricState.textContent = "Ready";
+        outputBadge.textContent = "Completed";
+        outputBadge.className = "badge green";
+        runHint.textContent = "Ready to execute a local mock run.";
+        logOutput.textContent = "[ready] Sinclair CameraE2E execution mock loaded.";
+        updateSummary();
+      });
+
+      updateSummary();
+    </script>
+  </body>
+</html>

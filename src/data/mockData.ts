@@ -16,6 +16,17 @@ import type {
   Template,
   Workspace,
 } from "../types/domain";
+import radarsimpyWorkbenchData from "./radarsimpyWorkbenchData.json";
+
+const radarSimPyWorkbenchData = radarsimpyWorkbenchData as Pick<
+  RadarWorkbenchModel,
+  | "radarsimpyAdapter"
+  | "radarsimpyFunctions"
+  | "rangeDopplerCfar"
+  | "rocPd"
+  | "doaSpectrum"
+  | "signalProcessingChain"
+>;
 
 export const sensorLabels: Record<SensorType, string> = {
   camera: "Camera",
@@ -1130,6 +1141,12 @@ export const radarWorkbenchModel: RadarWorkbenchModel = {
     { label: "Latency p95", value: "+6ms", delta: "FFT + tracking", tone: "warn" },
     { label: "Pedestrian recall", value: "-1.1%", delta: "low RCS", tone: "bad" },
   ],
+  radarsimpyAdapter: radarSimPyWorkbenchData.radarsimpyAdapter,
+  radarsimpyFunctions: radarSimPyWorkbenchData.radarsimpyFunctions,
+  rangeDopplerCfar: radarSimPyWorkbenchData.rangeDopplerCfar,
+  rocPd: radarSimPyWorkbenchData.rocPd,
+  doaSpectrum: radarSimPyWorkbenchData.doaSpectrum,
+  signalProcessingChain: radarSimPyWorkbenchData.signalProcessingChain,
   configChanges: [
     {
       group: "RF / Antenna",

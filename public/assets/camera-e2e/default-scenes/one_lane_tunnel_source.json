@@ -1,0 +1,6 @@
+{
+  "title": "One lane tunnel",
+  "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/One%20lane%20tunnel.jpg",
+  "localFile": "one_lane_tunnel_1024.jpg",
+  "usage": "Example RGB road scene for CameraE2E scene_from_file pipeline tests."
+}

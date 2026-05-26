@@ -1,0 +1,6 @@
+{
+  "title": "City street",
+  "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/City%20street.jpg",
+  "localFile": "city_street_bethesda_1280.jpg",
+  "usage": "Example RGB road scene for CameraE2E scene_from_file pipeline tests."
+}

@@ -1,0 +1,61 @@
+{
+  "class": "guardrail",
+  "defaultAspectSweepDeg": [
+    -80,
+    -60,
+    -40,
+    -20,
+    0,
+    20,
+    40,
+    60,
+    80
+  ],
+  "dimensionsM": {
+    "height": 0.98,
+    "length": 12.0,
+    "width": 0.22
+  },
+  "fidelity": "canonical_mesh_estimate",
+  "id": "canonical_guardrail_v1",
+  "license": "project-generated-no-external-asset-dependency",
+  "limitations": [
+    "Not measured RCS data.",
+    "Not high-fidelity automotive CAD.",
+    "Raw sim_rcs absolute magnitude is not validated as physical truth for these canonical meshes.",
+    "No radome, ground multipath, pose articulation, or material-layer model.",
+    "Use for fast design estimates before measured or ray-traced assets are connected."
+  ],
+  "materialPreset": "metal_guardrail_pec_like",
+  "mesh": "infrastructure/canonical_guardrail_v1.obj",
+  "metadata": "infrastructure/canonical_guardrail_v1.json",
+  "nominalRcsDbsm": -5.0,
+  "notes": "Long rail segment with posts. Useful for ghost/multipath scenario setup.",
+  "permittivity": null,
+  "radarsim": {
+    "engine": "radarsimpy_whitebox.sim_rcs",
+    "recommendedFrequencyHz": 77000000000.0,
+    "targetTemplate": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "model": "infrastructure/canonical_guardrail_v1.obj",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0
+    }
+  },
+  "rcsUsagePolicy": {
+    "calibrationDbsmAtBroadside": -5.0,
+    "futureUpgrade": "Replace nominalRcsDbsm with measured RCS tables or validated ray-traced RCS distributions.",
+    "rawSimRcsAbsoluteDbsm": "not_validated_for_physical_truth",
+    "recommended": "Use RadarSim sim_rcs for aspect-angle response shape, then normalize to nominalRcsDbsm until measured or validated CAD/material data is available."
+  },
+  "source": "sinclair_synthetic_canonical_mesh",
+  "units": "meters"
+}

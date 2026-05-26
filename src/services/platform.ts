@@ -18,6 +18,8 @@ import type {
   CameraE2EIntegration,
   CameraSimulationRequest,
   CameraSimulationResult,
+  RadarSimulationRequest,
+  RadarSimulationResult,
   SensorType,
 } from "../types/domain";
 
@@ -81,13 +83,53 @@ export async function runCameraE2ESimulation(request: CameraSimulationRequest): 
   });
   const payload = (await response.json()) as CameraSimulationResult;
   if (!response.ok || payload.status === "failed") {
-    throw new Error(payload.reason ?? payload.stderr ?? "CameraE2E simulation failed");
+    throw new Error(payload.reason ?? payload.error ?? payload.stderr ?? "CameraE2E simulation failed");
   }
   return payload;
 }
 
+async function getCameraE2EDefaultResult(runId: string): Promise<CameraSimulationResult | null> {
+  try {
+    const response = await fetch(`/assets/camera-e2e/${runId}/result.json`, { cache: "no-store" });
+    if (!response.ok) {
+      return null;
+    }
+    const payload = (await response.json()) as CameraSimulationResult;
+    return { ...payload, resultOrigin: "precomputedDefault" };
+  } catch {
+    return null;
+  }
+}
+
+export async function getCameraE2EDefaultStackResult(): Promise<CameraSimulationResult | null> {
+  return getCameraE2EDefaultResult("default-stack-characterization");
+}
+
+export async function getCameraE2EDefaultEvaluationResult(): Promise<CameraSimulationResult | null> {
+  return getCameraE2EDefaultResult("default-camera-validation");
+}
+
+export async function getCameraE2EDefaultPipelineResult(): Promise<CameraSimulationResult | null> {
+  return getCameraE2EDefaultResult("default-baseline");
+}
+
 export function getRadarWorkbenchModel() {
   return radarWorkbenchModel;
+}
+
+export async function runRadarSimSimulation(request: RadarSimulationRequest): Promise<RadarSimulationResult> {
+  const response = await fetch("/api/radar-sim/run", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+  const payload = (await response.json()) as RadarSimulationResult;
+  if (!response.ok || payload.status === "failed") {
+    throw new Error(payload.reason ?? payload.error ?? payload.stderr ?? "RadarSim simulation failed");
+  }
+  return payload;
 }
 
 export function getLidarWorkbenchModel() {

@@ -1,0 +1,1963 @@
+{
+  "schemaVersion": 1,
+  "runId": "default-camera-validation",
+  "runMode": "cameraEvaluation",
+  "status": "completed",
+  "createdAt": "2026-05-25T02:36:04.729473+00:00",
+  "elapsedMs": 4031.884,
+  "request": {
+    "runId": "default-camera-validation",
+    "runMode": "cameraEvaluation",
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "scene": {
+      "geometryMode": "angularFov",
+      "type": "rgb image",
+      "patchSize": 8,
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24,
+      "fovDeg": 60,
+      "luminanceCdM2": 240
+    },
+    "lens": {
+      "fovAuthority": "numericOptics",
+      "fNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "hfovDeg": 60,
+      "transmittanceScale": 0.92
+    },
+    "lensPhysics": {
+      "mode": "none",
+      "gaussianSpreadUm": 2.5,
+      "xyRatio": 1,
+      "aberrationPixels": 0,
+      "defocusDiopters": 1.25,
+      "psfAngleStepDeg": 30
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "rows": 384,
+      "cols": 512,
+      "pixelSizeUm": 2.8,
+      "exposureMs": 16,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "readNoiseMv": 2.1,
+      "qeScale": 1,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps",
+      "applyToImage": false,
+      "nFrames": 4,
+      "fps": 30,
+      "lineTimeUs": 15.2,
+      "exposureTimeUs": 8000,
+      "aeEnabled": true,
+      "awbEnabled": true,
+      "aeApplyDelayFrames": 2,
+      "awbApplyDelayFrames": 2,
+      "targetLuma": 0.18,
+      "requestQueueDepth": 4,
+      "maxBuffers": 6,
+      "globalLatencyFactor": 1
+    },
+    "perception": {
+      "model": "ultralytics_yolo11n_detection",
+      "inputSize": "640x384",
+      "confidenceThreshold": 0.25,
+      "nmsThreshold": 0.5
+    }
+  },
+  "applied": [
+    "scene.sourceImage=/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+    "scene.type=rgb image",
+    "scene.fovDeg=60",
+    "scene.luminanceCdM2=240",
+    "lens.fNumber=2.8",
+    "lens.focalLengthMm=1.24",
+    "lens.hfovDeg.deferredToFovAuthority=numericOptics",
+    "lens.transmittanceScale=0.92",
+    "sensor.size=384x512",
+    "sensor.pixelSizeUm=2.8",
+    "sensor.exposureMs=16",
+    "sensor.analogGain=1.8",
+    "sensor.noiseFlag=2",
+    "sensor.readNoiseMv=2.1",
+    "sensor.qeScale=1",
+    "sensor.bitDepth=12",
+    "isp.demosaicMethod=bilinear",
+    "isp.sensorConversionMethod=mcc optimized",
+    "isp.internalColorSpace=xyz",
+    "isp.illuminantCorrection=gray world",
+    "isp.renderScale=True",
+    "fov.authority.numericOptics.hfovDeg=60.06",
+    "lens.physics.mode=selectedOpticsDefault",
+    "sensor.fitMode=preserveResolution"
+  ],
+  "warnings": [],
+  "summaries": {
+    "scene": {
+      "type": "rgb image",
+      "geometryMode": "angularFov",
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24.0,
+      "physicalHfovDeg": 1.671,
+      "physicalVfovDeg": 4.0568,
+      "size": [
+        960,
+        1280
+      ],
+      "fovDeg": 60.0,
+      "requestedFovDeg": 60.0,
+      "fovPolicy": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context."
+    },
+    "lens": {
+      "source": "generated/default optics",
+      "numericPolicy": "numeric lens controls applied before physics mode",
+      "fNumber": 2.8,
+      "requestedFNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "requestedFocalLengthMm": 1.24,
+      "hfovDeg": 60.06136601771013,
+      "oiReportedFovDeg": 60.06136601771013,
+      "requestedTransmittanceScale": 0.92,
+      "requestedHfovDeg": 60.0,
+      "hfovDeltaDeg": 0.0614
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "numericPolicy": "sensor asset/reference is loaded first; numeric sensor controls override pixel, exposure, noise, QE, and bit depth.",
+      "resizePolicy": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "size": [
+        384,
+        512
+      ],
+      "requestedSize": [
+        384,
+        512
+      ],
+      "pixelSizeUm": [
+        2.8,
+        2.8
+      ],
+      "requestedPixelSizeUm": 2.8,
+      "exposureMs": 16.0,
+      "requestedExposureMs": 16.0,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps"
+    },
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "physics": {
+      "mode": "none",
+      "resolvedOpticsModel": "diffractionlimited",
+      "resolvedComputeMethod": "opticsotf",
+      "usedParameters": "none; selected optics default"
+    },
+    "resolution": {
+      "scene": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context.",
+      "lens": "numeric lens controls applied before physics mode",
+      "physics": "selected optics default; no extra synthetic physics mode",
+      "sensor": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "outputImageShape": [
+        0,
+        0,
+        3
+      ]
+    },
+    "fovLedger": {
+      "authorityRequested": "numericOptics",
+      "authorityResolved": "numericOptics",
+      "sceneGeometryMode": "angularFov",
+      "scenePhysicalHfovDeg": 1.671,
+      "scenePhysicalVfovDeg": 4.0568,
+      "cameraE2eSceneFovDeg": 60.0,
+      "lensOiResolvedHfovDeg": 60.0614,
+      "oiReportedFovDeg": 60.0614,
+      "manualHfovTargetDeg": 60.0,
+      "sensorActiveWidthMm": 1.4336,
+      "focalLengthMm": 1.24,
+      "targetImageWidthMm": 0.036167,
+      "targetImageWidthPx": 12.92,
+      "physicalHfovFromSensorAndFocalDeg": 60.0614,
+      "requestedPhysicalHfovDeg": 60.0614,
+      "samplingPxPerDeg": 8.5246,
+      "raytraceDiagonalLimitDeg": "",
+      "status": "clean",
+      "notes": "No FOV conflicts detected."
+    }
+  },
+  "metrics": {
+    "staticCamera": {
+      "protocolVersion": "static-camera-e2e-functions-v2",
+      "provenance": "Camera Validation uses Standard Chart Fit framing so Macbeth, slanted-bar, uniform, dead-leaves, point-array, and harmonic targets occupy stable metric regions. CameraE2E headless metric functions are used where available: camera_mtf, camera_color_accuracy, camera_vsnr, sensor_snr, and raytrace PSF helpers. Dead-leaves and harmonic response remain image-derived estimates until dedicated CameraE2E metric functions are exposed. Physical ODD target size/distance is preserved only in the Selected Scene Pipeline run.",
+      "primaryScene": "rgb image",
+      "summary": [
+        {
+          "label": "MTF50",
+          "value": "92.600",
+          "unit": "cycles/mm",
+          "source": "slanted bar"
+        },
+        {
+          "label": "Color DeltaE",
+          "value": "17.273",
+          "unit": "",
+          "source": "Macbeth"
+        },
+        {
+          "label": "Sensor SNR",
+          "value": "39.8",
+          "unit": "dB",
+          "source": "uniform ee"
+        },
+        {
+          "label": "Texture retention",
+          "value": "0.4",
+          "unit": "%",
+          "source": "dead leaves"
+        },
+        {
+          "label": "PSF width",
+          "value": "25.070",
+          "unit": "px",
+          "source": "point array"
+        },
+        {
+          "label": "Frequency response",
+          "value": "0.3",
+          "unit": "%",
+          "source": "harmonic"
+        }
+      ],
+      "tests": [
+        {
+          "scene": "macbeth",
+          "purpose": "Color reproduction, neutral balance, clipping",
+          "source": "CameraE2E chart render \u00b7 standard chart fit + CameraE2E metric function",
+          "status": "completed",
+          "artifactKey": "chart_macbeth",
+          "metrics": [
+            {
+              "label": "DeltaE mean",
+              "value": "17.273",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "camera_color_accuracy Macbeth mean Delta E."
+            },
+            {
+              "label": "DeltaE max",
+              "value": "23.676",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Worst Macbeth patch Delta E."
+            },
+            {
+              "label": "White point error",
+              "value": "0.303",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Normalized measured-vs-ideal Macbeth white XYZ error."
+            }
+          ],
+          "charts": [
+            {
+              "id": "camera_e2e_macbeth_delta_e",
+              "title": "CameraE2E Macbeth color error",
+              "description": "camera_color_accuracy() patch-level Delta E with measured and ideal Y response.",
+              "kind": "bar",
+              "xKey": "patch",
+              "xLabel": "Macbeth patch",
+              "yLabel": "Delta E / Y",
+              "data": [
+                {
+                  "patch": "P1",
+                  "deltaE": 8.556,
+                  "measuredY": 15.111,
+                  "idealY": 12.81
+                },
+                {
+                  "patch": "P2",
+                  "deltaE": 15.736,
+                  "measuredY": 40.509,
+                  "idealY": 36.903
+                },
+                {
+                  "patch": "P3",
+                  "deltaE": 15.173,
+                  "measuredY": 13.104,
+                  "idealY": 8.321
+                },
+                {
+                  "patch": "P4",
+                  "deltaE": 20.13,
+                  "measuredY": 100.0,
+                  "idealY": 100.0
+                },
+                {
+                  "patch": "P5",
+                  "deltaE": 21.026,
+                  "measuredY": 58.231,
+                  "idealY": 45.772
+                },
+                {
+                  "patch": "P6",
+                  "deltaE": 19.845,
+                  "measuredY": 27.934,
+                  "idealY": 17.713
+                },
+                {
+                  "patch": "P7",
+                  "deltaE": 16.621,
+                  "measuredY": 41.47,
+                  "idealY": 27.069
+                },
+                {
+                  "patch": "P8",
+                  "deltaE": 20.878,
+                  "measuredY": 84.956,
+                  "idealY": 66.452
+                },
+                {
+                  "patch": "P9",
+                  "deltaE": 20.797,
+                  "measuredY": 35.178,
+                  "idealY": 23.799
+                },
+                {
+                  "patch": "P10",
+                  "deltaE": 20.25,
+                  "measuredY": 39.841,
+                  "idealY": 23.588
+                },
+                {
+                  "patch": "P11",
+                  "deltaE": 23.52,
+                  "measuredY": 30.859,
+                  "idealY": 14.185
+                },
+                {
+                  "patch": "P12",
+                  "deltaE": 20.252,
+                  "measuredY": 58.105,
+                  "idealY": 39.866
+                },
+                {
+                  "patch": "P13",
+                  "deltaE": 14.098,
+                  "measuredY": 23.972,
+                  "idealY": 15.2
+                },
+                {
+                  "patch": "P14",
+                  "deltaE": 16.555,
+                  "measuredY": 20.026,
+                  "idealY": 8.791
+                },
+                {
+                  "patch": "P15",
+                  "deltaE": 19.693,
+                  "measuredY": 108.768,
+                  "idealY": 65.862
+                },
+                {
+                  "patch": "P16",
+                  "deltaE": 16.227,
+                  "measuredY": 32.136,
+                  "idealY": 21.275
+                },
+                {
+                  "patch": "P17",
+                  "deltaE": 16.216,
+                  "measuredY": 39.186,
+                  "idealY": 28.375
+                },
+                {
+                  "patch": "P18",
+                  "deltaE": 16.486,
+                  "measuredY": 63.632,
+                  "idealY": 43.076
+                },
+                {
+                  "patch": "P19",
+                  "deltaE": 16.442,
+                  "measuredY": 34.828,
+                  "idealY": 21.089
+                },
+                {
+                  "patch": "P20",
+                  "deltaE": 11.331,
+                  "measuredY": 12.763,
+                  "idealY": 9.58
+                },
+                {
+                  "patch": "P21",
+                  "deltaE": 19.433,
+                  "measuredY": 49.449,
+                  "idealY": 48.372
+                },
+                {
+                  "patch": "P22",
+                  "deltaE": 12.795,
+                  "measuredY": 51.83,
+                  "idealY": 45.814
+                },
+                {
+                  "patch": "P23",
+                  "deltaE": 23.676,
+                  "measuredY": 26.697,
+                  "idealY": 21.863
+                },
+                {
+                  "patch": "P24",
+                  "deltaE": 8.81,
+                  "measuredY": 5.412,
+                  "idealY": 4.991
+                }
+              ],
+              "series": [
+                {
+                  "key": "deltaE",
+                  "label": "Delta E",
+                  "color": "#00e5ff"
+                },
+                {
+                  "key": "measuredY",
+                  "label": "Measured Y",
+                  "color": "#f2c85b"
+                },
+                {
+                  "key": "idealY",
+                  "label": "Ideal Y",
+                  "color": "#a568ff"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 10.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_macbeth.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_macbeth.png"
+          }
+        },
+        {
+          "scene": "slanted bar",
+          "purpose": "Sharpness and ISO 12233 MTF",
+          "source": "CameraE2E chart render \u00b7 standard chart fit + CameraE2E metric function",
+          "status": "completed",
+          "artifactKey": "chart_slanted_bar",
+          "metrics": [
+            {
+              "label": "MTF50",
+              "value": "92.600",
+              "unit": "cycles/mm",
+              "status": "CameraE2E",
+              "description": "camera_mtf ISO 12233 slanted-edge result."
+            },
+            {
+              "label": "Nyquist",
+              "value": "178.571",
+              "unit": "cycles/mm",
+              "status": "CameraE2E",
+              "description": "camera_mtf Nyquist frequency."
+            },
+            {
+              "label": "Aliasing",
+              "value": "16.9",
+              "unit": "%",
+              "status": "CameraE2E",
+              "description": "camera_mtf aliasing percentage."
+            },
+            {
+              "label": "Acutance",
+              "value": "0.218",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "camera_acutance ISO/CPIQ weighted luminance MTF."
+            }
+          ],
+          "charts": [
+            {
+              "id": "camera_e2e_mtf",
+              "title": "CameraE2E MTF by spatial frequency",
+              "description": "camera_mtf() ISO 12233 slanted-edge response. Frequency is reported in cycles/mm.",
+              "kind": "line",
+              "xKey": "frequency",
+              "xLabel": "cycles / mm",
+              "yLabel": "MTF",
+              "data": [
+                {
+                  "frequency": 0.0,
+                  "red": 1.0,
+                  "green": 1.0,
+                  "blue": 1.0,
+                  "luma": 1.0
+                },
+                {
+                  "frequency": 27.473,
+                  "red": 0.9098,
+                  "green": 0.9402,
+                  "blue": 0.8924,
+                  "luma": 0.9317
+                },
+                {
+                  "frequency": 54.945,
+                  "red": 0.7137,
+                  "green": 0.8004,
+                  "blue": 0.6265,
+                  "luma": 0.7641
+                },
+                {
+                  "frequency": 82.418,
+                  "red": 0.4882,
+                  "green": 0.6329,
+                  "blue": 0.3556,
+                  "luma": 0.5709
+                },
+                {
+                  "frequency": 109.89,
+                  "red": 0.2913,
+                  "green": 0.4518,
+                  "blue": 0.1455,
+                  "luma": 0.3781
+                },
+                {
+                  "frequency": 137.363,
+                  "red": 0.1564,
+                  "green": 0.2927,
+                  "blue": 0.0621,
+                  "luma": 0.2281
+                },
+                {
+                  "frequency": 164.835,
+                  "red": 0.0662,
+                  "green": 0.1949,
+                  "blue": 0.0437,
+                  "luma": 0.1372
+                },
+                {
+                  "frequency": 192.308,
+                  "red": 0.023,
+                  "green": 0.1327,
+                  "blue": 0.0474,
+                  "luma": 0.0918
+                },
+                {
+                  "frequency": 219.78,
+                  "red": 0.0737,
+                  "green": 0.1047,
+                  "blue": 0.095,
+                  "luma": 0.0539
+                },
+                {
+                  "frequency": 247.253,
+                  "red": 0.1245,
+                  "green": 0.1256,
+                  "blue": 0.1287,
+                  "luma": 0.0383
+                },
+                {
+                  "frequency": 274.725,
+                  "red": 0.1431,
+                  "green": 0.1664,
+                  "blue": 0.143,
+                  "luma": 0.0503
+                },
+                {
+                  "frequency": 302.198,
+                  "red": 0.1171,
+                  "green": 0.1519,
+                  "blue": 0.1423,
+                  "luma": 0.0375
+                },
+                {
+                  "frequency": 329.67,
+                  "red": 0.1228,
+                  "green": 0.1229,
+                  "blue": 0.1528,
+                  "luma": 0.0237
+                },
+                {
+                  "frequency": 357.143,
+                  "red": 0.1553,
+                  "green": 0.0716,
+                  "blue": 0.1867,
+                  "luma": 0.1025
+                }
+              ],
+              "series": [
+                {
+                  "key": "red",
+                  "label": "R",
+                  "color": "#fb7185"
+                },
+                {
+                  "key": "green",
+                  "label": "G",
+                  "color": "#2ef5a9"
+                },
+                {
+                  "key": "blue",
+                  "label": "B",
+                  "color": "#60a5fa"
+                },
+                {
+                  "key": "luma",
+                  "label": "Luma",
+                  "color": "#f2c85b"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 8.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_slanted_bar.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_slanted_bar.png"
+          }
+        },
+        {
+          "scene": "dead leaves",
+          "purpose": "Texture preservation and denoise/ISP smoothing",
+          "source": "CameraE2E chart render \u00b7 standard chart fit",
+          "status": "completed",
+          "artifactKey": "chart_dead_leaves",
+          "metrics": [
+            {
+              "label": "Texture retention",
+              "value": "0.4",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Dead-leaves high-frequency retention from rendered output."
+            },
+            {
+              "label": "Acutance",
+              "value": "0.5",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Texture edge contrast from rendered output."
+            },
+            {
+              "label": "Saturation",
+              "value": "0.0",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Clipped pixels in rendered output."
+            }
+          ],
+          "charts": [
+            {
+              "id": "textureEnergy",
+              "title": "Dead-leaves texture spectrum",
+              "description": "Normalized high-frequency texture retention. Useful for denoise/sharpening trade-offs.",
+              "kind": "area",
+              "xKey": "frequency",
+              "xLabel": "cycles / pixel",
+              "yLabel": "normalized response",
+              "data": [
+                {
+                  "frequency": 0.014,
+                  "textureEnergy": 1.0
+                },
+                {
+                  "frequency": 0.042,
+                  "textureEnergy": 0.025
+                },
+                {
+                  "frequency": 0.069,
+                  "textureEnergy": 0.006
+                },
+                {
+                  "frequency": 0.097,
+                  "textureEnergy": 0.002
+                },
+                {
+                  "frequency": 0.125,
+                  "textureEnergy": 0.001
+                },
+                {
+                  "frequency": 0.153,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.181,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.208,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.236,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.264,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.292,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.319,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.347,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.375,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.403,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.431,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.458,
+                  "textureEnergy": 0.0
+                },
+                {
+                  "frequency": 0.486,
+                  "textureEnergy": 0.0
+                }
+              ],
+              "series": [
+                {
+                  "key": "textureEnergy",
+                  "label": "Dead-leaves texture spectrum",
+                  "color": "#00e5ff"
+                }
+              ]
+            },
+            {
+              "id": "tone_histogram",
+              "title": "Output tone distribution",
+              "description": "Final sRGB luma occupancy and channel balance after ISP.",
+              "kind": "bar",
+              "xKey": "bin",
+              "xLabel": "sRGB luma bin",
+              "yLabel": "% pixels / channel mean",
+              "data": [
+                {
+                  "bin": "0.00-0.08",
+                  "lumaPct": 96.74,
+                  "redMean": 0.65,
+                  "greenMean": 0.9,
+                  "blueMean": 1.06
+                },
+                {
+                  "bin": "0.08-0.17",
+                  "lumaPct": 0.17,
+                  "redMean": 13.9,
+                  "greenMean": 9.77,
+                  "blueMean": 12.32
+                },
+                {
+                  "bin": "0.17-0.25",
+                  "lumaPct": 0.21,
+                  "redMean": 22.59,
+                  "greenMean": 20.57,
+                  "blueMean": 21.69
+                },
+                {
+                  "bin": "0.25-0.33",
+                  "lumaPct": 1.43,
+                  "redMean": 28.92,
+                  "greenMean": 26.79,
+                  "blueMean": 28.29
+                },
+                {
+                  "bin": "0.33-0.42",
+                  "lumaPct": 0.26,
+                  "redMean": 38.39,
+                  "greenMean": 35.91,
+                  "blueMean": 38.68
+                },
+                {
+                  "bin": "0.42-0.50",
+                  "lumaPct": 0.33,
+                  "redMean": 47.01,
+                  "greenMean": 43.75,
+                  "blueMean": 45.24
+                },
+                {
+                  "bin": "0.50-0.58",
+                  "lumaPct": 0.24,
+                  "redMean": 55.39,
+                  "greenMean": 52.94,
+                  "blueMean": 54.2
+                },
+                {
+                  "bin": "0.58-0.67",
+                  "lumaPct": 0.44,
+                  "redMean": 63.66,
+                  "greenMean": 59.85,
+                  "blueMean": 61.53
+                },
+                {
+                  "bin": "0.67-0.75",
+                  "lumaPct": 0.18,
+                  "redMean": 70.51,
+                  "greenMean": 66.05,
+                  "blueMean": 68.56
+                },
+                {
+                  "bin": "0.75-0.83",
+                  "lumaPct": 0.0,
+                  "redMean": 0.0,
+                  "greenMean": 0.0,
+                  "blueMean": 0.0
+                },
+                {
+                  "bin": "0.83-0.92",
+                  "lumaPct": 0.0,
+                  "redMean": 0.0,
+                  "greenMean": 0.0,
+                  "blueMean": 0.0
+                },
+                {
+                  "bin": "0.92-1.00",
+                  "lumaPct": 0.0,
+                  "redMean": 0.0,
+                  "greenMean": 0.0,
+                  "blueMean": 0.0
+                }
+              ],
+              "series": [
+                {
+                  "key": "lumaPct",
+                  "label": "Luma occupancy",
+                  "color": "#00e5ff",
+                  "unit": "%"
+                },
+                {
+                  "key": "redMean",
+                  "label": "R mean",
+                  "color": "#fb7185",
+                  "unit": "%"
+                },
+                {
+                  "key": "greenMean",
+                  "label": "G mean",
+                  "color": "#2ef5a9",
+                  "unit": "%"
+                },
+                {
+                  "key": "blueMean",
+                  "label": "B mean",
+                  "color": "#60a5fa",
+                  "unit": "%"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 10.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_dead_leaves.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_dead_leaves.png"
+          }
+        },
+        {
+          "scene": "uniform ee",
+          "purpose": "Camera VSNR, sensor SNR, uniformity, saturation",
+          "source": "CameraE2E chart render \u00b7 standard chart fit + CameraE2E metric function",
+          "status": "completed",
+          "artifactKey": "chart_uniform_ee",
+          "metrics": [
+            {
+              "label": "Peak spectral QE",
+              "value": "0.386",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Peak active sensor spectral QE after CFA/QE/IR/numeric scaling."
+            },
+            {
+              "label": "Mean spectral QE",
+              "value": "0.106",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Mean active sensor spectral QE over wavelength and channels."
+            },
+            {
+              "label": "QE channels",
+              "value": "3.000",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "Number of active spectral response channels."
+            },
+            {
+              "label": "Sensor SNR max",
+              "value": "39.8",
+              "unit": "dB",
+              "status": "CameraE2E",
+              "description": "sensor_snr at high voltage response."
+            },
+            {
+              "label": "Voltage swing sample",
+              "value": "1.000",
+              "unit": "V",
+              "status": "CameraE2E",
+              "description": "Highest sampled response voltage."
+            },
+            {
+              "label": "VSNR @ 100",
+              "value": "0.232",
+              "unit": "",
+              "status": "CameraE2E",
+              "description": "camera_vsnr value at the brightest validation level."
+            }
+          ],
+          "charts": [
+            {
+              "id": "camera_e2e_sensor_qe",
+              "title": "CameraE2E active sensor QE spectral response",
+              "description": "sensor_get(sensor, 'spectral qe') after selected sensor constructor, spectral/QE asset, IR filter, and numeric QE scale are applied.",
+              "kind": "line",
+              "xKey": "wavelength",
+              "xLabel": "wavelength nm",
+              "yLabel": "active QE",
+              "data": [
+                {
+                  "wavelength": 400.0,
+                  "ch1": 0.01402,
+                  "ch2": 0.00548,
+                  "ch3": 0.0089
+                },
+                {
+                  "wavelength": 410.0,
+                  "ch1": 0.01027,
+                  "ch2": 0.00861,
+                  "ch3": 0.06367
+                },
+                {
+                  "wavelength": 420.0,
+                  "ch1": 0.00923,
+                  "ch2": 0.01514,
+                  "ch3": 0.14026
+                },
+                {
+                  "wavelength": 430.0,
+                  "ch1": 0.00918,
+                  "ch2": 0.02748,
+                  "ch3": 0.18864
+                },
+                {
+                  "wavelength": 440.0,
+                  "ch1": 0.00451,
+                  "ch2": 0.02557,
+                  "ch3": 0.21943
+                },
+                {
+                  "wavelength": 450.0,
+                  "ch1": 0.00514,
+                  "ch2": 0.01481,
+                  "ch3": 0.2402
+                },
+                {
+                  "wavelength": 460.0,
+                  "ch1": 0.0089,
+                  "ch2": 0.02657,
+                  "ch3": 0.26223
+                },
+                {
+                  "wavelength": 470.0,
+                  "ch1": 0.00713,
+                  "ch2": 0.03616,
+                  "ch3": 0.28759
+                },
+                {
+                  "wavelength": 480.0,
+                  "ch1": 0.00325,
+                  "ch2": 0.01564,
+                  "ch3": 0.29077
+                },
+                {
+                  "wavelength": 490.0,
+                  "ch1": 0.00214,
+                  "ch2": 0.00814,
+                  "ch3": 0.26705
+                },
+                {
+                  "wavelength": 500.0,
+                  "ch1": 0.00778,
+                  "ch2": 0.06053,
+                  "ch3": 0.21661
+                },
+                {
+                  "wavelength": 510.0,
+                  "ch1": 0.01464,
+                  "ch2": 0.15918,
+                  "ch3": 0.14295
+                },
+                {
+                  "wavelength": 520.0,
+                  "ch1": 0.02967,
+                  "ch2": 0.25541,
+                  "ch3": 0.07691
+                },
+                {
+                  "wavelength": 530.0,
+                  "ch1": 0.04033,
+                  "ch2": 0.32269,
+                  "ch3": 0.03361
+                },
+                {
+                  "wavelength": 540.0,
+                  "ch1": 0.02474,
+                  "ch2": 0.34779,
+                  "ch3": 0.01061
+                },
+                {
+                  "wavelength": 550.0,
+                  "ch1": 0.00543,
+                  "ch2": 0.34035,
+                  "ch3": 0.00201
+                },
+                {
+                  "wavelength": 560.0,
+                  "ch1": 0.01847,
+                  "ch2": 0.30818,
+                  "ch3": 0.00092
+                },
+                {
+                  "wavelength": 570.0,
+                  "ch1": 0.07857,
+                  "ch2": 0.24943,
+                  "ch3": 0.00127
+                },
+                {
+                  "wavelength": 580.0,
+                  "ch1": 0.16617,
+                  "ch2": 0.18474,
+                  "ch3": 0.00104
+                },
+                {
+                  "wavelength": 590.0,
+                  "ch1": 0.25683,
+                  "ch2": 0.11449,
+                  "ch3": 0.00058
+                },
+                {
+                  "wavelength": 600.0,
+                  "ch1": 0.32108,
+                  "ch2": 0.06153,
+                  "ch3": 0.00026
+                },
+                {
+                  "wavelength": 610.0,
+                  "ch1": 0.35569,
+                  "ch2": 0.02443,
+                  "ch3": 0.00019
+                },
+                {
+                  "wavelength": 620.0,
+                  "ch1": 0.37059,
+                  "ch2": 0.0073,
+                  "ch3": 0.00018
+                },
+                {
+                  "wavelength": 630.0,
+                  "ch1": 0.373,
+                  "ch2": 0.00148,
+                  "ch3": 0.00017
+                },
+                {
+                  "wavelength": 640.0,
+                  "ch1": 0.37376,
+                  "ch2": 0.00193,
+                  "ch3": 0.00016
+                },
+                {
+                  "wavelength": 650.0,
+                  "ch1": 0.37556,
+                  "ch2": 0.00391,
+                  "ch3": 0.00022
+                },
+                {
+                  "wavelength": 660.0,
+                  "ch1": 0.37474,
+                  "ch2": 0.00473,
+                  "ch3": 0.00031
+                },
+                {
+                  "wavelength": 670.0,
+                  "ch1": 0.3818,
+                  "ch2": 0.00421,
+                  "ch3": 0.00038
+                },
+                {
+                  "wavelength": 680.0,
+                  "ch1": 0.37945,
+                  "ch2": 0.00277,
+                  "ch3": 0.00059
+                },
+                {
+                  "wavelength": 690.0,
+                  "ch1": 0.38356,
+                  "ch2": 0.00179,
+                  "ch3": 0.00093
+                },
+                {
+                  "wavelength": 700.0,
+                  "ch1": 0.38646,
+                  "ch2": 0.0019,
+                  "ch3": 0.00163
+                }
+              ],
+              "series": [
+                {
+                  "key": "ch1",
+                  "label": "rDefault",
+                  "color": "#fb7185"
+                },
+                {
+                  "key": "ch2",
+                  "label": "gDefault",
+                  "color": "#2ef5a9"
+                },
+                {
+                  "key": "ch3",
+                  "label": "bDefault",
+                  "color": "#60a5fa"
+                }
+              ]
+            },
+            {
+              "id": "camera_e2e_sensor_snr",
+              "title": "CameraE2E sensor SNR over voltage",
+              "description": "sensor_snr() total SNR with shot/read/DSNU/PRNU components.",
+              "kind": "line",
+              "xKey": "voltage",
+              "xLabel": "sensor voltage",
+              "yLabel": "SNR dB",
+              "data": [
+                {
+                  "voltage": 0.0001,
+                  "total": -26.45,
+                  "shot": 0.0,
+                  "read": -26.44,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00012,
+                  "total": -24.82,
+                  "shot": 0.82,
+                  "read": -24.81,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00015,
+                  "total": -23.19,
+                  "shot": 1.63,
+                  "read": -23.18,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00018,
+                  "total": -21.56,
+                  "shot": 2.45,
+                  "read": -21.55,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00021,
+                  "total": -19.93,
+                  "shot": 3.27,
+                  "read": -19.91,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00026,
+                  "total": -18.31,
+                  "shot": 4.08,
+                  "read": -18.28,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00031,
+                  "total": -16.68,
+                  "shot": 4.9,
+                  "read": -16.65,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00037,
+                  "total": -15.05,
+                  "shot": 5.71,
+                  "read": -15.02,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00045,
+                  "total": -13.43,
+                  "shot": 6.53,
+                  "read": -13.38,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00054,
+                  "total": -11.8,
+                  "shot": 7.35,
+                  "read": -11.75,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00066,
+                  "total": -10.18,
+                  "shot": 8.16,
+                  "read": -10.12,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00079,
+                  "total": -8.56,
+                  "shot": 8.98,
+                  "read": -8.49,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00095,
+                  "total": -6.95,
+                  "shot": 9.8,
+                  "read": -6.85,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00115,
+                  "total": -5.33,
+                  "shot": 10.61,
+                  "read": -5.22,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00139,
+                  "total": -3.72,
+                  "shot": 11.43,
+                  "read": -3.59,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00168,
+                  "total": -2.12,
+                  "shot": 12.24,
+                  "read": -1.95,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00202,
+                  "total": -0.52,
+                  "shot": 13.06,
+                  "read": -0.32,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00244,
+                  "total": 1.08,
+                  "shot": 13.88,
+                  "read": 1.31,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00295,
+                  "total": 2.66,
+                  "shot": 14.69,
+                  "read": 2.94,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00356,
+                  "total": 4.24,
+                  "shot": 15.51,
+                  "read": 4.58,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00429,
+                  "total": 5.81,
+                  "shot": 16.33,
+                  "read": 6.21,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00518,
+                  "total": 7.36,
+                  "shot": 17.14,
+                  "read": 7.84,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00625,
+                  "total": 8.9,
+                  "shot": 17.96,
+                  "read": 9.47,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.00754,
+                  "total": 10.42,
+                  "shot": 18.78,
+                  "read": 11.11,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.0091,
+                  "total": 11.92,
+                  "shot": 19.59,
+                  "read": 12.74,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.01099,
+                  "total": 13.41,
+                  "shot": 20.41,
+                  "read": 14.37,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.01326,
+                  "total": 14.86,
+                  "shot": 21.22,
+                  "read": 16.0,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.016,
+                  "total": 16.29,
+                  "shot": 22.04,
+                  "read": 17.64,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.01931,
+                  "total": 17.69,
+                  "shot": 22.86,
+                  "read": 19.27,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.0233,
+                  "total": 19.06,
+                  "shot": 23.67,
+                  "read": 20.9,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.02812,
+                  "total": 20.39,
+                  "shot": 24.49,
+                  "read": 22.54,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.03393,
+                  "total": 21.69,
+                  "shot": 25.31,
+                  "read": 24.17,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.04095,
+                  "total": 22.95,
+                  "shot": 26.12,
+                  "read": 25.8,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.04942,
+                  "total": 24.17,
+                  "shot": 26.94,
+                  "read": 27.43,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.05964,
+                  "total": 25.35,
+                  "shot": 27.76,
+                  "read": 29.07,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.07197,
+                  "total": 26.5,
+                  "shot": 28.57,
+                  "read": 30.7,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.08685,
+                  "total": 27.6,
+                  "shot": 29.39,
+                  "read": 32.33,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.10481,
+                  "total": 28.68,
+                  "shot": 30.2,
+                  "read": 33.96,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.12649,
+                  "total": 29.72,
+                  "shot": 31.02,
+                  "read": 35.6,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.15264,
+                  "total": 30.73,
+                  "shot": 31.84,
+                  "read": 37.23,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.18421,
+                  "total": 31.72,
+                  "shot": 32.65,
+                  "read": 38.86,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.2223,
+                  "total": 32.68,
+                  "shot": 33.47,
+                  "read": 40.49,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.26827,
+                  "total": 33.62,
+                  "shot": 34.29,
+                  "read": 42.13,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.32375,
+                  "total": 34.55,
+                  "shot": 35.1,
+                  "read": 43.76,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.39069,
+                  "total": 35.45,
+                  "shot": 35.92,
+                  "read": 45.39,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.47149,
+                  "total": 36.35,
+                  "shot": 36.73,
+                  "read": 47.03,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.56899,
+                  "total": 37.23,
+                  "shot": 37.55,
+                  "read": 48.66,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.68665,
+                  "total": 38.1,
+                  "shot": 38.37,
+                  "read": 50.29,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 0.82864,
+                  "total": 38.96,
+                  "shot": 39.18,
+                  "read": 51.92,
+                  "dsnu": null,
+                  "prnu": null
+                },
+                {
+                  "voltage": 1.0,
+                  "total": 39.81,
+                  "shot": 40.0,
+                  "read": 53.56,
+                  "dsnu": null,
+                  "prnu": null
+                }
+              ],
+              "series": [
+                {
+                  "key": "total",
+                  "label": "Total",
+                  "color": "#00e5ff",
+                  "unit": "dB"
+                },
+                {
+                  "key": "shot",
+                  "label": "Shot",
+                  "color": "#2ef5a9",
+                  "unit": "dB"
+                },
+                {
+                  "key": "read",
+                  "label": "Read",
+                  "color": "#fb7185",
+                  "unit": "dB"
+                },
+                {
+                  "key": "dsnu",
+                  "label": "DSNU",
+                  "color": "#f2c85b",
+                  "unit": "dB"
+                },
+                {
+                  "key": "prnu",
+                  "label": "PRNU",
+                  "color": "#a568ff",
+                  "unit": "dB"
+                }
+              ]
+            },
+            {
+              "id": "camera_e2e_vsnr",
+              "title": "CameraE2E visible SNR by luminance",
+              "description": "camera_vsnr() uniform-field visible-noise sweep.",
+              "kind": "line",
+              "xKey": "luminance",
+              "xLabel": "mean luminance cd/m2",
+              "yLabel": "vSNR",
+              "data": [
+                {
+                  "luminance": 1.0,
+                  "vSNR": 0.01587
+                },
+                {
+                  "luminance": 10.0,
+                  "vSNR": 0.03927
+                },
+                {
+                  "luminance": 100.0,
+                  "vSNR": 0.23211
+                }
+              ],
+              "series": [
+                {
+                  "key": "vSNR",
+                  "label": "vSNR",
+                  "color": "#2ef5a9"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 10.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_uniform_ee.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_uniform_ee.png"
+          }
+        },
+        {
+          "scene": "point array",
+          "purpose": "PSF spread and field response",
+          "source": "CameraE2E chart render \u00b7 standard chart fit",
+          "status": "completed",
+          "artifactKey": "chart_point_array",
+          "metrics": [
+            {
+              "label": "PSF width estimate",
+              "value": "25.070",
+              "unit": "px",
+              "status": "image-derived",
+              "description": "Bright-point spread estimate from rendered point array."
+            },
+            {
+              "label": "Acutance",
+              "value": "0.4",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Point edge contrast from rendered output."
+            },
+            {
+              "label": "Underexposure",
+              "value": "95.1",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Near-black output pixels."
+            }
+          ],
+          "charts": [
+            {
+              "id": "psf_radial_profile",
+              "title": "PSF radial profile estimate",
+              "description": "Image-derived bright-point spread falloff estimated from point-array output.",
+              "kind": "line",
+              "xKey": "radiusPx",
+              "xLabel": "radius px",
+              "yLabel": "relative intensity",
+              "data": [
+                {
+                  "radiusPx": 0,
+                  "relativeIntensity": 0.0
+                },
+                {
+                  "radiusPx": 1,
+                  "relativeIntensity": 0.0
+                },
+                {
+                  "radiusPx": 2,
+                  "relativeIntensity": 0.0112
+                },
+                {
+                  "radiusPx": 3,
+                  "relativeIntensity": 0.0751
+                },
+                {
+                  "radiusPx": 4,
+                  "relativeIntensity": 0.244
+                },
+                {
+                  "radiusPx": 5,
+                  "relativeIntensity": 0.2627
+                },
+                {
+                  "radiusPx": 6,
+                  "relativeIntensity": 0.1761
+                },
+                {
+                  "radiusPx": 7,
+                  "relativeIntensity": 0.0602
+                },
+                {
+                  "radiusPx": 8,
+                  "relativeIntensity": 0.0033
+                },
+                {
+                  "radiusPx": 9,
+                  "relativeIntensity": 0.0121
+                },
+                {
+                  "radiusPx": 10,
+                  "relativeIntensity": 0.0997
+                },
+                {
+                  "radiusPx": 11,
+                  "relativeIntensity": 0.2051
+                },
+                {
+                  "radiusPx": 12,
+                  "relativeIntensity": 0.228
+                },
+                {
+                  "radiusPx": 13,
+                  "relativeIntensity": 0.1348
+                },
+                {
+                  "radiusPx": 14,
+                  "relativeIntensity": 0.0653
+                },
+                {
+                  "radiusPx": 15,
+                  "relativeIntensity": 0.0654
+                },
+                {
+                  "radiusPx": 16,
+                  "relativeIntensity": 0.0874
+                },
+                {
+                  "radiusPx": 17,
+                  "relativeIntensity": 0.0812
+                },
+                {
+                  "radiusPx": 18,
+                  "relativeIntensity": 0.1055
+                }
+              ],
+              "series": [
+                {
+                  "key": "relativeIntensity",
+                  "label": "Relative intensity",
+                  "color": "#00e5ff"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 8.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_point_array.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_point_array.png"
+          }
+        },
+        {
+          "scene": "harmonic",
+          "purpose": "Image-derived frequency response",
+          "source": "CameraE2E chart render \u00b7 standard chart fit",
+          "status": "completed",
+          "artifactKey": "chart_harmonic",
+          "metrics": [
+            {
+              "label": "Frequency response",
+              "value": "0.3",
+              "unit": "%",
+              "status": "image-derived",
+              "description": "Harmonic chart high-frequency response from rendered output."
+            },
+            {
+              "label": "MTF50 estimate",
+              "value": "0.028",
+              "unit": "cycles/pixel",
+              "status": "image-derived",
+              "description": "FFT-derived response estimate."
+            },
+            {
+              "label": "Mean luma",
+              "value": "0.023",
+              "unit": "",
+              "status": "image-derived",
+              "description": "Rendered luma average."
+            }
+          ],
+          "charts": [
+            {
+              "id": "response",
+              "title": "Harmonic frequency response",
+              "description": "Image-derived frequency response estimated from the harmonic target after optics, sensor, and ISP.",
+              "kind": "area",
+              "xKey": "frequency",
+              "xLabel": "cycles / pixel",
+              "yLabel": "normalized response",
+              "data": [
+                {
+                  "frequency": 0.014,
+                  "response": 1.0
+                },
+                {
+                  "frequency": 0.042,
+                  "response": 0.022
+                },
+                {
+                  "frequency": 0.069,
+                  "response": 0.002
+                },
+                {
+                  "frequency": 0.097,
+                  "response": 0.001
+                },
+                {
+                  "frequency": 0.125,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.153,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.181,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.208,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.236,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.264,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.292,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.319,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.347,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.375,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.403,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.431,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.458,
+                  "response": 0.0
+                },
+                {
+                  "frequency": 0.486,
+                  "response": 0.0
+                }
+              ],
+              "series": [
+                {
+                  "key": "response",
+                  "label": "Harmonic frequency response",
+                  "color": "#00e5ff"
+                }
+              ]
+            }
+          ],
+          "framingMode": "standardChartFit",
+          "sceneFovDeg": 10.0,
+          "fovPolicy": "Chart angular size is fitted for metric stability; physical ODD target size and distance are not preserved in Camera Validation.",
+          "artifact": {
+            "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_harmonic.png",
+            "url": "/assets/camera-e2e/default-camera-validation/chart_harmonic.png"
+          }
+        }
+      ],
+      "chartArtifacts": {
+        "chart_macbeth": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_macbeth.png",
+        "chart_slanted_bar": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_slanted_bar.png",
+        "chart_dead_leaves": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_dead_leaves.png",
+        "chart_uniform_ee": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_uniform_ee.png",
+        "chart_point_array": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_point_array.png",
+        "chart_harmonic": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_harmonic.png"
+      }
+    }
+  },
+  "artifacts": {
+    "chart_macbeth": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_macbeth.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_macbeth.png"
+    },
+    "chart_slanted_bar": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_slanted_bar.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_slanted_bar.png"
+    },
+    "chart_dead_leaves": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_dead_leaves.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_dead_leaves.png"
+    },
+    "chart_uniform_ee": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_uniform_ee.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_uniform_ee.png"
+    },
+    "chart_point_array": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_point_array.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_point_array.png"
+    },
+    "chart_harmonic": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-camera-validation/chart_harmonic.png",
+      "url": "/assets/camera-e2e/default-camera-validation/chart_harmonic.png"
+    }
+  }
+}

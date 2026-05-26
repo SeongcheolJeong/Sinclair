@@ -1,0 +1,1300 @@
+{
+  "radarsimpyAdapter": {
+    "sourcePath": "/Users/seongcheoljeong/RadarSim",
+    "sourcePackage": "radarsimpy_whitebox",
+    "adapterStatus": "radarsim-whitebox",
+    "scipyAvailable": true,
+    "compiledSimulatorAvailable": false,
+    "whiteboxSimulatorAvailable": true,
+    "oracleCaptureAvailable": true,
+    "functionsUsed": [
+      "radarsimpy_whitebox.sim_radar",
+      "processing.range_fft",
+      "processing.doppler_fft",
+      "processing.range_doppler_fft",
+      "processing.cfar_ca_2d",
+      "tools.roc_pd",
+      "processing.doa_bartlett / doa_capon / doa_music proxy"
+    ],
+    "limitation": "RadarSim whitebox was imported from /Users/seongcheoljeong/RadarSim and sim_radar was executed for point-target baseband evidence. This is a whitebox reference simulator, not the vendor compiled ray-tracing engine; mesh/interference/rich multipath fidelity should remain gated by the RadarSim parity docs and oracle captures."
+  },
+  "radarsimpyFunctions": [
+    {
+      "module": "simulator",
+      "name": "sim_radar",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "Point-target baseband simulation from RadarSim whitebox.",
+      "output": "Baseband cube for Range-Doppler evidence."
+    },
+    {
+      "module": "processing",
+      "name": "range_fft",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "Range FFT over fast-time samples.",
+      "output": "Range spectrum used before Doppler FFT."
+    },
+    {
+      "module": "processing",
+      "name": "doppler_fft",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "Slow-time FFT with Doppler shift.",
+      "output": "Doppler-resolved radar cube."
+    },
+    {
+      "module": "processing",
+      "name": "range_doppler_fft",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "Combined Range-Doppler processing path.",
+      "output": "Range-Doppler heatmap panel."
+    },
+    {
+      "module": "processing",
+      "name": "cfar_ca_2d",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "2D CA-CFAR thresholding on Range-Doppler power.",
+      "output": "Detected peak and ghost candidate overlay."
+    },
+    {
+      "module": "processing",
+      "name": "cfar_os_2d",
+      "usedInWorkbench": false,
+      "status": "reference",
+      "purpose": "Order-statistic CFAR for clutter-heavy slices.",
+      "output": "Candidate future guardrail/rain analysis."
+    },
+    {
+      "module": "processing",
+      "name": "doa_bartlett",
+      "usedInWorkbench": true,
+      "status": "numpy fallback",
+      "purpose": "Angle-spectrum reference for azimuth resolution.",
+      "output": "DOA spectrum chart."
+    },
+    {
+      "module": "processing",
+      "name": "doa_capon",
+      "usedInWorkbench": true,
+      "status": "reference",
+      "purpose": "Adaptive beamforming angle spectrum.",
+      "output": "Shown as deterministic proxy until covariance replay is wired."
+    },
+    {
+      "module": "processing",
+      "name": "doa_music",
+      "usedInWorkbench": true,
+      "status": "reference",
+      "purpose": "High-resolution DoA estimator.",
+      "output": "Shown as deterministic proxy until radar cube replay is wired."
+    },
+    {
+      "module": "tools",
+      "name": "roc_pd",
+      "usedInWorkbench": true,
+      "status": "wired",
+      "purpose": "Detection probability vs SNR characterization.",
+      "output": "Pd/SNR reference curve."
+    },
+    {
+      "module": "simulator",
+      "name": "sim_rcs",
+      "usedInWorkbench": false,
+      "status": "wired",
+      "purpose": "Radar cross-section simulation.",
+      "output": "Future RCS/material response panel."
+    },
+    {
+      "module": "config",
+      "name": "Transmitter / Receiver / Radar",
+      "usedInWorkbench": false,
+      "status": "reference",
+      "purpose": "Radar hardware, waveform, channel, and timing schema.",
+      "output": "Configuration model mapping."
+    }
+  ],
+  "rangeDopplerCfar": {
+    "rangeBins": 12,
+    "dopplerBins": 8,
+    "cells": [
+      {
+        "rangeBin": 0,
+        "dopplerBin": 0,
+        "powerDb": -6.93,
+        "cfarThresholdDb": -1.01,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 0,
+        "powerDb": -5.72,
+        "cfarThresholdDb": -0.14,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 0,
+        "powerDb": -6.6,
+        "cfarThresholdDb": 1.42,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 0,
+        "powerDb": -3.9,
+        "cfarThresholdDb": 2.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 0,
+        "powerDb": -5.37,
+        "cfarThresholdDb": 1.48,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 0,
+        "powerDb": 0.0,
+        "cfarThresholdDb": 1.58,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 0,
+        "powerDb": -5.66,
+        "cfarThresholdDb": 1.67,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 0,
+        "powerDb": -6.21,
+        "cfarThresholdDb": 2.0,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 0,
+        "powerDb": -5.1,
+        "cfarThresholdDb": 1.93,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 0,
+        "powerDb": -6.64,
+        "cfarThresholdDb": 0.35,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 0,
+        "powerDb": -5.95,
+        "cfarThresholdDb": -0.63,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 0,
+        "powerDb": -5.9,
+        "cfarThresholdDb": -1.14,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 1,
+        "powerDb": -6.07,
+        "cfarThresholdDb": -0.56,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 1,
+        "powerDb": -6.21,
+        "cfarThresholdDb": 0.25,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 1,
+        "powerDb": -6.75,
+        "cfarThresholdDb": 1.87,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 1,
+        "powerDb": -7.04,
+        "cfarThresholdDb": 2.66,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 1,
+        "powerDb": -6.49,
+        "cfarThresholdDb": 2.07,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 1,
+        "powerDb": -6.76,
+        "cfarThresholdDb": 2.24,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 1,
+        "powerDb": -7.08,
+        "cfarThresholdDb": 2.43,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 1,
+        "powerDb": -6.79,
+        "cfarThresholdDb": 2.7,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 1,
+        "powerDb": -5.53,
+        "cfarThresholdDb": 2.65,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 1,
+        "powerDb": -5.41,
+        "cfarThresholdDb": 1.09,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 1,
+        "powerDb": -5.89,
+        "cfarThresholdDb": 0.03,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 1,
+        "powerDb": -6.08,
+        "cfarThresholdDb": -0.49,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 2,
+        "powerDb": -6.36,
+        "cfarThresholdDb": 0.27,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 2,
+        "powerDb": -4.88,
+        "cfarThresholdDb": 1.19,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 2,
+        "powerDb": -6.54,
+        "cfarThresholdDb": 2.83,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 2,
+        "powerDb": -5.32,
+        "cfarThresholdDb": 3.61,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 2,
+        "powerDb": -5.05,
+        "cfarThresholdDb": 3.58,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 2,
+        "powerDb": -5.1,
+        "cfarThresholdDb": 3.64,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 2,
+        "powerDb": -6.4,
+        "cfarThresholdDb": 3.82,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 2,
+        "powerDb": -6.17,
+        "cfarThresholdDb": 3.74,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 2,
+        "powerDb": -5.61,
+        "cfarThresholdDb": 3.63,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 2,
+        "powerDb": -6.63,
+        "cfarThresholdDb": 2.28,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 2,
+        "powerDb": -6.02,
+        "cfarThresholdDb": 1.08,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 2,
+        "powerDb": -6.05,
+        "cfarThresholdDb": 0.45,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 3,
+        "powerDb": -5.79,
+        "cfarThresholdDb": 1.24,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 3,
+        "powerDb": -6.73,
+        "cfarThresholdDb": 2.15,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 3,
+        "powerDb": -6.18,
+        "cfarThresholdDb": 3.61,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 3,
+        "powerDb": -6.22,
+        "cfarThresholdDb": 4.34,
+        "detected": true,
+        "ghost": false,
+        "gt": true,
+        "label": "vehicle"
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 3,
+        "powerDb": -5.53,
+        "cfarThresholdDb": 4.26,
+        "detected": true,
+        "ghost": false,
+        "gt": true,
+        "label": "adjacent"
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 3,
+        "powerDb": -6.06,
+        "cfarThresholdDb": 4.37,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 3,
+        "powerDb": -6.25,
+        "cfarThresholdDb": 4.48,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 3,
+        "powerDb": -7.36,
+        "cfarThresholdDb": 4.47,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 3,
+        "powerDb": -7.47,
+        "cfarThresholdDb": 4.41,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 3,
+        "powerDb": -6.74,
+        "cfarThresholdDb": 3.23,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 3,
+        "powerDb": -6.97,
+        "cfarThresholdDb": 2.16,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 3,
+        "powerDb": -5.29,
+        "cfarThresholdDb": 1.46,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 4,
+        "powerDb": -6.01,
+        "cfarThresholdDb": 1.21,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 4,
+        "powerDb": -6.94,
+        "cfarThresholdDb": 2.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 4,
+        "powerDb": -7.52,
+        "cfarThresholdDb": 3.27,
+        "detected": false,
+        "ghost": false,
+        "gt": true,
+        "label": "pedestrian miss"
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 4,
+        "powerDb": -5.83,
+        "cfarThresholdDb": 3.99,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 4,
+        "powerDb": -6.33,
+        "cfarThresholdDb": 3.89,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 4,
+        "powerDb": -5.21,
+        "cfarThresholdDb": 3.87,
+        "detected": true,
+        "ghost": true,
+        "label": "guardrail ghost"
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 4,
+        "powerDb": -5.96,
+        "cfarThresholdDb": 4.01,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 4,
+        "powerDb": -5.46,
+        "cfarThresholdDb": 4.05,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 4,
+        "powerDb": -5.94,
+        "cfarThresholdDb": 4.05,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 4,
+        "powerDb": -5.41,
+        "cfarThresholdDb": 3.15,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 4,
+        "powerDb": -6.8,
+        "cfarThresholdDb": 2.06,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 4,
+        "powerDb": -6.43,
+        "cfarThresholdDb": 1.39,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 5,
+        "powerDb": -7.54,
+        "cfarThresholdDb": 0.34,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 5,
+        "powerDb": -7.46,
+        "cfarThresholdDb": 1.24,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 5,
+        "powerDb": -7.4,
+        "cfarThresholdDb": 2.48,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 5,
+        "powerDb": -7.4,
+        "cfarThresholdDb": 3.29,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 5,
+        "powerDb": -5.3,
+        "cfarThresholdDb": 3.17,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 5,
+        "powerDb": -6.02,
+        "cfarThresholdDb": 3.16,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 5,
+        "powerDb": -4.88,
+        "cfarThresholdDb": 3.19,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 5,
+        "powerDb": -6.4,
+        "cfarThresholdDb": 3.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 5,
+        "powerDb": -7.05,
+        "cfarThresholdDb": 3.09,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 5,
+        "powerDb": -6.55,
+        "cfarThresholdDb": 2.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 5,
+        "powerDb": -6.81,
+        "cfarThresholdDb": 1.07,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 5,
+        "powerDb": -7.15,
+        "cfarThresholdDb": 0.41,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 6,
+        "powerDb": -5.85,
+        "cfarThresholdDb": -0.92,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 6,
+        "powerDb": -6.07,
+        "cfarThresholdDb": -0.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 6,
+        "powerDb": -6.29,
+        "cfarThresholdDb": 1.23,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 6,
+        "powerDb": -6.07,
+        "cfarThresholdDb": 2.14,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 6,
+        "powerDb": -6.89,
+        "cfarThresholdDb": 1.96,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 6,
+        "powerDb": -5.91,
+        "cfarThresholdDb": 1.97,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 6,
+        "powerDb": -6.88,
+        "cfarThresholdDb": 2.08,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 6,
+        "powerDb": -5.61,
+        "cfarThresholdDb": 2.09,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 6,
+        "powerDb": -4.44,
+        "cfarThresholdDb": 2.15,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 6,
+        "powerDb": -7.16,
+        "cfarThresholdDb": 1.09,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 6,
+        "powerDb": -5.63,
+        "cfarThresholdDb": -0.11,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 6,
+        "powerDb": -6.43,
+        "cfarThresholdDb": -0.75,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 0,
+        "dopplerBin": 7,
+        "powerDb": -6.72,
+        "cfarThresholdDb": -1.84,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 1,
+        "dopplerBin": 7,
+        "powerDb": -6.56,
+        "cfarThresholdDb": -1.0,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 2,
+        "dopplerBin": 7,
+        "powerDb": -7.3,
+        "cfarThresholdDb": 0.35,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 3,
+        "dopplerBin": 7,
+        "powerDb": -6.07,
+        "cfarThresholdDb": 1.34,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 4,
+        "dopplerBin": 7,
+        "powerDb": -6.45,
+        "cfarThresholdDb": 1.26,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 5,
+        "dopplerBin": 7,
+        "powerDb": -4.72,
+        "cfarThresholdDb": 1.41,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 6,
+        "dopplerBin": 7,
+        "powerDb": -6.03,
+        "cfarThresholdDb": 1.51,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 7,
+        "dopplerBin": 7,
+        "powerDb": -7.4,
+        "cfarThresholdDb": 1.5,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 8,
+        "dopplerBin": 7,
+        "powerDb": -7.29,
+        "cfarThresholdDb": 1.48,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 9,
+        "dopplerBin": 7,
+        "powerDb": -6.49,
+        "cfarThresholdDb": 0.44,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 10,
+        "dopplerBin": 7,
+        "powerDb": -7.14,
+        "cfarThresholdDb": -0.66,
+        "detected": false,
+        "ghost": false
+      },
+      {
+        "rangeBin": 11,
+        "dopplerBin": 7,
+        "powerDb": -6.07,
+        "cfarThresholdDb": -1.46,
+        "detected": false,
+        "ghost": false
+      }
+    ],
+    "peaks": [
+      {
+        "id": "fixture-rd-3-3",
+        "label": "vehicle",
+        "rangeBin": 3,
+        "dopplerBin": 3,
+        "rangeM": 34.0,
+        "radialVelocityMps": -2.1,
+        "powerDb": -6.22,
+        "cfarThresholdDb": 4.34,
+        "snrDb": 1.4,
+        "detected": true,
+        "ghost": false,
+        "source": "cfar"
+      },
+      {
+        "id": "fixture-rd-3-4",
+        "label": "adjacent",
+        "rangeBin": 4,
+        "dopplerBin": 3,
+        "rangeM": 43.0,
+        "radialVelocityMps": -2.1,
+        "powerDb": -5.53,
+        "cfarThresholdDb": 4.26,
+        "snrDb": 2.1,
+        "detected": true,
+        "ghost": false,
+        "source": "cfar"
+      },
+      {
+        "id": "fixture-rd-4-5",
+        "label": "guardrail ghost",
+        "rangeBin": 5,
+        "dopplerBin": 4,
+        "rangeM": 52.0,
+        "radialVelocityMps": 0.6,
+        "powerDb": -5.21,
+        "cfarThresholdDb": 3.87,
+        "snrDb": 2.4,
+        "detected": true,
+        "ghost": true,
+        "source": "cfar"
+      }
+    ],
+    "targetAssociations": [
+      {
+        "label": "vehicle",
+        "targetKind": "truth",
+        "expectedRangeM": 34.0,
+        "expectedVelocityMps": -2.1,
+        "expectedRangeBin": 3,
+        "expectedDopplerBin": 3,
+        "rcsDbsm": 12.5,
+        "nearestPeakId": "fixture-rd-3-3",
+        "nearestPeakRangeM": 34.0,
+        "nearestPeakVelocityMps": -2.1,
+        "rangeErrorM": 0.0,
+        "velocityErrorMps": 0.0,
+        "outcome": "hit",
+        "note": "Fixture truth target overlaps a CFAR detection."
+      },
+      {
+        "label": "adjacent",
+        "targetKind": "truth",
+        "expectedRangeM": 43.0,
+        "expectedVelocityMps": -2.1,
+        "expectedRangeBin": 4,
+        "expectedDopplerBin": 3,
+        "rcsDbsm": 11.8,
+        "nearestPeakId": "fixture-rd-3-4",
+        "nearestPeakRangeM": 43.0,
+        "nearestPeakVelocityMps": -2.1,
+        "rangeErrorM": 0.0,
+        "velocityErrorMps": 0.0,
+        "outcome": "hit",
+        "note": "Fixture truth target overlaps a CFAR detection."
+      },
+      {
+        "label": "pedestrian miss",
+        "targetKind": "truth",
+        "expectedRangeM": 26.0,
+        "expectedVelocityMps": 0.6,
+        "expectedRangeBin": 2,
+        "expectedDopplerBin": 4,
+        "rcsDbsm": -3.0,
+        "outcome": "miss",
+        "note": "Fixture truth target has no CFAR detection."
+      },
+      {
+        "label": "guardrail ghost",
+        "targetKind": "ghost",
+        "expectedRangeM": 52.0,
+        "expectedVelocityMps": 0.6,
+        "expectedRangeBin": 5,
+        "expectedDopplerBin": 4,
+        "rcsDbsm": -6.0,
+        "nearestPeakId": "fixture-rd-4-5",
+        "nearestPeakRangeM": 52.0,
+        "nearestPeakVelocityMps": 0.6,
+        "rangeErrorM": 0.0,
+        "velocityErrorMps": 0.0,
+        "outcome": "ghost-false-alarm",
+        "note": "Fixture ghost truth bin was detected by CFAR."
+      }
+    ],
+    "detectionSummary": {
+      "cfarPeaks": 3,
+      "gtTargets": 3,
+      "hits": 2,
+      "misses": 1,
+      "ghostCandidates": 1,
+      "ghostFalseAlarms": 1,
+      "falseAlarms": 0
+    },
+    "facts": [
+      {
+        "label": "Simulation",
+        "value": "RadarSim whitebox sim_radar",
+        "note": "baseband shape [4, 32, 160]."
+      },
+      {
+        "label": "Processing",
+        "value": "RadarSim whitebox processing.range_doppler_fft",
+        "note": "RadarSim-compatible cube shape [channels, pulses, samples]."
+      },
+      {
+        "label": "CFAR",
+        "value": "CA-CFAR 2D",
+        "note": "RadarSim whitebox processing.cfar_ca_2d; guard=[1,1], trailing=[2,2], Pfa=1e-4."
+      },
+      {
+        "label": "Detected peaks",
+        "value": "3",
+        "note": "2 truth hits and 1 guardrail ghost false alarm."
+      },
+      {
+        "label": "Targets",
+        "value": "4 synthetic returns",
+        "note": "vehicle, adjacent vehicle, low-RCS pedestrian, guardrail multipath."
+      }
+    ]
+  },
+  "rocPd": [
+    {
+      "snrDb": -6,
+      "pd": 18.84,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": -3,
+      "pd": 61.25,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 0,
+      "pd": 97.37,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 3,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 6,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 9,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 12,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 15,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 18,
+      "pd": 100.0,
+      "pfa": 0.0001
+    },
+    {
+      "snrDb": 21,
+      "pd": 100.0,
+      "pfa": 0.0001
+    }
+  ],
+  "doaSpectrum": [
+    {
+      "angle": -60,
+      "bartlett": 18.0,
+      "capon": 12.0,
+      "music": 8.0
+    },
+    {
+      "angle": -50,
+      "bartlett": 18.0,
+      "capon": 12.0,
+      "music": 8.0
+    },
+    {
+      "angle": -40,
+      "bartlett": 18.13,
+      "capon": 12.16,
+      "music": 8.18
+    },
+    {
+      "angle": -30,
+      "bartlett": 20.62,
+      "capon": 15.35,
+      "music": 11.79
+    },
+    {
+      "angle": -20,
+      "bartlett": 38.16,
+      "capon": 37.81,
+      "music": 37.13
+    },
+    {
+      "angle": -10,
+      "bartlett": 76.32,
+      "capon": 85.05,
+      "music": 90.48
+    },
+    {
+      "angle": 0,
+      "bartlett": 86.33,
+      "capon": 91.22,
+      "music": 97.66
+    },
+    {
+      "angle": 10,
+      "bartlett": 70.56,
+      "capon": 59.13,
+      "music": 63.27
+    },
+    {
+      "angle": 20,
+      "bartlett": 59.78,
+      "capon": 42.21,
+      "music": 45.71
+    },
+    {
+      "angle": 30,
+      "bartlett": 29.14,
+      "capon": 19.6,
+      "music": 17.48
+    },
+    {
+      "angle": 40,
+      "bartlett": 19.06,
+      "capon": 12.67,
+      "music": 8.79
+    },
+    {
+      "angle": 50,
+      "bartlett": 18.09,
+      "capon": 12.05,
+      "music": 8.06
+    },
+    {
+      "angle": 60,
+      "bartlett": 18.0,
+      "capon": 12.0,
+      "music": 8.0
+    }
+  ],
+  "signalProcessingChain": [
+    {
+      "stage": "Baseband cube",
+      "functionName": "sim_radar",
+      "fidelity": "Synthetic signal",
+      "status": "RadarSim whitebox sim_radar",
+      "output": "point-target baseband artifact"
+    },
+    {
+      "stage": "Range FFT",
+      "functionName": "range_fft",
+      "fidelity": "Raw ADC/IQ",
+      "status": "wired",
+      "output": "range spectrum"
+    },
+    {
+      "stage": "Doppler FFT",
+      "functionName": "doppler_fft",
+      "fidelity": "Raw ADC/IQ",
+      "status": "wired",
+      "output": "Doppler-resolved cube"
+    },
+    {
+      "stage": "Range-Doppler",
+      "functionName": "range_doppler_fft",
+      "fidelity": "Range-Doppler",
+      "status": "RadarSim whitebox processing.range_doppler_fft",
+      "output": "heatmap + peak candidates"
+    },
+    {
+      "stage": "CFAR",
+      "functionName": "cfar_ca_2d",
+      "fidelity": "Range-Doppler",
+      "status": "RadarSim whitebox processing.cfar_ca_2d",
+      "output": "threshold and detection mask"
+    },
+    {
+      "stage": "DoA / beamforming",
+      "functionName": "doa_bartlett, doa_capon, doa_music",
+      "fidelity": "Radar cube",
+      "status": "reference proxy",
+      "output": "azimuth spectrum"
+    },
+    {
+      "stage": "Characterization",
+      "functionName": "roc_pd",
+      "fidelity": "Synthetic signal",
+      "status": "wired",
+      "output": "Pd vs SNR curve"
+    }
+  ],
+  "discoveredFunctions": {
+    "processing": [
+      "cfar_ca_1d",
+      "cfar_ca_2d",
+      "cfar_os_1d",
+      "cfar_os_2d",
+      "doa_bartlett",
+      "doa_capon",
+      "doa_esprit",
+      "doa_iaa",
+      "doa_music",
+      "doa_root_music",
+      "doppler_fft",
+      "os_cfar_threshold",
+      "range_doppler_fft",
+      "range_fft"
+    ],
+    "tools": [
+      "log_factorial",
+      "marcumq",
+      "pd_swerling0",
+      "pd_swerling1",
+      "pd_swerling2",
+      "pd_swerling3",
+      "pd_swerling4",
+      "roc_pd",
+      "roc_snr",
+      "threshold"
+    ],
+    "config": [
+      "Radar",
+      "_generate_noise_spectrum",
+      "_interpolate_phase_noise_power",
+      "cal_phase_noise"
+    ],
+    "simulator": [
+      "_angle_to_direction",
+      "_antenna_direction_gain_db",
+      "_build_waveform_phase_function",
+      "_channel_indices",
+      "_channel_state",
+      "_coerce_target_location_component",
+      "_ensure_lidar_target",
+      "_ensure_mesh_target",
+      "_ensure_point_target",
+      "_evaluate_waveform_modulation",
+      "_lidar_angle_to_direction",
+      "_load_target_mesh",
+      "_mesh_sigma_linear",
+      "_normalize",
+      "_pattern_gain_db",
+      "_polarization_gain",
+      "_prepare_sim_target",
+      "_ray_scene_intersection",
+      "_ray_triangle_intersection",
+      "_reflect_direction",
+      "_reflectivity_from_permittivity",
+      "_resolve_point_target_position",
+      "_rotate_global_to_local",
+      "_rotate_local_to_global",
+      "_rotation_matrix_zyx",
+      "_scatterer_signal",
+      "_target_pose_at_time",
+      "_target_vector",
+      "_transform_points",
+      "_triangle_geometry",
+      "_unit_scale_divisor",
+      "_validate_lidar_config",
+      "_validate_sim_radar_args",
+      "sim_lidar",
+      "sim_radar",
+      "sim_rcs"
+    ],
+    "simulator_pyx": [],
+    "rcs": []
+  }
+}

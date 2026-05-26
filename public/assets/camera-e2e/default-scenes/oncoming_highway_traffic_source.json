@@ -1,0 +1,6 @@
+{
+  "title": "On coming traffic on highway",
+  "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/On%20coming%20traffic%20on%20highway.jpg",
+  "localFile": "oncoming_highway_traffic_1280.jpg",
+  "usage": "Example RGB road scene for CameraE2E scene_from_file pipeline tests."
+}

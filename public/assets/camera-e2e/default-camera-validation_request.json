@@ -1,0 +1,84 @@
+{
+  "runId": "default-camera-validation",
+  "runMode": "cameraEvaluation",
+  "assets": {
+    "lensMode": "none",
+    "lensAsset": "",
+    "sensorType": "default",
+    "sensorVariant": "",
+    "colorFilterAsset": ""
+  },
+  "scene": {
+    "geometryMode": "angularFov",
+    "type": "rgb image",
+    "patchSize": 8,
+    "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+    "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+    "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+    "targetWidthM": 0.7,
+    "targetHeightM": 1.7,
+    "distanceM": 24,
+    "fovDeg": 60,
+    "luminanceCdM2": 240
+  },
+  "lens": {
+    "fovAuthority": "numericOptics",
+    "fNumber": 2.8,
+    "focalLengthMm": 1.24,
+    "hfovDeg": 60,
+    "transmittanceScale": 0.92
+  },
+  "lensPhysics": {
+    "mode": "none",
+    "gaussianSpreadUm": 2.5,
+    "xyRatio": 1,
+    "aberrationPixels": 0,
+    "defocusDiopters": 1.25,
+    "psfAngleStepDeg": 30
+  },
+  "sensor": {
+    "fitMode": "preserveResolution",
+    "rows": 384,
+    "cols": 512,
+    "pixelSizeUm": 2.8,
+    "exposureMs": 16,
+    "analogGain": 1.8,
+    "noiseFlag": 2,
+    "readNoiseMv": 2.1,
+    "qeScale": 1,
+    "bitDepth": 12
+  },
+  "isp": {
+    "demosaicMethod": "bilinear",
+    "sensorConversionMethod": "mcc optimized",
+    "internalColorSpace": "xyz",
+    "illuminantCorrection": "gray world",
+    "renderScale": true,
+    "renderDemosaicOnly": false,
+    "hdrWhite": false,
+    "hdrLevel": 0.95
+  },
+  "hwIsp": {
+    "enabled": false,
+    "profile": "generic_1080p_30fps",
+    "applyToImage": false,
+    "nFrames": 4,
+    "fps": 30,
+    "lineTimeUs": 15.2,
+    "exposureTimeUs": 8000,
+    "aeEnabled": true,
+    "awbEnabled": true,
+    "aeApplyDelayFrames": 2,
+    "awbApplyDelayFrames": 2,
+    "targetLuma": 0.18,
+    "requestQueueDepth": 4,
+    "maxBuffers": 6,
+    "globalLatencyFactor": 1
+  },
+  "perception": {
+    "model": "ultralytics_yolo11n_detection",
+    "inputSize": "640x384",
+    "confidenceThreshold": 0.25,
+    "nmsThreshold": 0.5
+  }
+}

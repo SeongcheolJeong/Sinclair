@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview --host 0.0.0.0",
     "camera:e2e:sync": "python3 scripts/camera_e2e_bridge.py",
-    "camera:e2e:assets": "python3 scripts/camera_e2e_asset_index.py"
+    "camera:e2e:assets": "python3 scripts/camera_e2e_asset_index.py",
+    "radar:fixture": "RADARSIM_ROOT=/Users/seongcheoljeong/RadarSim /Users/seongcheoljeong/RadarSim/.venv/bin/python scripts/radarsimpy_workbench_runner.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",

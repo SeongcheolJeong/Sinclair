@@ -16,6 +16,18 @@ vite.config.d.ts
 # Generated runtime artifacts
 artifacts/
 public/assets/camera-e2e/live-runs/
+public/assets/camera-e2e/_latest_request.json
+public/assets/radar-sim/runs/
+
+# Local visual review captures and one-off exported standalones
+Sinclair_*Capture*.png
+Sinclair_*Standalone.html
+Sinclair_*Live_Console*.png
+Sinclair_Safari_*.png
+Sinclair_Camera_Workbench_*.png
+Sinclair_Platform_*.png
+Sinclair_CameraE2E_Live_Mock.html
+Sinclair_Design_Mock.html
 
 # Local reference handoff package.
 # Runtime-ready assets are copied into public/assets/sinclair.

@@ -50,6 +50,19 @@ export type RadarValidationFeasibility =
   | "Approximation"
   | "Physical Required";
 
+export type RadarSimPyAdapterStatus =
+  | "source-inspected"
+  | "radarsimpy-processing"
+  | "radarsim-whitebox"
+  | "numpy-fallback";
+
+export type RadarSimPyFunctionStatus =
+  | "wired"
+  | "numpy fallback"
+  | "requires scipy"
+  | "requires compiled extension"
+  | "reference";
+
 export type LidarValidationMode =
   | "Detection / Track Replay"
   | "Point Cloud Reprocessing"
@@ -523,8 +536,11 @@ export interface CameraE2EIntegration {
   };
 }
 
+export type CameraSimulationMode = "stackCharacterization" | "cameraEvaluation" | "scenePipeline" | "full";
+
 export interface CameraSimulationRequest {
   runId?: string;
+  runMode?: CameraSimulationMode;
   assets?: {
     lensMode: "none" | "raytraceOptics" | "catalogLens" | "lensFileReference";
     lensAsset?: string;
@@ -533,12 +549,20 @@ export interface CameraSimulationRequest {
     colorFilterAsset?: string;
   };
   scene: {
-    type: "macbeth" | "slanted bar" | "point array" | "harmonic" | "uniform ee" | "dead leaves";
+    geometryMode?: "physicalGeometry" | "angularFov";
+    type: "macbeth" | "slanted bar" | "point array" | "harmonic" | "uniform ee" | "dead leaves" | "rgb image";
     patchSize?: number;
+    sourceImagePath?: string;
+    sourceImageLabel?: string;
+    sourceImageAttribution?: string;
+    targetWidthM?: number;
+    targetHeightM?: number;
+    distanceM?: number;
     fovDeg: number;
     luminanceCdM2: number;
   };
   lens: {
+    fovAuthority?: "physicalGeometry" | "lensAsset" | "numericOptics" | "sceneTarget" | "manualOiHfov";
     fNumber: number;
     focalLengthMm: number;
     hfovDeg: number;
@@ -551,6 +575,15 @@ export interface CameraSimulationRequest {
     aberrationPixels: number;
     defocusDiopters: number;
     psfAngleStepDeg: number;
+  };
+  calibration?: {
+    principalPointX: number;
+    principalPointY: number;
+    radialK1: number;
+    radialK2: number;
+    radialK3: number;
+    tangentialP1: number;
+    tangentialP2: number;
   };
   sensor: {
     fitMode?: "preserveResolution" | "matchSceneFov";
@@ -566,7 +599,30 @@ export interface CameraSimulationRequest {
   };
   isp: {
     demosaicMethod: string;
+    sensorConversionMethod: string;
+    internalColorSpace: "xyz" | "sensor" | string;
     illuminantCorrection: string;
+    renderScale: boolean;
+    renderDemosaicOnly: boolean;
+    hdrWhite: boolean;
+    hdrLevel: number;
+  };
+  hwIsp?: {
+    enabled: boolean;
+    profile: "default" | "generic_1080p_30fps" | "rpi_vc4_imx219_public_seed" | string;
+    applyToImage: boolean;
+    nFrames: number;
+    fps: number;
+    lineTimeUs: number;
+    exposureTimeUs: number;
+    aeEnabled: boolean;
+    awbEnabled: boolean;
+    aeApplyDelayFrames: number;
+    awbApplyDelayFrames: number;
+    targetLuma: number;
+    requestQueueDepth: number;
+    maxBuffers: number;
+    globalLatencyFactor: number;
   };
   perception: {
     model: string;
@@ -581,9 +637,100 @@ export interface CameraSimulationArtifact {
   url: string;
 }
 
+export interface CameraPerceptionDetection {
+  xyxy?: number[];
+  label: string;
+  score: number;
+  area?: number;
+  metadata?: Record<string, unknown>;
+}
+
+export interface CameraPerceptionMetric {
+  adapterStatus: string;
+  model: string;
+  backend?: string;
+  task?: string;
+  modelId?: string | null;
+  device?: string;
+  inputSize: string;
+  inputImageShape?: number[];
+  confidenceThreshold: number;
+  nmsThreshold: number;
+  elapsedMs?: number;
+  detectionCount?: number;
+  acceptedCount?: number;
+  topLabel?: string;
+  topScore?: number | null;
+  detections?: CameraPerceptionDetection[];
+  proxyConfidence?: number;
+  proxyAccepted?: boolean;
+  edgeEnergy?: number;
+  meanLuma?: number;
+  saturationRatio?: number;
+  warning?: string;
+  fallbackReason?: string;
+}
+
+export interface CameraStaticMetric {
+  label: string;
+  value: string;
+  unit?: string;
+  status?: string;
+  source?: string;
+  description?: string;
+}
+
+export interface CameraStaticChartSeries {
+  key: string;
+  label: string;
+  color?: string;
+  unit?: string;
+}
+
+export interface CameraStaticChartPoint {
+  [key: string]: string | number | null | undefined;
+}
+
+export interface CameraStaticChart {
+  id: string;
+  title: string;
+  description?: string;
+  kind: "line" | "bar" | "area";
+  xKey: string;
+  xLabel?: string;
+  yLabel?: string;
+  data: CameraStaticChartPoint[];
+  series: CameraStaticChartSeries[];
+}
+
+export interface CameraStaticTestResult {
+  scene: string;
+  purpose: string;
+  source: string;
+  status: "completed" | "failed" | string;
+  framingMode?: string;
+  sceneFovDeg?: number;
+  fovPolicy?: string;
+  artifactKey?: string;
+  artifact?: CameraSimulationArtifact;
+  metrics: CameraStaticMetric[];
+  charts?: CameraStaticChart[];
+}
+
+export interface CameraStaticReport {
+  protocolVersion: string;
+  provenance: string;
+  primaryScene: string;
+  summary: CameraStaticMetric[];
+  tests: CameraStaticTestResult[];
+  chartArtifacts?: Record<string, string>;
+}
+
 export interface CameraSimulationResult {
   schemaVersion: number;
   runId: string;
+  runMode?: CameraSimulationMode;
+  resultOrigin?: "precomputedDefault" | "liveRun";
   status: "completed" | "failed";
   createdAt?: string;
   elapsedMs?: number;
@@ -591,42 +738,44 @@ export interface CameraSimulationResult {
   applied?: string[];
   warnings?: string[];
   summaries?: {
-    scene?: Record<string, string | number | number[]>;
-    lens?: Record<string, string | number | number[]>;
-    sensor?: Record<string, string | number | number[]>;
-    isp?: Record<string, string | number | number[]>;
-    assets?: Record<string, string | number | number[]>;
-    physics?: Record<string, string | number | number[]>;
-    resolution?: Record<string, string | number | number[]>;
+    scene?: Record<string, string | number | boolean | number[]>;
+    lens?: Record<string, string | number | boolean | number[]>;
+    sensor?: Record<string, string | number | boolean | number[]>;
+    isp?: Record<string, string | number | boolean | number[]>;
+    hwIsp?: Record<string, string | number | boolean | number[]>;
+    assets?: Record<string, string | number | boolean | number[]>;
+    physics?: Record<string, string | number | boolean | number[]>;
+    offAxisIllumination?: Record<string, string | number | boolean | number[]>;
+    resolution?: Record<string, string | number | boolean | number[]>;
+    fovLedger?: Record<string, string | number | boolean | number[]>;
   };
   metrics?: {
     imageShape?: number[];
+    sourceReferenceMeanRgb?: number[] | null;
     meanRgb?: number[];
+    displayPreviewMeanRgb?: number[];
     sensorVoltsMean?: number | null;
     sensorVoltsP99?: number | null;
     oiPhotonsMean?: number | null;
-    perceptionProxy?: {
-      adapterStatus: "proxy_only" | string;
-      model: string;
-      inputSize: string;
-      confidenceThreshold: number;
-      nmsThreshold: number;
-      proxyConfidence: number;
-      proxyAccepted: boolean;
-      edgeEnergy: number;
-      meanLuma: number;
-      saturationRatio: number;
-      warning: string;
-    };
+    perception?: CameraPerceptionMetric | null;
+    perceptionProxy?: CameraPerceptionMetric | null;
+    staticCamera?: CameraStaticReport;
+    stackCharacterization?: CameraStaticReport;
   };
   artifacts?: {
+    sourceReference?: CameraSimulationArtifact;
     ipSrgb?: CameraSimulationArtifact;
+    displayPreview?: CameraSimulationArtifact;
     sensorVolts?: CameraSimulationArtifact;
     oiPhotons?: CameraSimulationArtifact;
+    [key: string]: CameraSimulationArtifact | undefined;
   };
   reason?: string;
+  error?: string;
+  stdout?: string;
   stderr?: string;
   returncode?: number | null;
+  timeoutSeconds?: number;
 }
 
 export interface CameraE2EAssetOption {
@@ -680,6 +829,290 @@ export interface RadarConfigurationChange {
   impact: string;
 }
 
+export interface RadarSimPyAdapterSummary {
+  sourcePath: string;
+  sourcePackage?: string;
+  adapterStatus: RadarSimPyAdapterStatus;
+  scipyAvailable: boolean;
+  compiledSimulatorAvailable: boolean;
+  whiteboxSimulatorAvailable?: boolean;
+  oracleCaptureAvailable?: boolean;
+  functionsUsed: string[];
+  limitation: string;
+}
+
+export interface RadarSimPyFunctionMapItem {
+  module: "processing" | "tools" | "simulator" | "config";
+  name: string;
+  usedInWorkbench: boolean;
+  status: RadarSimPyFunctionStatus;
+  purpose: string;
+  output: string;
+}
+
+export type RadarEvidenceSource = "computed" | "derived" | "proxy" | "reference";
+
+export interface RadarRangeDopplerCell {
+  rangeBin: number;
+  dopplerBin: number;
+  rangeM?: number;
+  radialVelocityMps?: number;
+  powerDb: number;
+  cfarThresholdDb: number;
+  detected: boolean;
+  ghost: boolean;
+  gt?: boolean;
+  label?: string;
+  targetOutcome?: "hit" | "miss" | "ghost-suppressed" | "ghost-false-alarm";
+  matchedPeakId?: string;
+}
+
+export interface RadarRangeDopplerPeak {
+  id: string;
+  label: string;
+  rangeBin: number;
+  dopplerBin: number;
+  rangeM: number;
+  radialVelocityMps: number;
+  powerDb: number;
+  cfarThresholdDb: number;
+  snrDb: number;
+  detected: boolean;
+  ghost: boolean;
+  source: "cfar" | "top-power" | "target-marker";
+}
+
+export interface RadarTargetAssociation {
+  label: string;
+  targetKind: "truth" | "ghost";
+  expectedRangeM: number;
+  expectedVelocityMps: number;
+  expectedRangeBin: number;
+  expectedDopplerBin: number;
+  rcsDbsm: number;
+  nearestPeakId?: string;
+  nearestPeakRangeM?: number;
+  nearestPeakVelocityMps?: number;
+  rangeErrorM?: number;
+  velocityErrorMps?: number;
+  outcome: "hit" | "miss" | "ghost-suppressed" | "ghost-false-alarm" | "false-alarm";
+  note: string;
+}
+
+export interface RadarPostCfarFiltering {
+  evidenceSource: RadarEvidenceSource;
+  stages: Array<{
+    stage: string;
+    count: number;
+    rejected: number;
+    method: string;
+    evidence: RadarEvidenceSource;
+  }>;
+  filters: Array<{
+    name: string;
+    setting: string;
+    effect: string;
+    tradeoff: string;
+  }>;
+  summary: {
+    rawCfar: number;
+    groupedPeaks: number;
+    radarPoints?: number;
+    radarObjects: number;
+    confirmedTracks: number;
+    fusionAccepted: number;
+    ghostSuppressed: number;
+  };
+  groupedPeaks?: Array<{
+    id: string;
+    rangeM: number;
+    radialVelocityMps: number;
+    powerDb: number;
+    cfarThresholdDb: number;
+    cfarMarginDb: number;
+    snrDb: number;
+  }>;
+  radarPoints?: Array<{
+    id: string;
+    sourcePeakId: string;
+    rangeM: number;
+    radialVelocityMps: number;
+    angleDeg: number;
+    angleConfidence: number;
+    angleAmbiguity: string;
+    xM: number;
+    yM: number;
+    snrDb: number;
+    cfarMarginDb: number;
+    powerDb: number;
+    classification: string;
+    association?: {
+      label: string;
+      semanticClass: string;
+      targetKind: "truth" | "ghost";
+      rangeErrorM: number;
+      velocityErrorMps: number;
+    } | null;
+  }>;
+  radarObjects?: Array<{
+    id: string;
+    pointIds: string[];
+    pointCount: number;
+    classHint: string;
+    centerXM: number;
+    centerYM: number;
+    rangeM: number;
+    angleDeg: number;
+    radialVelocityMps: number;
+    confidence: number;
+    targetKind: "truth" | "ghost" | "unassociated";
+  }>;
+  confirmedTracks?: Array<{
+    id: string;
+    objectId: string;
+    classHint: string;
+    trackAgeFrames: number;
+    existenceProbability: number;
+    targetKind: "truth" | "ghost" | "unassociated";
+  }>;
+  angleWarning?: string;
+}
+
+export interface RadarSimulationArtifact {
+  url: string;
+  path: string;
+  kind: "json" | "npy" | "image";
+  description: string;
+}
+
+export interface RadarSimulationTarget {
+  label: string;
+  rangeM: number;
+  azimuthM: number;
+  rcsDbsm: number;
+  radialVelocityMps: number;
+  semanticClass?: "vehicle" | "pedestrian" | "cyclist" | "guardrail" | "clutter" | "ghost";
+  lengthM?: number;
+  widthM?: number;
+  ghost?: boolean;
+}
+
+export type RadarRcsSourceMode = "scenarioAssumption" | "radarsimMeshNormalized";
+export type RadarMimoModulationMode = "tdm" | "tpmBpm";
+
+export interface RadarSimulationRequest {
+  runId?: string;
+  preset: "highwayCutIn" | "rainGuardrailGhost" | "lowRcsPedestrian" | "twoTargetSeparation" | "offAxisMimo";
+  rcsSource?: {
+    mode: RadarRcsSourceMode;
+  };
+  mimo?: {
+    mode: RadarMimoModulationMode;
+  };
+  waveform: {
+    startFrequencyGhz: number;
+    stopFrequencyGhz: number;
+    chirpDurationUs: number;
+    pulses: number;
+    prpUs: number;
+    txPowerDbm: number;
+  };
+  receiver: {
+    samplingRateMsps: number;
+    noiseFigureDb: number;
+  };
+  array: {
+    txChannels: number;
+    rxChannels: number;
+    txSpacingM: number;
+    rxSpacingM: number;
+  };
+  cfar: {
+    pfa: number;
+    guard: number;
+    trailing: number;
+  };
+  targets: RadarSimulationTarget[];
+}
+
+export interface RadarMimoModulationComparison {
+  evidenceSource: RadarEvidenceSource;
+  selectedMode: RadarMimoModulationMode;
+  boundary: string;
+  rows: Array<{
+    mode: RadarMimoModulationMode;
+    label: string;
+    implementation: string;
+    txDutyPercent: number;
+    activeTxPerPulse: number;
+    phaseLevels: string;
+    rawCfar: number;
+    groupedPeaks: number;
+    radarPoints: number;
+    radarObjects: number;
+    hits: number;
+    misses: number;
+    falseAlarms: number;
+    ghostFalseAlarms: number;
+    meanAngleConfidence: number;
+    peakSnrDb: number;
+  }>;
+  pulsePreview: Array<{
+    pulse: number;
+    tdmActiveTx: string;
+    tpmBpmActiveTx: string;
+    tpmBpmPhasesDeg: string;
+  }>;
+  recommendation: string;
+  warnings?: string[];
+}
+
+export interface RadarSimulationResult {
+  schemaVersion: number;
+  runId: string;
+  status: "completed" | "failed";
+  createdAt?: string;
+  elapsedMs?: number;
+  request?: RadarSimulationRequest;
+  adapter?: RadarSimPyAdapterSummary;
+  kpis?: RadarWorkbenchModel["kpis"];
+  rangeDopplerCfar?: RadarWorkbenchModel["rangeDopplerCfar"];
+  rocPd?: RadarWorkbenchModel["rocPd"];
+  detectionProbabilityByRange?: RadarWorkbenchModel["detectionProbabilityByRange"];
+  rcsSourceSummary?: {
+    mode: RadarRcsSourceMode;
+    label: string;
+    boundary: string;
+    assets?: Array<{
+      id: string;
+      class: string;
+      nominalRcsDbsm: number;
+      rawBroadsideDbsm?: number;
+      calibratedBroadsideDbsm: number;
+      mesh: string;
+    }>;
+  };
+  doaSpectrum?: RadarWorkbenchModel["doaSpectrum"];
+  velocityTimeline?: RadarWorkbenchModel["velocityTimeline"];
+  cfarSensitivity?: RadarWorkbenchModel["cfarSensitivity"];
+  postCfarFiltering?: RadarWorkbenchModel["postCfarFiltering"];
+  mimoComparison?: RadarMimoModulationComparison;
+  fusionContribution?: RadarWorkbenchModel["fusionContribution"];
+  failureBuckets?: RadarWorkbenchModel["failureBuckets"];
+  signalProcessingChain?: RadarWorkbenchModel["signalProcessingChain"];
+  summaries?: Record<string, string | number | boolean | number[]>;
+  artifacts?: {
+    resultJson?: RadarSimulationArtifact;
+  };
+  computedSections?: string[];
+  proxySections?: string[];
+  warnings?: string[];
+  reason?: string;
+  error?: string;
+  stderr?: string;
+  returncode?: number | null;
+}
+
 export interface RadarWorkbenchModel {
   radarName: string;
   role: string[];
@@ -703,6 +1136,55 @@ export interface RadarWorkbenchModel {
     delta: string;
     tone: "good" | "warn" | "bad" | "neutral";
   }>;
+  radarsimpyAdapter: RadarSimPyAdapterSummary;
+  radarsimpyFunctions: RadarSimPyFunctionMapItem[];
+  rangeDopplerCfar: {
+    rangeBins: number;
+    dopplerBins: number;
+    evidenceSource?: RadarEvidenceSource;
+    rangeAxisM?: number[];
+    dopplerAxisMps?: number[];
+    axisSummary?: {
+      rangeMinM: number;
+      rangeMaxM: number;
+      rangeStepM: number;
+      radialVelocityMinMps: number;
+      radialVelocityMaxMps: number;
+      radialVelocityStepMps: number;
+    };
+    cells: RadarRangeDopplerCell[];
+    peaks?: RadarRangeDopplerPeak[];
+    targetAssociations?: RadarTargetAssociation[];
+    detectionSummary?: {
+      cfarPeaks: number;
+      gtTargets: number;
+      hits: number;
+      misses: number;
+      ghostCandidates: number;
+      ghostFalseAlarms: number;
+      falseAlarms: number;
+    };
+    artifact?: RadarSimulationArtifact;
+    facts: Array<{ label: string; value: string; note: string }>;
+  };
+  rocPd: Array<{
+    snrDb: number;
+    pd: number;
+    pfa: number;
+  }>;
+  doaSpectrum: Array<{
+    angle: number;
+    bartlett: number;
+    capon: number;
+    music: number;
+  }>;
+  signalProcessingChain: Array<{
+    stage: string;
+    functionName: string;
+    fidelity: RadarDataFidelity;
+    status: string;
+    output: string;
+  }>;
   detectionProbabilityByRange: Array<{
     range: string;
     vehicle: number;
@@ -711,12 +1193,21 @@ export interface RadarWorkbenchModel {
     motorcycle: number;
   }>;
   cfarSensitivity: Array<{
+    label?: string;
     pfa: string;
+    guard?: number;
+    trailing?: number;
     detectionRecall: number;
     falseAlarm: number;
     ghostRate: number;
     fusionFalseTrack: number;
+    score?: number;
+    hits?: number;
+    misses?: number;
+    recommended?: boolean;
   }>;
+  postCfarFiltering?: RadarPostCfarFiltering;
+  mimoComparison?: RadarMimoModulationComparison;
   azimuthSeparation: Array<{
     distance: string;
     baselineMerged: number;

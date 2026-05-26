@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "runId": "default-baseline",
+  "runMode": "scenePipeline",
+  "status": "completed",
+  "createdAt": "2026-05-25T06:02:31.863266+00:00",
+  "elapsedMs": 7124.192,
+  "request": {
+    "runId": "default-baseline",
+    "runMode": "scenePipeline",
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "scene": {
+      "geometryMode": "angularFov",
+      "type": "rgb image",
+      "patchSize": 8,
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24,
+      "fovDeg": 60,
+      "luminanceCdM2": 240
+    },
+    "lens": {
+      "fovAuthority": "numericOptics",
+      "fNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "hfovDeg": 60,
+      "transmittanceScale": 0.92
+    },
+    "lensPhysics": {
+      "mode": "none",
+      "gaussianSpreadUm": 2.5,
+      "xyRatio": 1,
+      "aberrationPixels": 0,
+      "defocusDiopters": 1.25,
+      "psfAngleStepDeg": 30
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "rows": 384,
+      "cols": 512,
+      "pixelSizeUm": 2.8,
+      "exposureMs": 16,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "readNoiseMv": 2.1,
+      "qeScale": 1,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps",
+      "applyToImage": false,
+      "nFrames": 4,
+      "fps": 30,
+      "lineTimeUs": 15.2,
+      "exposureTimeUs": 8000,
+      "aeEnabled": true,
+      "awbEnabled": true,
+      "aeApplyDelayFrames": 2,
+      "awbApplyDelayFrames": 2,
+      "targetLuma": 0.18,
+      "requestQueueDepth": 4,
+      "maxBuffers": 6,
+      "globalLatencyFactor": 1
+    },
+    "perception": {
+      "model": "ultralytics_yolo11n_detection",
+      "inputSize": "640x384",
+      "confidenceThreshold": 0.25,
+      "nmsThreshold": 0.5
+    }
+  },
+  "applied": [
+    "scene.sourceImage=/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+    "scene.type=rgb image",
+    "scene.fovDeg=60",
+    "scene.luminanceCdM2=240",
+    "lens.fNumber=2.8",
+    "lens.focalLengthMm=1.24",
+    "lens.hfovDeg.deferredToFovAuthority=numericOptics",
+    "lens.transmittanceScale=0.92",
+    "sensor.size=384x512",
+    "sensor.pixelSizeUm=2.8",
+    "sensor.exposureMs=16",
+    "sensor.analogGain=1.8",
+    "sensor.noiseFlag=2",
+    "sensor.readNoiseMv=2.1",
+    "sensor.qeScale=1",
+    "sensor.bitDepth=12",
+    "isp.demosaicMethod=bilinear",
+    "isp.sensorConversionMethod=mcc optimized",
+    "isp.internalColorSpace=xyz",
+    "isp.illuminantCorrection=gray world",
+    "isp.renderScale=True",
+    "fov.authority.numericOptics.hfovDeg=60.06",
+    "lens.physics.mode=selectedOpticsDefault",
+    "sensor.fitMode=preserveResolution",
+    "perception.model=ultralytics_yolo11n_detection:ultralytics_yolo",
+    "perception.inputSize=640x384"
+  ],
+  "warnings": [],
+  "summaries": {
+    "scene": {
+      "type": "rgb image",
+      "geometryMode": "angularFov",
+      "sourceImagePath": "/assets/camera-e2e/default-scenes/signed_pedestrian_crosswalk_01_1024.jpg",
+      "sourceImageLabel": "Signed Pedestrian Crosswalk 01",
+      "sourceImageAttribution": "Wikimedia Commons \u00b7 Lumikeiju \u00b7 CC0 1.0",
+      "targetWidthM": 0.7,
+      "targetHeightM": 1.7,
+      "distanceM": 24.0,
+      "physicalHfovDeg": 1.671,
+      "physicalVfovDeg": 4.0568,
+      "size": [
+        960,
+        1280
+      ],
+      "fovDeg": 60.0,
+      "requestedFovDeg": 60.0,
+      "fovPolicy": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context."
+    },
+    "lens": {
+      "source": "generated/default optics",
+      "numericPolicy": "numeric lens controls applied before physics mode",
+      "fNumber": 2.8,
+      "requestedFNumber": 2.8,
+      "focalLengthMm": 1.24,
+      "requestedFocalLengthMm": 1.24,
+      "hfovDeg": 59.99999999999999,
+      "oiReportedFovDeg": 71.63505128888714,
+      "requestedTransmittanceScale": 0.92,
+      "requestedHfovDeg": 60.0,
+      "hfovDeltaDeg": -0.0
+    },
+    "sensor": {
+      "fitMode": "preserveResolution",
+      "numericPolicy": "sensor asset/reference is loaded first; numeric sensor controls override pixel, exposure, noise, QE, and bit depth.",
+      "resizePolicy": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "size": [
+        384,
+        512
+      ],
+      "requestedSize": [
+        384,
+        512
+      ],
+      "pixelSizeUm": [
+        2.8,
+        2.8
+      ],
+      "requestedPixelSizeUm": 2.8,
+      "exposureMs": 16.0,
+      "requestedExposureMs": 16.0,
+      "analogGain": 1.8,
+      "noiseFlag": 2,
+      "bitDepth": 12
+    },
+    "isp": {
+      "demosaicMethod": "bilinear",
+      "sensorConversionMethod": "mcc optimized",
+      "internalColorSpace": "xyz",
+      "illuminantCorrection": "gray world",
+      "renderScale": true,
+      "renderDemosaicOnly": false,
+      "hdrWhite": false,
+      "hdrLevel": 0.95,
+      "displayPreviewPolicy": "post-render tone/white-balance/saturation preview only; metrics and perception use physical ISP sRGB"
+    },
+    "hwIsp": {
+      "enabled": false,
+      "profile": "generic_1080p_30fps"
+    },
+    "assets": {
+      "lensMode": "none",
+      "lensAsset": "",
+      "sensorType": "default",
+      "sensorVariant": "",
+      "colorFilterAsset": ""
+    },
+    "physics": {
+      "mode": "none",
+      "resolvedOpticsModel": "diffractionlimited",
+      "resolvedComputeMethod": "opticsotf",
+      "usedParameters": "none; selected optics default"
+    },
+    "resolution": {
+      "scene": "Scene angular FOV is used directly; physical target size/distance is metadata for object scale context.",
+      "lens": "numeric lens controls applied before physics mode",
+      "physics": "selected optics default; no extra synthetic physics mode",
+      "sensor": "Requested sensor rows/cols preserved; scene and lens FOV are resolved separately.",
+      "outputImageShape": [
+        384,
+        512,
+        3
+      ]
+    },
+    "fovLedger": {
+      "authorityRequested": "numericOptics",
+      "authorityResolved": "numericOptics",
+      "sceneGeometryMode": "angularFov",
+      "scenePhysicalHfovDeg": 1.671,
+      "scenePhysicalVfovDeg": 4.0568,
+      "cameraE2eSceneFovDeg": 60.0,
+      "lensOiResolvedHfovDeg": 60.0,
+      "oiReportedFovDeg": 71.6351,
+      "manualHfovTargetDeg": 60.0,
+      "sensorActiveWidthMm": 1.4336,
+      "focalLengthMm": 1.24,
+      "targetImageWidthMm": 0.036167,
+      "targetImageWidthPx": 12.92,
+      "physicalHfovFromSensorAndFocalDeg": 60.0614,
+      "requestedPhysicalHfovDeg": 60.0614,
+      "samplingPxPerDeg": 8.5333,
+      "raytraceDiagonalLimitDeg": "",
+      "status": "clean",
+      "notes": "No FOV conflicts detected."
+    }
+  },
+  "metrics": {
+    "imageShape": [
+      384,
+      512,
+      3
+    ],
+    "sourceReferenceMeanRgb": [
+      0.432,
+      0.4712,
+      0.4477
+    ],
+    "meanRgb": [
+      0.4175,
+      0.4001,
+      0.4193
+    ],
+    "displayPreviewMeanRgb": [
+      0.5353,
+      0.5344,
+      0.5364
+    ],
+    "sensorVoltsMean": 0.099803,
+    "sensorVoltsP99": 0.319662,
+    "oiPhotonsMean": 380543546160236.5,
+    "perception": {
+      "adapterStatus": "camera_e2e_task_perception",
+      "model": "ultralytics_yolo11n_detection",
+      "backend": "ultralytics_yolo",
+      "task": "detection",
+      "modelId": "yolo11n.pt",
+      "device": "cpu",
+      "inputSize": "640x384",
+      "inputImageShape": [
+        384,
+        640,
+        3
+      ],
+      "confidenceThreshold": 0.25,
+      "nmsThreshold": 0.5,
+      "elapsedMs": 2214.313,
+      "detectionCount": 1,
+      "acceptedCount": 1,
+      "topLabel": "car",
+      "topScore": 0.3635,
+      "detections": [
+        {
+          "xyxy": [
+            426.8964538574219,
+            191.11727905273438,
+            463.7181701660156,
+            213.39645385742188
+          ],
+          "label": "car",
+          "score": 0.36348554491996765,
+          "area": 820.3574542477727,
+          "metadata": {
+            "class_id": 2,
+            "backend": "ultralytics_yolo"
+          }
+        }
+      ]
+    },
+    "perceptionProxy": null
+  },
+  "artifacts": {
+    "sourceReference": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/source_reference.png",
+      "url": "/assets/camera-e2e/default-baseline/source_reference.png"
+    },
+    "ipSrgb": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/ip_srgb.png",
+      "url": "/assets/camera-e2e/default-baseline/ip_srgb.png"
+    },
+    "displayPreview": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/display_tuned_preview.png",
+      "url": "/assets/camera-e2e/default-baseline/display_tuned_preview.png"
+    },
+    "sensorVolts": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/sensor_volts.png",
+      "url": "/assets/camera-e2e/default-baseline/sensor_volts.png"
+    },
+    "oiPhotons": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/oi_photons.png",
+      "url": "/assets/camera-e2e/default-baseline/oi_photons.png"
+    },
+    "perceptionOverlay": {
+      "path": "/Users/seongcheoljeong/Documents/Sinclair/public/assets/camera-e2e/default-baseline/perception_detection_overlay.png",
+      "url": "/assets/camera-e2e/default-baseline/perception_detection_overlay.png"
+    }
+  }
+}

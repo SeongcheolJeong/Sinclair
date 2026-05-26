@@ -1,0 +1,59 @@
+{
+  "class": "vehicle",
+  "defaultAspectSweepDeg": [
+    -90,
+    -60,
+    -30,
+    0,
+    30,
+    60,
+    90
+  ],
+  "dimensionsM": {
+    "height": 1.55,
+    "length": 4.6,
+    "width": 1.85
+  },
+  "fidelity": "canonical_mesh_estimate",
+  "id": "canonical_sedan_v1",
+  "license": "project-generated-no-external-asset-dependency",
+  "limitations": [
+    "Not measured RCS data.",
+    "Not high-fidelity automotive CAD.",
+    "Raw sim_rcs absolute magnitude is not validated as physical truth for these canonical meshes.",
+    "No radome, ground multipath, pose articulation, or material-layer model.",
+    "Use for fast design estimates before measured or ray-traced assets are connected."
+  ],
+  "materialPreset": "mixed_vehicle_pec_like",
+  "mesh": "vehicles/canonical_sedan_v1.obj",
+  "metadata": "vehicles/canonical_sedan_v1.json",
+  "nominalRcsDbsm": 12.0,
+  "notes": "Simplified sedan body, cabin, bumpers, and wheel cylinders.",
+  "permittivity": null,
+  "radarsim": {
+    "engine": "radarsimpy_whitebox.sim_rcs",
+    "recommendedFrequencyHz": 77000000000.0,
+    "targetTemplate": {
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "model": "vehicles/canonical_sedan_v1.obj",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0
+    }
+  },
+  "rcsUsagePolicy": {
+    "calibrationDbsmAtBroadside": 12.0,
+    "futureUpgrade": "Replace nominalRcsDbsm with measured RCS tables or validated ray-traced RCS distributions.",
+    "rawSimRcsAbsoluteDbsm": "not_validated_for_physical_truth",
+    "recommended": "Use RadarSim sim_rcs for aspect-angle response shape, then normalize to nominalRcsDbsm until measured or validated CAD/material data is available."
+  },
+  "source": "sinclair_synthetic_canonical_mesh",
+  "units": "meters"
+}

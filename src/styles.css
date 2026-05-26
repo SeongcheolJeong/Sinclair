@@ -47,6 +47,19 @@
     @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 px-4 text-sm font-semibold text-white shadow-glow transition hover:brightness-110;
   }
 
+  .field-label {
+    @apply grid gap-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500;
+  }
+
+  .field-input {
+    @apply min-h-10 w-full rounded-xl border border-white/10 bg-ink-950/70 px-3 text-sm font-semibold normal-case tracking-normal text-slate-100 outline-none transition focus:border-radar/50 focus:ring-2 focus:ring-radar/15;
+  }
+
+  .field-input option {
+    background: #030712;
+    color: #e2e8f0;
+  }
+
   .secondary-button {
     @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-camera/30 bg-camera/10 px-4 text-sm font-semibold text-camera transition hover:bg-camera/15;
   }
@@ -442,48 +455,63 @@
     @apply grid grid-cols-12 gap-1 rounded-xl border border-white/10 bg-black/20 p-3;
   }
 
+  .rd-axis-frame {
+    @apply grid gap-x-2 gap-y-1;
+    grid-template-columns: 22px 58px minmax(0, 1fr);
+    grid-template-areas:
+      "ylabel yticks grid"
+      "empty empty xticks"
+      "empty2 empty2 xlabel";
+  }
+
+  .rd-axis-frame .range-doppler-grid {
+    grid-area: grid;
+  }
+
+  .rd-y-title {
+    grid-area: ylabel;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    @apply flex items-center justify-center text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500;
+  }
+
+  .rd-y-ticks {
+    grid-area: yticks;
+    @apply flex flex-col justify-between py-3 text-right text-[11px] leading-none text-slate-500;
+  }
+
+  .rd-x-ticks {
+    grid-area: xticks;
+    @apply flex justify-between px-3 text-[11px] leading-none text-slate-500;
+  }
+
+  .rd-x-title {
+    grid-area: xlabel;
+    @apply text-center text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500;
+  }
+
   .rd-cell {
-    @apply aspect-square rounded-sm bg-camera;
+    @apply flex aspect-square min-w-0 items-center justify-center overflow-hidden rounded-sm bg-camera text-[9px] font-black uppercase leading-none text-ink-950;
   }
 
   .rd-cell.peak {
     @apply bg-radar shadow-[0_0_14px_rgba(46,245,169,0.7)];
   }
 
+  .rd-cell.gt {
+    @apply ring-2 ring-radar/80 shadow-[0_0_12px_rgba(46,245,169,0.45)];
+  }
+
   .rd-cell.ghost {
-    @apply bg-rose-400 shadow-[0_0_14px_rgba(251,113,133,0.7)];
+    @apply bg-rose-400 text-white shadow-[0_0_14px_rgba(251,113,133,0.7)];
   }
 
-  .cfar-line {
-    position: absolute;
-    left: 9%;
-    right: 9%;
-    top: 37%;
-    height: 2px;
-    border-top: 2px dashed rgba(242, 200, 91, 0.8);
-    box-shadow: 0 0 16px rgba(242, 200, 91, 0.35);
+  .rd-cell.peak.gt {
+    @apply bg-radar text-ink-950 ring-2 ring-white/70;
   }
 
-  .rd-marker {
-    position: absolute;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    padding: 3px 8px;
-    font-size: 11px;
-    font-weight: 700;
-    background: rgba(3, 7, 18, 0.82);
-  }
-
-  .rd-marker.gt {
-    left: 36%;
-    top: 43%;
-    color: #2ef5a9;
-  }
-
-  .rd-marker.ghost {
-    right: 12%;
-    top: 58%;
-    color: #fb7185;
+  .rd-cell.peak.ghost {
+    @apply bg-fusion text-ink-950 ring-2 ring-rose-300/70;
   }
 
   .lidar-density-panel {

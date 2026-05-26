@@ -49,9 +49,41 @@ function runCameraE2ESimulation(requestBody: string): Promise<{ code: number | n
   });
 }
 
-function cameraE2EApiPlugin(): Plugin {
+function runRadarSimSimulation(requestBody: string): Promise<{ code: number | null; stdout: string; stderr: string }> {
+  return new Promise((resolve, reject) => {
+    const runnerPath = path.join(PROJECT_ROOT, "scripts", "radar_sim_live_runner.py");
+    const radarSimRoot = "/Users/seongcheoljeong/RadarSim";
+    const pythonPath = path.join(radarSimRoot, ".venv", "bin", "python");
+    const artifactDir = path.join(PROJECT_ROOT, "public", "assets", "radar-sim", "runs");
+    const child = spawn(pythonPath, [runnerPath, "--request", "-", "--radarsim-root", radarSimRoot, "--artifact-dir", artifactDir], {
+      cwd: PROJECT_ROOT,
+      stdio: ["pipe", "pipe", "pipe"],
+      env: {
+        ...process.env,
+        RADARSIM_ROOT: radarSimRoot,
+        PYTHONPATH: radarSimRoot,
+      },
+    });
+    let stdout = "";
+    let stderr = "";
+
+    child.stdout.on("data", (chunk: Buffer) => {
+      stdout += chunk.toString("utf-8");
+    });
+    child.stderr.on("data", (chunk: Buffer) => {
+      stderr += chunk.toString("utf-8");
+    });
+    child.on("error", reject);
+    child.on("close", (code) => {
+      resolve({ code, stdout, stderr });
+    });
+    child.stdin.end(requestBody);
+  });
+}
+
+function simulationApiPlugin(): Plugin {
   return {
-    name: "sinclair-camera-e2e-api",
+    name: "sinclair-simulation-api",
     configureServer(server) {
       server.middlewares.use("/api/camera-e2e/run", async (request, response) => {
         if (request.method !== "POST") {
@@ -76,10 +108,34 @@ function cameraE2EApiPlugin(): Plugin {
           });
         }
       });
+
+      server.middlewares.use("/api/radar-sim/run", async (request, response) => {
+        if (request.method !== "POST") {
+          sendJson(response, 405, { status: "failed", reason: "POST required" });
+          return;
+        }
+
+        try {
+          const requestBody = await readBody(request);
+          JSON.parse(requestBody);
+          const result = await runRadarSimSimulation(requestBody);
+          const payload = result.stdout ? JSON.parse(result.stdout) : { status: "failed", reason: "empty runner output" };
+          if (result.code === 0 && payload.status !== "failed") {
+            sendJson(response, 200, payload);
+            return;
+          }
+          sendJson(response, 500, { ...payload, stderr: result.stderr, returncode: result.code });
+        } catch (error) {
+          sendJson(response, 500, {
+            status: "failed",
+            reason: error instanceof Error ? error.message : String(error),
+          });
+        }
+      });
     },
   };
 }
 
 export default defineConfig({
-  plugins: [react(), cameraE2EApiPlugin()],
+  plugins: [react(), simulationApiPlugin()],
 });

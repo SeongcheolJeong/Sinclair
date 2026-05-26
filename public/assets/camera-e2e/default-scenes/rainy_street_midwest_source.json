@@ -1,0 +1,6 @@
+{
+  "title": "Rainy Street",
+  "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rainy%20Street.jpg",
+  "localFile": "rainy_street_midwest_1024.jpg",
+  "usage": "Example RGB road scene for CameraE2E scene_from_file pipeline tests."
+}
